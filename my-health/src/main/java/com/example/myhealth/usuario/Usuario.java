@@ -1,4 +1,4 @@
-package com.example.myhealth;
+package com.example.myhealth.usuario;
 
 public class Usuario {
 

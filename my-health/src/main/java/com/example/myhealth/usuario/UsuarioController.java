@@ -1,9 +1,9 @@
-package com.example.myhealth;
+package com.example.myhealth.usuario;
 
 
+import com.example.myhealth.usuario.Usuario;
 import org.springframework.web.bind.annotation.*;
 
-import javax.transaction.xa.XAException;
 import java.util.ArrayList;
 import java.util.List;
 
