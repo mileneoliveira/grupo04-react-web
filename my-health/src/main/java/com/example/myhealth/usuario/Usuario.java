@@ -8,7 +8,7 @@ public class Usuario {
     private Boolean autenticado;
 
 
-    public Usuario(int id, String nome, String senha) {
+    public Usuario(String nome, String senha) {
         this.id = id;
         this.nome = nome;
         this.senha = senha;

@@ -12,11 +12,12 @@ import java.util.List;
 public class UsuarioController {
 
     List<Usuario> usuarios = new ArrayList<Usuario>();
+    Usuario usuarioLogado;
 
     public UsuarioController() {
-        usuarios.add(new Usuario(1, "marcelo", "marcelo1"));
-        usuarios.add(new Usuario(2, "marcelow", "123"));
-        usuarios.add(new Usuario(3, "marcelo2", "123"));
+        usuarios.add(new Usuario("marcelo", "marcelo1"));
+        usuarios.add(new Usuario("marcelow", "123"));
+        usuarios.add(new Usuario("marcelo2", "123"));
     }
 
     @GetMapping
@@ -30,28 +31,39 @@ public class UsuarioController {
         return "Usuário cadastrado com sucesso";
     }
 
-    @PutMapping("/login/{nome}/{senha}")
-    public String login(@PathVariable String nome, @PathVariable String senha) {
-        String retorno = "Usuário não encontrado";
+    @GetMapping("/login")
+    public String login(@RequestBody Usuario usuario) {
+        String retorno = "";
 
         for (Usuario a : usuarios) {
-            if (a.getNome().equals(nome) && a.getSenha().equals(senha)) {
+            if (a.getAutenticado().equals(false) && a.getNome().equals(usuario.getNome()) && a.getSenha().equals(usuario.getSenha())) {
                 a.setAutenticado(true);
+                usuarioLogado = a;
                 retorno = "Usuário autenticado com sucesso";
+                break;
+            } else if (a.getAutenticado().equals(true) && a.getNome().equals(usuario.getNome()) && a.getSenha().equals(usuario.getSenha())) {
+                retorno = "Usuario ja autenticado";
+                break;
+
+            } else {
+                retorno = "Usuario ou senha incorreto";
+                break;
             }
         }
         return retorno;
     }
 
-    @PutMapping("/logout/{nome}")
-    public String logout(@PathVariable String nome){
-        String retorno = "Usuário não está logado";
 
-        for (Usuario a : usuarios){
-            if (a.getNome().equals(nome) && a.getAutenticado().equals(true)){
-                a.setAutenticado(false);
-                retorno = "Logout concluido, você está offline";
-            }
+    @GetMapping("/logout")
+    public String logout() {
+        String retorno = "";
+
+        if (usuarioLogado != null) {
+            usuarioLogado.setAutenticado(false);
+            usuarioLogado = null;
+            retorno = "Usuário deslogado com sucesso";
+        } else {
+            retorno = "Nenhum usuário está logado";
         }
         return retorno;
     }
