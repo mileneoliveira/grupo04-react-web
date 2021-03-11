@@ -16,8 +16,10 @@ public class UsuarioController {
 
     public UsuarioController() {
         usuarios.add(new Usuario("marcelo", "marcelo1"));
-        usuarios.add(new Usuario("marcelow", "123"));
-        usuarios.add(new Usuario("marcelo2", "123"));
+        usuarios.add(new Usuario("Thiago","socio1"));
+        usuarios.add(new Usuario("yoshi","123"));
+        usuarios.add(new Usuario("Alex","123"));
+        usuarios.add(new Usuario("Vera","123"));
     }
 
     @GetMapping

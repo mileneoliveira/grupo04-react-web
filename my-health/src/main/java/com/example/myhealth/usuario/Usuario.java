@@ -2,26 +2,18 @@ package com.example.myhealth.usuario;
 
 public class Usuario {
 
-    private int id;
+
     private String nome;
     private String senha;
     private Boolean autenticado;
 
 
     public Usuario(String nome, String senha) {
-        this.id = id;
         this.nome = nome;
         this.senha = senha;
         this.autenticado = false;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id++;
-    }
 
     public String getNome() {
         return nome;
