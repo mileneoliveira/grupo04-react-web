@@ -16,8 +16,9 @@ public class UsuarioController {
 
     public UsuarioController() {
         usuarios.add(new Usuario("marcelo", "marcelo1"));
-        usuarios.add(new Usuario("marcelow", "123"));
-        usuarios.add(new Usuario("marcelo2", "123"));
+        usuarios.add(new Usuario("Thiago", "socio123"));
+        usuarios.add(new Usuario("Yoshi", "123"));
+        usuarios.add(new Usuario("Alex", "123"));
     }
 
     @GetMapping
@@ -47,7 +48,6 @@ public class UsuarioController {
 
             } else {
                 retorno = "Usuario ou senha incorreto";
-                break;
             }
         }
         return retorno;
