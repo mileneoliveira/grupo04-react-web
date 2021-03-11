@@ -8,11 +8,11 @@ import java.util.List;
 
 public class Refeicao implements CaloriasCalculaveis {
 
-    private List<Alimento> alimentos;
+    private List<Alimento> alimentos = new ArrayList<Alimento>();
     private String tipo;
 
-    public Refeicao(String tipo) {
-        this.alimentos = new ArrayList<Alimento>();
+    public Refeicao(List<Alimento> alimentos, String tipo) {
+        this.alimentos = alimentos;
         this.tipo = tipo;
     }
 
