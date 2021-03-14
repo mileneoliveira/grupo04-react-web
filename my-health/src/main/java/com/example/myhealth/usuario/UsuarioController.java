@@ -20,6 +20,7 @@ public class UsuarioController {
         usuarios.add(new Usuario("Yoshi", "123"));
         usuarios.add(new Usuario("Alex", "123"));
     }
+    
 
     @GetMapping
     public List<Usuario> getUsuarios() {
