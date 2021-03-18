@@ -49,7 +49,6 @@ public class UsuarioController {
 
             } else {
                 retorno = "Usuario ou senha incorreto";
-                break;
             }
         }
         return retorno;
