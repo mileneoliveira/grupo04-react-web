@@ -1,0 +1,48 @@
+-- criação da tabela para luiza e rapha
+
+CREATE TABLE Alimento(
+	idAlimento int NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	nome varchar(45) NOT NULL,
+	porcao double NOT NULL,
+	calorias double NOT NULL,
+	colesterol double NOT NULL,
+	carboidrato double NOT NULL,
+	fibra double NOT NULL,
+	calcio double NOT NULL,
+	ferro double NOT NULL,
+	sodio double NOT NULL,
+	proteina double NOT NULL
+);
+	
+-- insert de exemplo para a luiza e rapha
+
+INSERT INTO Alimento VALUES
+(1, 'Arroz integral cozido', 100.0, 123.53, 0, 25.80, 2.74, 5.20, 0.26, 1.24, 2.58);
+
+
+
+-- como nos vamos fazer os inserts
+
+(1, 'Arroz integral cozido', 100.0, 123.53, 0, 25.80, 2.74, 5.20, 0.26, 1.24, 2.58),
+(2, ........),
+(3, ........),
+
+-- em atributos que na api esteja com NA colocar 0
+-- de preferencia colocar o id da api para poder colocar em ordem 
+-- verificar se essas medidas se repetem em todos 
+
+porcao = g
+caloria = kcal
+colesterol = mg
+carboidrato = g
+fibra = g
+calcio = mg
+ferro = mg
+sodio = mg
+proteina = g
+
+
+-- caso algum dos itens tenha medida diferente dessas marcar e mandar no grupo 
+
+
+
