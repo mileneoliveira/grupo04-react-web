@@ -1,6 +1,6 @@
 
 
-form {
+.form-cadastro {
    margin: 0vmin 0 20vmin 20vmin;
     
 }
@@ -26,7 +26,7 @@ form {
    margin-top: 5vmin;
 }
 
-form p {
+.form-cadastro p {
     font-weight: bold;
     margin-top: 5vmin;
 }

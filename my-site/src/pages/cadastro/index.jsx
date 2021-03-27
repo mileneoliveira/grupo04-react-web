@@ -9,7 +9,7 @@ export default class Cadastro extends Component {
                 <h1 className="logo"><img src="./imgs/logo.svg" alt=""/></h1>
 
 
-                <form>
+                <form className="form-cadastro">
 
                     <section className="cadastro">
 
