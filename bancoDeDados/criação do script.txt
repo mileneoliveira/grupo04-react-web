@@ -1,0 +1,147 @@
+-- criação das tabelas
+
+CREATE TABLE Objetivo(
+	idObjetivo int NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	titulo varchar(45) NOT NULL,
+	descricao varchar(45) NOT NULL,
+	tempo int NOT NULL,
+	pesoMeta double NOT NULL,
+	dataMeta date NOT NULL
+);
+
+CREATE TABLE Usuario(
+	idUsuario int NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	nome varchar(45) NOT NULL,
+	senha varchar(45) NOT NULL,
+	email varchar(45) NOT NULL,
+	peso double NOT NULL,
+	altura int NOT NULL,
+	dataNascimento date NOT NULL,
+	objetivoId int NOT NULL,
+	FOREIGN KEY (objetivoId) REFERENCES Objetivo(idObjetivo)
+);
+
+
+CREATE TABLE Publicacao(
+	idPublicacao int NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	titulo varchar(45) NOT NULL,
+	descricao varchar(300) NOT NULL,
+	curtida int NOT NULL,
+	usuarioId int NOT NULL, 
+	FOREIGN KEY (usuarioId) REFERENCES Usuario(idUsuario)
+);
+
+CREATE TABLE Refeicao(
+	idRefeicao int NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	tipo varchar(45) NOT NULL,
+	totalCalorias double NOT NULL,
+	totalColesterol double NOT NULL,
+	totalCarboidrato double NOT NULL,
+	totalFibra double NOT NULL,
+	totalCalcio double NOT NULL,
+	totalFerro double NOT NULL,
+	totalSodio double NOT NULL,
+	totalProteina double NOT NULL,
+	usuarioId int NOT NULL,
+);
+
+CREATE TABLE Categoria(
+	idCategoria int NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	nome varchar(100)
+);
+
+CREATE TABLE Alimento(
+	idAlimento int NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	nome varchar(45) NOT NULL,
+	porcao double NOT NULL,
+	proteina double NOT NULL,
+	colesterol double NOT NULL,
+	carboidrato double NOT NULL,
+	fibra double NOT NULL,
+	calcio double NOT NULL,
+	ferro double NOT NULL,
+	sodio double NOT NULL,
+	calorias double NOT NULL,
+	categoriaId int NOT NULL,
+	FOREIGN KEY (categoriaId) REFERENCES Categoria(idCategoria)
+);
+
+
+	
+-- insert 
+
+INSERT INTO Categoria(idCategoria, nome) VALUES
+(1, 'Cereais e derivados'),
+(2, 'Verduras, hortaliças e derivados'),
+(3, 'Frutas e derivados'),
+(4, 'Gorduras e óleos'),
+(5, 'Pescados e frutos do mar'),
+(6, 'Carnes e derivados'),
+(7, 'Leite e derivados'),
+(8, 'Bebidas (alcoólicas e não alcoólicas)'),
+(9, 'Ovos e derivados'),
+(10, 'Produtos açucarados'),
+(11, 'Miscelâneas'),
+(12, 'Outros alimentos industrializados'),
+(13, 'Alimentos preparados'),
+(14, 'Leguminosas e derivados'),
+(15, 'Nozes e sementes');
+
+
+INSERT INTO Alimento(nome, porcao, proteina, colesterol, carboidrato, fibra, calcio, ferro, sodio, calorias, categoriaId) VALUES
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- COMO VAMOS FAZER :
+('Arroz integral cozido', 100, 2.58, 0.00, 25.80, 2.74, 5.20, 0.26, 1.24, 123.53, 1),
+('Arroz integral cru', 100, 7.32, 0.00, 77.45, 4.81, 7.81, 0.94, 1.64, 359.67, 1),
+
+
+- ATENÇÃO - ATENÇÃO - ATENÇÃO - ATENÇÃO - ATENÇÃO - ATENÇÃO - ATENÇÃO - ATENÇÃO -
+
+
+-- USAR ASPAS SIMPLES PELA MOR DE DEUS;
+-- USAR 2 CASAS DECIMAIS (FICA MAIS FACIL);
+-- PORÇÃO SEMPRE É 100;
+-- QUANDO FOR NA COLOCAR 0.00;
+-- QUANDO FOR TR OU STRING ESTRANHA PESQUISAR O NOME E O ATIBUTO;
+-- SE O NOME FOR MUITO ESTRANHO PROCURAR O NOME POPULAR;
+-- VERIFICAR SE ESSAS MEDIDAS SE REPETEM EM TODOS; 
+
+PORCAO = G
+CALORIA = KCAL
+COLESTEROL = MG
+CARBOIDRATO = G
+FIBRA = G
+CALCIO = MG
+FERRO = MG
+SODIO = MG
+PROTEINA = G
+
+
+-- CASO ALGUM DOS ITENS TENHA MEDIDA DIFERENTE DESSAS MARCAR E MANDAR NO GRUPO 
+
+
+
