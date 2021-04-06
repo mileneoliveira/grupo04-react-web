@@ -2,10 +2,6 @@ package com.example.myhealth.usuario;
 
 public class Usuario {
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 508f905fa3966764aed9570580dcf365497a861b
     private String nome;
     private String senha;
     private Boolean autenticado;
@@ -17,10 +13,6 @@ public class Usuario {
         this.autenticado = false;
     }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 508f905fa3966764aed9570580dcf365497a861b
     public String getNome() {
         return nome;
     }

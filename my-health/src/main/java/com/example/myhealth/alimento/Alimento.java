@@ -1,7 +1,14 @@
 package com.example.myhealth.alimento;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Alimento {
 
+    @Id
+    private Integer id;
     private String nome;
     private Double porcao;              //100 gramas cada
     private Double calorias;            // em Kcal
@@ -13,67 +20,91 @@ public class Alimento {
     private Double sodio;               // em miligramas
     private Double proteina;            // em gramas
 
-    public Alimento(String nome,
-                    Double porcao,
-                    Double calorias,
-                    Double colesterol,
-                    Double carboidrato,
-                    Double fibra,
-                    Double calcio,
-                    Double ferro,
-                    Double sodio,
-                    Double proteina) {
+    public Integer getIdAlimento() {
+        return id;
+    }
 
-        this.nome = nome;
-        this.porcao = porcao * 100;
-        this.calorias = calorias;
-        this.colesterol = colesterol;
-        this.carboidrato = carboidrato;
-        this.fibra = fibra;
-        this.calcio = calcio;
-        this.ferro = ferro;
-        this.sodio = sodio;
-        this.proteina = proteina;
+    public void setIdAlimento(Integer id) {
+        this.id = id;
     }
 
     public String getNome() {
         return nome;
     }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     public Double getPorcao() {
         return porcao;
+    }
+
+    public void setPorcao(Double porcao) {
+        this.porcao = porcao;
     }
 
     public Double getCalorias() {
         return calorias;
     }
 
+    public void setCalorias(Double calorias) {
+        this.calorias = calorias;
+    }
+
     public Double getColesterol() {
         return colesterol;
+    }
+
+    public void setColesterol(Double colesterol) {
+        this.colesterol = colesterol;
     }
 
     public Double getCarboidrato() {
         return carboidrato;
     }
 
+    public void setCarboidrato(Double carboidrato) {
+        this.carboidrato = carboidrato;
+    }
+
     public Double getFibra() {
         return fibra;
+    }
+
+    public void setFibra(Double fibra) {
+        this.fibra = fibra;
     }
 
     public Double getCalcio() {
         return calcio;
     }
 
+    public void setCalcio(Double calcio) {
+        this.calcio = calcio;
+    }
+
     public Double getFerro() {
         return ferro;
+    }
+
+    public void setFerro(Double ferro) {
+        this.ferro = ferro;
     }
 
     public Double getSodio() {
         return sodio;
     }
 
+    public void setSodio(Double sodio) {
+        this.sodio = sodio;
+    }
+
     public Double getProteina() {
         return proteina;
     }
 
+    public void setProteina(Double proteina) {
+        this.proteina = proteina;
+    }
 }
