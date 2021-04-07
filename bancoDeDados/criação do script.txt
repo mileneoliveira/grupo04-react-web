@@ -5,7 +5,7 @@ CREATE TABLE Objetivo(
 	titulo varchar(45) NOT NULL,
 	descricao varchar(45) NOT NULL,
 	tempo int NOT NULL,
-	pesoMeta double NOT NULL,
+	pesoMeta decimal(10,2) NOT NULL,
 	dataMeta date NOT NULL
 );
 
@@ -14,7 +14,7 @@ CREATE TABLE Usuario(
 	nome varchar(45) NOT NULL,
 	senha varchar(45) NOT NULL,
 	email varchar(45) NOT NULL,
-	peso double NOT NULL,
+	peso decimal(10,2) NOT NULL,
 	altura int NOT NULL,
 	dataNascimento date NOT NULL,
 	objetivoId int NOT NULL,
@@ -34,14 +34,14 @@ CREATE TABLE Publicacao(
 CREATE TABLE Refeicao(
 	idRefeicao int NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	tipo varchar(45) NOT NULL,
-	totalCalorias double NOT NULL,
-	totalColesterol double NOT NULL,
-	totalCarboidrato double NOT NULL,
-	totalFibra double NOT NULL,
-	totalCalcio double NOT NULL,
-	totalFerro double NOT NULL,
-	totalSodio double NOT NULL,
-	totalProteina double NOT NULL,
+	totalCalorias decimal(10,2) NOT NULL,
+	totalColesterol decimal(10,2) NOT NULL,
+	totalCarboidrato decimal(10,2) NOT NULL,
+	totalFibra decimal(10,2) NOT NULL,
+	totalCalcio decimal(10,2) NOT NULL,
+	totalFerro decimal(10,2) NOT NULL,
+	totalSodio decimal(10,2) NOT NULL,
+	totalProteina decimal(10,2) NOT NULL,
 	usuarioId int NOT NULL,
 );
 
@@ -53,15 +53,15 @@ CREATE TABLE Categoria(
 CREATE TABLE Alimento(
 	idAlimento int NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	nome varchar(45) NOT NULL,
-	porcao double NOT NULL,
-	proteina double NOT NULL,
-	colesterol double NOT NULL,
-	carboidrato double NOT NULL,
-	fibra double NOT NULL,
-	calcio double NOT NULL,
-	ferro double NOT NULL,
-	sodio double NOT NULL,
-	calorias double NOT NULL,
+	porcao decimal(10,2) NOT NULL,
+	proteina decimal(10,2) NOT NULL,
+	colesterol decimal(10,2) NOT NULL,
+	carboidrato decimal(10,2) NOT NULL,
+	fibra decimal(10,2) NOT NULL,
+	calcio decimal(10,2) NOT NULL,
+	ferro decimal(10,2) NOT NULL,
+	sodio decimal(10,2) NOT NULL,
+	calorias decimal(10,2) NOT NULL,
 	categoriaId int NOT NULL,
 	FOREIGN KEY (categoriaId) REFERENCES Categoria(idCategoria)
 );
