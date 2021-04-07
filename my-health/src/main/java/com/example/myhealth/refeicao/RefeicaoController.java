@@ -1,12 +1,10 @@
 package com.example.myhealth.refeicao;
 
 
-import com.example.myhealth.alimento.Alimento;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.example.myhealth.alimento.AlimentoController;
 
 @RestController
 @RequestMapping("/refeicoes")

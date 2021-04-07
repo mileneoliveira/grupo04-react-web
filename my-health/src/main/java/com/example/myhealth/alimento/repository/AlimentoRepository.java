@@ -1,5 +1,4 @@
-package com.example.myhealth.repository;
-
+package com.example.myhealth.alimento.repository;
 
 import com.example.myhealth.alimento.Alimento;
 import org.springframework.data.jpa.repository.JpaRepository;
