@@ -1,0 +1,64 @@
+/* body{
+    font-family: 'Roboto', sans-serif;
+}
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+} */
+    .feed{
+        height: 100vh;
+        transition: all .5s;
+        display: flex;
+        justify-content: center;
+    }
+    .header__perfl img{
+        width: 40px;
+       
+    }
+    .header_feed{
+       
+        width: 65vmin;
+        position: fixed;
+        height: 10vmin;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    .header_feed input{
+    background: #1D6C55;
+    width: 65vmin;;
+    padding: 10px;
+    border-radius: 40px;
+    border: none;
+    text-align: center;
+    }
+    ::-webkit-input-placeholder {
+        color: white;
+     }
+    .feed section{
+        margin-top: 10vmin;
+      
+        width: 70vmin;
+        height: 100vmin ;
+        width: 111vmin;
+        height: 75vmin;
+       
+    }
+    .header__perfl{
+        background: #1D6C55;
+        width: 100%;
+        height: 10vmin;;
+    }
+    .img_comida_feed{
+        width: 100%;
+    }
+    .footer__perfl{
+        background: #1D6C55;
+        width: 100%;
+        height: 10vmin;;
+        margin-top: -5px;
+        
+    }

@@ -1,26 +1,30 @@
 package com.example.myhealth.usuario;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.time.LocalDate;
+
+@Entity
 public class Usuario {
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 508f905fa3966764aed9570580dcf365497a861b
+    @Id
+    private Integer id;
     private String nome;
     private String senha;
-    private Boolean autenticado;
+    private String email;
+    private Double peso;
+    private Double altura;
+    private LocalDate dataNascimento;
+    private Integer objetivoId;
 
-
-    public Usuario(String nome, String senha) {
-        this.nome = nome;
-        this.senha = senha;
-        this.autenticado = false;
+    public Integer getId() {
+        return id;
     }
 
-<<<<<<< HEAD
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-=======
->>>>>>> 508f905fa3966764aed9570580dcf365497a861b
     public String getNome() {
         return nome;
     }
@@ -37,11 +41,43 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public Boolean getAutenticado() {
-        return autenticado;
+    public String getEmail() {
+        return email;
     }
 
-    public void setAutenticado(Boolean autenticado) {
-        this.autenticado = autenticado;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Double getPeso() {
+        return peso;
+    }
+
+    public void setPeso(Double peso) {
+        this.peso = peso;
+    }
+
+    public Double getAltura() {
+        return altura;
+    }
+
+    public void setAltura(Double altura) {
+        this.altura = altura;
+    }
+
+    public LocalDate getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(LocalDate dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public Integer getObjetivoId() {
+        return objetivoId;
+    }
+
+    public void setObjetivoId(Integer objetivoId) {
+        this.objetivoId = objetivoId;
     }
 }

@@ -3,13 +3,28 @@ package com.example.myhealth.refeicao;
 import com.example.myhealth.alimento.Alimento;
 import com.example.myhealth.interfaces.CaloriasCalculaveis;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.ArrayList;
 import java.util.List;
 
+//@Entity
 public class Refeicao implements CaloriasCalculaveis {
 
     private List<Alimento> alimentos = new ArrayList<Alimento>();
+
+    @Id
+    private Integer id;
     private String tipo;
+    private Double totalCalorias;
+    private Double totalColesterol;
+    private Double totalCarboidrato;
+    private Double totalFibra;
+    private Double totalCalcio;
+    private Double totalFerro;
+    private Double totalSodio;
+    private Double totalProteina;
+    private Integer usuarioId;
 
     public Refeicao(List<Alimento> alimentos, String tipo) {
         this.alimentos = alimentos;
@@ -96,12 +111,4 @@ public class Refeicao implements CaloriasCalculaveis {
 
         return totalProteina;
     }
-
-
-
-
-
-
-
-
 }
