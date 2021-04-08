@@ -12,10 +12,10 @@ function Molde() {
 
             <div className="feed">
 
-                <header className="header_feed">
-                    <input type="text" placeholder="O que você procura?" />
-                </header>
-
+        <header class="header_feed">
+            <input type="text" placeholder="O que você procura?"/>
+        </header>
+        
                 <section className="perfil_feed">
                     <header className="header__perfl">
 
