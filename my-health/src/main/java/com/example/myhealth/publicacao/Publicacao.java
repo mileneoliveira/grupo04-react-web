@@ -1,5 +1,6 @@
 package com.example.myhealth.publicacao;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -7,18 +8,20 @@ import javax.persistence.Id;
 public class Publicacao {
 
     @Id
-    private Integer id;
+    @Column(name = "id_publicacao")
+    private Integer idPublicacao;
     private String titulo;
     private String descricao;
     private Integer curtida;
+    @Column(name = "usuario_id")
     private Integer usuarioId;
 
-    public Integer getId() {
-        return id;
+    public Integer getIdPublicacao() {
+        return idPublicacao;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.idPublicacao = id;
     }
 
     public String getTitulo() {

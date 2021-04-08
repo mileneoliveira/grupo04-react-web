@@ -1,5 +1,6 @@
 package com.example.myhealth.usuario;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.time.LocalDate;
@@ -8,21 +9,24 @@ import java.time.LocalDate;
 public class Usuario {
 
     @Id
-    private Integer id;
+    @Column(name = "id_usuario")
+    private Integer idUsuario;
     private String nome;
     private String senha;
     private String email;
     private Double peso;
     private Double altura;
+    @Column(name = "data_nascimento")
     private LocalDate dataNascimento;
+    @Column(name = "objetivo_id")
     private Integer objetivoId;
 
-    public Integer getId() {
-        return id;
+    public Integer getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(Integer idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public String getNome() {

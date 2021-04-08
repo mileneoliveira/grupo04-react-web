@@ -1,5 +1,6 @@
 package com.example.myhealth.objetivo;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.time.LocalDate;
@@ -8,19 +9,22 @@ import java.time.LocalDate;
 public class Objetivo {
 
     @Id
-    private Integer id;
+    @Column(name = "id_objetivo")
+    private Integer idObjetivo;
     private String titulo;
     private String descricao;
     private Integer tempo;
+    @Column(name = "peso_meta")
     private Double pesoMeta;
+    @Column(name = "data_meta")
     private LocalDate dataMeta;
 
-    public Integer getId() {
-        return id;
+    public Integer getIdObjetivo() {
+        return idObjetivo;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdObjetivo(Integer idObjetivo) {
+        this.idObjetivo = idObjetivo;
     }
 
     public String getTitulo() {

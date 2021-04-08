@@ -38,11 +38,12 @@ public class AlimentoController {
         else{
             return ResponseEntity.notFound().build();
         }
-
     }
 
-
-
+    @GetMapping("/categoria")
+    public ResponseEntity getAlimentos(@RequestParam int id) {
+        return ResponseEntity.ok().body(repository.findByCategoriaId(id));
+    }
 
 }
 

@@ -8,7 +8,8 @@ import javax.persistence.Id;
 public class Alimento {
 
     @Id
-    private Integer id;
+    @Column(name = "id_alimento")
+    private Integer idAlimento;
     private String nome;
     private Double porcao;              //100 gramas cada
     private Double calorias;            // em Kcal
@@ -20,12 +21,15 @@ public class Alimento {
     private Double sodio;               // em miligramas
     private Double proteina;            // em gramas
 
+    @Column(name = "categoria_id")
+    private Integer categoriaId;
+
     public Integer getIdAlimento() {
-        return id;
+        return idAlimento;
     }
 
-    public void setIdAlimento(Integer id) {
-        this.id = id;
+    public void setIdAlimento(Integer idAlimento) {
+        this.idAlimento = idAlimento;
     }
 
     public String getNome() {
@@ -106,5 +110,13 @@ public class Alimento {
 
     public void setProteina(Double proteina) {
         this.proteina = proteina;
+    }
+
+    public Integer getCategoriaId() {
+        return categoriaId;
+    }
+
+    public void setCategoriaId(Integer categoriaId) {
+        this.categoriaId = categoriaId;
     }
 }

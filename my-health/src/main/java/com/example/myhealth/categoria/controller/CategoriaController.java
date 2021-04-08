@@ -31,14 +31,9 @@ public class CategoriaController {
         return ResponseEntity.status(200).body(repository.findByNomeContains(nome));
     }
 
-    @GetMapping("{id}")
-    public ResponseEntity getById(@PathVariable int id){
-        if (repository.existsById(id)){
-            return ResponseEntity.ok(repository.findById(id));
-        }
-        else{
-            return ResponseEntity.notFound().build();
-        }
+    @GetMapping("/id")
+    public ResponseEntity getAlimentos(@RequestParam int id) {
+        return ResponseEntity.ok().body(repository.findByIdCategoria(id));
     }
 
 }
