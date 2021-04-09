@@ -27,12 +27,10 @@ public class Usuario {
     @NotNull
     private String email;
 
-    @Positive
-    @NotNull
+    @PositiveOrZero
     private Double peso;
 
-    @Positive
-    @NotNull
+    @PositiveOrZero
     private Double altura;
 
     @Past

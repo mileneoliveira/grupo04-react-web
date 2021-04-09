@@ -22,9 +22,10 @@ public class Objetivo {
     @Size(min = 1, max = 45)
     private String descricao;
 
-    @Positive
+    @PastOrPresent
     @NotNull
-    private Integer tempo;
+    @Column(name = "data_criacao")
+    private Integer dataCriacao;
 
     @Positive
     @NotNull
@@ -65,12 +66,12 @@ public class Objetivo {
         this.descricao = descricao;
     }
 
-    public Integer getTempo() {
-        return tempo;
+    public Integer getDataCriacao() {
+        return dataCriacao;
     }
 
-    public void setTempo(Integer tempo) {
-        this.tempo = tempo;
+    public void setDataCriacao(Integer dataCriacao) {
+        this.dataCriacao = dataCriacao;
     }
 
     public Double getPesoMeta() {

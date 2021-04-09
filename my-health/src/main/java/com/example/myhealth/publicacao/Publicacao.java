@@ -1,18 +1,18 @@
 package com.example.myhealth.publicacao;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Publicacao {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_publicacao")
     private Integer idPublicacao;
-    private String titulo;
     private String descricao;
     private Integer curtida;
+    @Column(name = "url_imagem")
+    private String urlImagem;
     @Column(name = "usuario_id")
     private Integer usuarioId;
 
@@ -24,12 +24,16 @@ public class Publicacao {
         this.idPublicacao = id;
     }
 
-    public String getTitulo() {
-        return titulo;
+    public void setIdPublicacao(Integer idPublicacao) {
+        this.idPublicacao = idPublicacao;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public String getUrlImagem() {
+        return urlImagem;
+    }
+
+    public void setUrlImagem(String urlImagem) {
+        this.urlImagem = urlImagem;
     }
 
     public String getDescricao() {
