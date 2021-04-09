@@ -1,25 +1,44 @@
 package com.example.myhealth.usuario;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import org.hibernate.annotations.Generated;
+
+import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 
 @Entity
 public class Usuario {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_usuario")
     private Integer idUsuario;
+
+    @NotBlank
+    @NotNull
     private String nome;
+
+    @NotBlank
+    @NotNull
+    @Size(min = 8, max = 32)
     private String senha;
+
+    @Email
+    @NotNull
     private String email;
+
+    @Positive
+    @NotNull
     private Double peso;
+
+    @Positive
+    @NotNull
     private Double altura;
+
+    @Past
     @Column(name = "data_nascimento")
     private LocalDate dataNascimento;
-    @Column(name = "objetivo_id")
-    private Integer objetivoId;
+
 
     public Integer getIdUsuario() {
         return idUsuario;
@@ -77,11 +96,4 @@ public class Usuario {
         this.dataNascimento = dataNascimento;
     }
 
-    public Integer getObjetivoId() {
-        return objetivoId;
-    }
-
-    public void setObjetivoId(Integer objetivoId) {
-        this.objetivoId = objetivoId;
-    }
 }

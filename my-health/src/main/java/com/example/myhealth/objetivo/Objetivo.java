@@ -1,23 +1,45 @@
 package com.example.myhealth.objetivo;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 
 @Entity
 public class Objetivo {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_objetivo")
     private Integer idObjetivo;
+
+    @NotBlank
+    @NotNull
+    @Size(min = 1, max = 45)
     private String titulo;
+
+    @NotBlank
+    @NotNull
+    @Size(min = 1, max = 45)
     private String descricao;
+
+    @Positive
+    @NotNull
     private Integer tempo;
+
+    @Positive
+    @NotNull
     @Column(name = "peso_meta")
     private Double pesoMeta;
+
+    @FutureOrPresent
+    @NotNull
     @Column(name = "data_meta")
     private LocalDate dataMeta;
+
+    @NotNull
+    @Column(name = "usuario_id")
+    private Integer usuarioId;
+
 
     public Integer getIdObjetivo() {
         return idObjetivo;
@@ -65,5 +87,13 @@ public class Objetivo {
 
     public void setDataMeta(LocalDate dataMeta) {
         this.dataMeta = dataMeta;
+    }
+
+    public Integer getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(Integer usuarioId) {
+        this.usuarioId = usuarioId;
     }
 }

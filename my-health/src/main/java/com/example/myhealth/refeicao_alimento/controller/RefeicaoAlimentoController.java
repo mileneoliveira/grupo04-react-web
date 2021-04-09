@@ -1,13 +1,13 @@
 package com.example.myhealth.refeicao_alimento.controller;
 
 import com.example.myhealth.refeicao_alimento.RefeicaoAlimento;
+import com.example.myhealth.refeicao_alimento.RefeicaoAlimentoId;
 import com.example.myhealth.refeicao_alimento.repository.RefeicaoAlimentoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -18,7 +18,7 @@ public class RefeicaoAlimentoController {
     private RefeicaoAlimentoRepository repository;
 
     @GetMapping()
-    public ResponseEntity getRefeicoes() {
+    public ResponseEntity getRefeicoesAlimento() {
         List<RefeicaoAlimento> refeicaoAlimentos = repository.findAll();
         if (refeicaoAlimentos.isEmpty()){
             return ResponseEntity.noContent().build();
@@ -26,4 +26,11 @@ public class RefeicaoAlimentoController {
             return ResponseEntity.ok(refeicaoAlimentos);
         }
     }
+
+    @PostMapping()
+    public ResponseEntity postCadastrarRefeicaoAlimento(@RequestBody @Valid RefeicaoAlimento refeicaoAlimento){
+        repository.save(refeicaoAlimento);
+        return ResponseEntity.status(201).build();
+    }
+
 }
