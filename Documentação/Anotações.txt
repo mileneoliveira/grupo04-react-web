@@ -1,0 +1,71 @@
+Criação de usuario pelo front:
+
+	Response do cadastro (front):
+	{
+		nome: "teste",
+		senha: "123456789"
+		email: "teste@teste.com"
+		peso : null,
+		altura : null,
+		dataNascimento : null
+	}
+	
+	descrição:
+	o front ira retornar null nos atributos peso, altura e dataNascimento pois 
+	a api do google e facebook não retorna esses atributos;
+	É preciso ****CRIAR UMA TELA**** de inicio que verifica se usuario tem esses atributos 
+	igual a null, caso for, pedir para ele inserir e devolver o seguinte response:
+	
+	Response para dataNascimento, peso, altura:
+	{
+		peso : 99.99,
+		altura: 199,
+		dataNascimento : "1999-09-09T00:00:00"
+	}
+
+Criação de Objetivo:
+
+	Response do objetivo
+	{
+		titulo : "Emagrecer 10 kg",
+		descricao : "emagrecer 10 kg durante 2 meses",  esse atributo não é obrigatório, pode ser passado null
+		peso_Meta : 84.00,
+		data_Meta : "2021-12-31",
+		usuario_id : 1,
+		data_Criacao : "2021-10-31"
+	}
+	
+Criação da publicação:
+
+	Response da publicação
+	{
+		descricao : "almoço de quarta", ou null pois não é obrigatorio;
+		curtida : 0,
+		usuario_id : 1,
+		url_imagem : "https://www.google.com/url?sa=i&url=https%3A%2F%2Ficons8.com.br%2Ficon%2F131%2Fpesquisar&psig=AOvVaw0eidTw_SiaIyVWbxFkAw6M&ust=1618093209327000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNjIu4qZ8u8CFQAAAAAdAAAAABAD" ou null, não precisa ser colocada
+		
+	}
+	
+Criação Refeição:
+
+	Response de refeição:
+	{
+		tipo : "Almoço",
+		usuario_id : 1,
+		data_Refeicao : "2021-04-09T21:00:00"
+	}
+	
+	no front quando criado a refeição vai ser necessario enviar uma requisição para criar 
+	a refeição depois outra requisição para referenciar os alimentos e a refeição na tabela 
+	associativa RefeicaoAlimento;
+	
+	response de RefeicaoAlimento:
+	{
+			NÃO SABEMOS FAZER """"""""" tAMO JUNTO """""""" 🤡🧐🤓🐱‍👤
+	}
+	
+
+	
+	
+
+
