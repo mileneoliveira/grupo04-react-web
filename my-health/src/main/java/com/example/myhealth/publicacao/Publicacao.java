@@ -1,6 +1,9 @@
 package com.example.myhealth.publicacao;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PositiveOrZero;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Publicacao {
@@ -9,10 +12,17 @@ public class Publicacao {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_publicacao")
     private Integer idPublicacao;
+
+    @Size(max = 255)
     private String descricao;
+
+    @PositiveOrZero
+    @NotNull
     private Integer curtida;
+
     @Column(name = "url_imagem")
     private String urlImagem;
+
     @Column(name = "usuario_id")
     private Integer usuarioId;
 
@@ -20,20 +30,8 @@ public class Publicacao {
         return idPublicacao;
     }
 
-    public void setId(Integer id) {
-        this.idPublicacao = id;
-    }
-
     public void setIdPublicacao(Integer idPublicacao) {
         this.idPublicacao = idPublicacao;
-    }
-
-    public String getUrlImagem() {
-        return urlImagem;
-    }
-
-    public void setUrlImagem(String urlImagem) {
-        this.urlImagem = urlImagem;
     }
 
     public String getDescricao() {
@@ -50,6 +48,14 @@ public class Publicacao {
 
     public void setCurtida(Integer curtida) {
         this.curtida = curtida;
+    }
+
+    public String getUrlImagem() {
+        return urlImagem;
+    }
+
+    public void setUrlImagem(String urlImagem) {
+        this.urlImagem = urlImagem;
     }
 
     public Integer getUsuarioId() {

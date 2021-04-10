@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -43,6 +44,34 @@ public class AlimentoController {
     @GetMapping("/categoria")
     public ResponseEntity getAlimentos(@RequestParam int id) {
         return ResponseEntity.ok().body(repository.findByCategoriaId(id));
+    }
+
+    @PostMapping()
+    public ResponseEntity postCadastrarAlimento(@RequestBody @Valid Alimento alimento) {
+        repository.save(alimento);
+        return ResponseEntity.status(201).build();
+    }
+
+    @DeleteMapping()
+    public ResponseEntity deleteAlimentoById(@RequestParam Integer id) {
+        if (repository.existsById(id)){
+            repository.deleteById(id);
+            return ResponseEntity.status(200).build();
+        }
+        else{
+            return ResponseEntity.status(404).build();
+        }
+
+    }
+
+    @PutMapping()
+    ResponseEntity alterAlimento(@RequestBody @Valid Alimento alimento, @RequestParam int id) {
+        if (repository.existsById(id)){
+            alimento.setIdAlimento(id);
+            repository.save(alimento);
+            return ResponseEntity.status(200).build();
+        }
+        return ResponseEntity.status(404).build();
     }
 
 }

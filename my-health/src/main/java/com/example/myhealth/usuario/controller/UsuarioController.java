@@ -1,6 +1,7 @@
 package com.example.myhealth.usuario.controller;
 
 
+import com.example.myhealth.publicacao.Publicacao;
 import com.example.myhealth.usuario.Usuario;
 import com.example.myhealth.usuario.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,5 +38,27 @@ public class UsuarioController {
     public ResponseEntity postCadastrarUsuario(@RequestBody @Valid Usuario usuario) {
         repository.save(usuario);
         return ResponseEntity.status(201).build();
+    }
+
+    @DeleteMapping()
+    public ResponseEntity deleteUsuarioById(@RequestParam Integer id) {
+        if (repository.existsById(id)){
+            repository.deleteById(id);
+            return ResponseEntity.status(200).build();
+        }
+        else{
+            return ResponseEntity.status(404).build();
+        }
+
+    }
+
+    @PutMapping()
+    ResponseEntity alterUsuario(@RequestBody @Valid Usuario usuario, @RequestParam int id) {
+        if (repository.existsById(id)){
+            usuario.setId(id);
+            repository.save(usuario);
+            return ResponseEntity.status(200).build();
+        }
+        return ResponseEntity.status(404).build();
     }
 }
