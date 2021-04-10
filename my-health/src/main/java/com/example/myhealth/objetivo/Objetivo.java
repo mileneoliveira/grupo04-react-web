@@ -25,7 +25,7 @@ public class Objetivo {
     @PastOrPresent
     @NotNull
     @Column(name = "data_criacao")
-    private Integer dataCriacao;
+    private LocalDate dataCriacao;
 
     @Positive
     @NotNull
@@ -66,11 +66,11 @@ public class Objetivo {
         this.descricao = descricao;
     }
 
-    public Integer getDataCriacao() {
+    public LocalDate getDataCriacao() {
         return dataCriacao;
     }
 
-    public void setDataCriacao(Integer dataCriacao) {
+    public void setDataCriacao(LocalDate dataCriacao) {
         this.dataCriacao = dataCriacao;
     }
 

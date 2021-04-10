@@ -35,6 +35,6 @@ public class RefeicaoController {
         repository.save(refeicao);
         return ResponseEntity.status(201).build();
     }
-    
+
 }
 
