@@ -5,8 +5,6 @@ public class UserDto {
     private String email;
     private String senha;
 
-
-
     public UserDto(String email, String senha) {
         this.email = email;
         this.senha = senha;

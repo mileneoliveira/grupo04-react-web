@@ -60,24 +60,25 @@ public class UsuarioController {
         }
         return ResponseEntity.status(404).build();
     }
+    @PatchMapping
 
-
-//    @GetMapping("/login")
-//    public ResponseEntity login(@RequestBody UserDto usuarioRequest){
-//
-//        List<UsuarioLogin> usuarios = repository.findAllSimples();
-//
-//        for (UsuarioLogin usuario : usuarios){
-//            if (usuario.getEmail().equals(usuarioRequest.getEmail())
-//                    && usuario.getSenha().equals(usuarioRequest.getSenha())
-//                    && !usuario.isLogado()){
-//
-//               usuario.setLogado(true);
-//               return ResponseEntity.status(200).body(usuario);
-//
+    @GetMapping("/login")
+    public ResponseEntity login (@RequestBody UserDto usuario){
+        List<UsuarioLogin> users = repository.pesquisarLogin2(usuario.getEmail(), usuario.getSenha());
+        String email = usuario.getEmail();
+        String senha = usuario.getSenha();
+        if (!users.isEmpty()){
+            UsuarioLogin usuarioLogin = users.get(0);
+            Usuario usuarioUsuario = repository.findByEmailAndSenha(email, senha);
+            
+//            if(repository.findByAutenticadoTrue()){
+//                return ResponseEntity.status(418).build();
 //            }
-//            return ResponseEntity.status(202).build();
-//        }
-//        return ResponseEntity.status(404).build();
-//    }
+//            repository.updateAutenticado(true);
+//            return ResponseEntity.status(200).build();
+            return ResponseEntity.status(200).body(usuarioUsuario);
+        }
+        return ResponseEntity.status(404).build();
+    }
+
 }

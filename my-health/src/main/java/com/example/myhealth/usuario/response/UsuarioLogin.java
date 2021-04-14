@@ -7,13 +7,12 @@ public class UsuarioLogin {
 
     private String email;
     private String senha;
-
-    private boolean logado;
+    private boolean autenticado;
 
     public UsuarioLogin(Usuario usuario) {
         this.email = usuario.getEmail();
         this.senha = usuario.getSenha();
-        this.logado = false;
+        this.autenticado = usuario.getAutenticado();
     }
 
     public String getEmail() {
@@ -32,11 +31,11 @@ public class UsuarioLogin {
         this.senha = senha;
     }
 
-    public boolean isLogado() {
-        return logado;
+    public boolean getAutenticado() {
+        return autenticado;
     }
 
-    public void setLogado(boolean logado) {
-        this.logado = logado;
+    public void setAutenticado(boolean autenticado) {
+        this.autenticado = autenticado;
     }
 }

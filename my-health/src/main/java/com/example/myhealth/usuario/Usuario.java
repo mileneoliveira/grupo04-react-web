@@ -31,6 +31,8 @@ public class Usuario {
     @PositiveOrZero
     private Double altura;
 
+    private boolean autenticado;
+
     @Past
     @Column(name = "data_nascimento")
     private LocalDate dataNascimento;
@@ -92,4 +94,15 @@ public class Usuario {
         this.dataNascimento = dataNascimento;
     }
 
+    public void setIdUsuario(Integer idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public boolean getAutenticado() {
+        return autenticado;
+    }
+
+    public void setAutenticado(boolean autenticado) {
+        this.autenticado = autenticado;
+    }
 }
