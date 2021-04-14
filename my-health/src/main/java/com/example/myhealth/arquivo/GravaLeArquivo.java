@@ -48,7 +48,7 @@ public class GravaLeArquivo {
             for (int i=0; i< lista.getTamanho(); i++) {
                 Alimento alimento = lista.getElemento(i);
                 if (isCSV) {
-                    saida.format("%d;%s;%.2f;%.2f;%.2f;%.2f;%.2f;%.2f;%.2f;%.2f;%.2f%n",alimento.getIdAlimento(),
+                    saida.format("%4d;%45s;%.2f;%.2f;%.2f;%.2f;%.2f;%.2f;%.2f;%.2f;%.2f;%3d%n",alimento.getIdAlimento(),
                             alimento.getNome(),
                             alimento.getPorcao(),
                             alimento.getCalorias(),
@@ -59,6 +59,7 @@ public class GravaLeArquivo {
                             alimento.getFerro(),
                             alimento.getSodio(),
                             alimento.getProteina());
+                            alimento.getCategoriaId();
                 }
                 else {
 
@@ -80,16 +81,17 @@ public class GravaLeArquivo {
 
                     corpo += "02";
                     corpo += String.format("%3d", alimento.getIdAlimento());
-                    corpo += String.format("%-60s", alimento.getNome());
-                    corpo += String.format("%.5f", alimento.getPorcao());
-                    corpo += String.format("%.5f", alimento.getCalorias());
-                    corpo += String.format("%.5f", alimento.getColesterol());
-                    corpo += String.format("%.5f", alimento.getCarboidrato());
-                    corpo += String.format("%.5f", alimento.getFibra());
-                    corpo += String.format("%.5f", alimento.getCalcio());
-                    corpo += String.format("%.5f", alimento.getFerro());
-                    corpo += String.format("%.5f", alimento.getSodio());
-                    corpo += String.format("%.5f", alimento.getProteina());
+                    corpo += String.format("%-45s", alimento.getNome());
+                    corpo += String.format("%.2f", alimento.getPorcao());
+                    corpo += String.format("%.2f", alimento.getCalorias());
+                    corpo += String.format("%.2f", alimento.getColesterol());
+                    corpo += String.format("%.2f", alimento.getCarboidrato());
+                    corpo += String.format("%.2f", alimento.getFibra());
+                    corpo += String.format("%.2f", alimento.getCalcio());
+                    corpo += String.format("%.2f", alimento.getFerro());
+                    corpo += String.format("%.2f", alimento.getSodio());
+                    corpo += String.format("%.2f", alimento.getProteina());
+                    corpo += String.format("%3d", alimento.getCategoriaId());
 
                     contRegDados++;
                     gravaRegistro(nomeArq,corpo);
@@ -153,7 +155,7 @@ public class GravaLeArquivo {
 
         try {
 
-            System.out.printf("%3s%-60s%5s%5s%5s%5s%5s%5s%5s%5s%5s\n","ID","NOME",
+            System.out.printf("%4s%-45s%8s%10s%12s%13s%7s%8s%8s%8s%10s\n","ID","NOME",
                     "PORÇÃO","CALORIAS","COLESTEROL","CARBOIDRATO","FIBRA","CALCIO",
                     "FERRO","SODIO","PROTEINA");
 
@@ -170,7 +172,7 @@ public class GravaLeArquivo {
                 Double sodio = entrada.nextDouble();
                 Double proteina = entrada.nextDouble();
 
-                System.out.printf("%3s%-60s%5s%5s%5s%5s%5s%5s%5s%5s%5s\n",id,nome,porcao,calorias,
+                System.out.printf("%4s%-45s%8s%10s%12s%13s%7s%8s%8s%8s%10s\n",id,nome,porcao,calorias,
                         colesterol,carboidrato,fibra,calcio,ferro,sodio,proteina);
             }
         }

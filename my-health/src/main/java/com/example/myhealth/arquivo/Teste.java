@@ -22,6 +22,7 @@ import java.util.Scanner;
         Double ferro;
         Double sodio;
         Double proteina;
+        Integer categoriaId;
 
         Boolean fim = false;
 
@@ -66,12 +67,13 @@ import java.util.Scanner;
                     sodio = scan.nextDouble();
                     System.out.println("Quantidade de proteina:");
                     proteina = scan.nextDouble();
+                    System.out.println("Qual o ID da categoria:");
+                    categoriaId = scan.nextInt();
 
-                    Alimento a = new Alimento(id,nome,porcao,calorias,colesterol,carboidrato,fibra,calcio,ferro,sodio,proteina);
+                    Alimento a = new Alimento(id,nome,porcao,calorias,colesterol,carboidrato,fibra,calcio,ferro,sodio,proteina,categoriaId);
                     lista.adiciona(a);
                     break;
                 case 2:
-                    //exibindo lista de obras cadastradas
                     if (lista.getTamanho() > 0) {
                         System.out.println("\nLista de alimentos cadastrados :");
                         lista.exibe();

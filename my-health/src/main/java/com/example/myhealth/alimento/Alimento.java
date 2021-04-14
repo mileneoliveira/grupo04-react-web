@@ -21,10 +21,12 @@ public class Alimento {
     private Double sodio;               // em miligramas
     private Double proteina;            // em gramas
 
-//    @Column(name = "categoria_id")
-//    private Integer categoriaId;
 
-    public Alimento(Integer idAlimento, String nome, Double porcao, Double calorias, Double colesterol, Double carboidrato, Double fibra, Double calcio, Double ferro, Double sodio, Double proteina) {
+  @Column(name = "categoria_id")
+  private Integer categoriaId;
+
+    public Alimento(Integer idAlimento, String nome, Double porcao, Double calorias, Double colesterol, Double carboidrato,
+                    Double fibra, Double calcio, Double ferro, Double sodio, Double proteina,Integer categoriaId) {
         this.idAlimento = idAlimento;
         this.nome = nome;
         this.porcao = porcao;
@@ -36,7 +38,7 @@ public class Alimento {
         this.ferro = ferro;
         this.sodio = sodio;
         this.proteina = proteina;
-        //this.categoriaId = categoriaId;
+        this.categoriaId = categoriaId;
     }
 
 
@@ -128,13 +130,13 @@ public class Alimento {
         this.proteina = proteina;
     }
 
-   // public Integer getCategoriaId() {
-    //    return categoriaId;
-   // }
+    public Integer getCategoriaId() {
+        return categoriaId;
+    }
 
-  //  public void setCategoriaId(Integer categoriaId) {
-     //   this.categoriaId = categoriaId;
-  //  }
+   public void setCategoriaId(Integer categoriaId) {
+        this.categoriaId = categoriaId;
+   }
 
     @Override
     public String toString() {
@@ -150,7 +152,7 @@ public class Alimento {
                 ", ferro=" + ferro +
                 ", sodio=" + sodio +
                 ", proteina=" + proteina +
-               // ", categoriaId=" + categoriaId +
+                ", categoriaId=" + categoriaId +
                 '}';
     }
 }
