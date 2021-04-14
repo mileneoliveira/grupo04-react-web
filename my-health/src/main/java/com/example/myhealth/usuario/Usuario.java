@@ -1,7 +1,5 @@
 package com.example.myhealth.usuario;
 
-import org.hibernate.annotations.Generated;
-
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.time.LocalDate;

@@ -1,17 +1,16 @@
 package com.example.myhealth.usuario.controller;
 
 
-import com.example.myhealth.publicacao.Publicacao;
 import com.example.myhealth.usuario.Usuario;
+import com.example.myhealth.usuario.request.UserDto;
+import com.example.myhealth.usuario.response.UsuarioLogin;
 import com.example.myhealth.usuario.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -61,4 +60,24 @@ public class UsuarioController {
         }
         return ResponseEntity.status(404).build();
     }
+
+
+//    @GetMapping("/login")
+//    public ResponseEntity login(@RequestBody UserDto usuarioRequest){
+//
+//        List<UsuarioLogin> usuarios = repository.findAllSimples();
+//
+//        for (UsuarioLogin usuario : usuarios){
+//            if (usuario.getEmail().equals(usuarioRequest.getEmail())
+//                    && usuario.getSenha().equals(usuarioRequest.getSenha())
+//                    && !usuario.isLogado()){
+//
+//               usuario.setLogado(true);
+//               return ResponseEntity.status(200).body(usuario);
+//
+//            }
+//            return ResponseEntity.status(202).build();
+//        }
+//        return ResponseEntity.status(404).build();
+//    }
 }
