@@ -121,8 +121,6 @@ public class ArquivoController {
 
                 int contRegDados = 0;
 
-                corpo = "ID_CORPO ID_ALIMENTO NOME PORÇÃO CALORIAS COLESTEROL CARBOIDRATO FIBRA CALCIO FERRO SODIO PROTEINA CATEGORIA_ID";
-                GravaArquivo.gravaRegistro("Alimentos.txt", corpo);
 
                 for (int i = 0; i < lista.getTamanhoVetor(); i++) {
                     Alimento alimento = lista.getElemento(i);
