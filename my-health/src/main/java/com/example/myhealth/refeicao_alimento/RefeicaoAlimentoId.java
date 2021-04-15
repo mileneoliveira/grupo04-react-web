@@ -29,14 +29,6 @@ public class RefeicaoAlimentoId implements Serializable {
         this.idAlimento = idAlimento;
     }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (!(o instanceof RefeicaoAlimentoId)) return false;
-//        RefeicaoAlimentoId that = (RefeicaoAlimentoId) o;
-//        return getIdRefeicao().equals(that.getIdRefeicao()) && getIdAlimento().equals(that.getIdAlimento());
-//    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

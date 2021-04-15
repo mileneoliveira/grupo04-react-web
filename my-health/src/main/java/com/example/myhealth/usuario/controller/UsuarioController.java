@@ -52,7 +52,7 @@ public class UsuarioController {
     }
 
     @PutMapping()
-    ResponseEntity alterUsuario(@RequestBody @Valid Usuario usuario, @RequestParam int id) {
+    public ResponseEntity alterUsuario(@RequestBody @Valid Usuario usuario, @RequestParam int id) {
         if (repository.existsById(id)){
             usuario.setId(id);
             repository.save(usuario);
@@ -60,25 +60,44 @@ public class UsuarioController {
         }
         return ResponseEntity.status(404).build();
     }
-    @PatchMapping
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public ResponseEntity login (@RequestBody UserDto usuario){
         List<UsuarioLogin> users = repository.pesquisarLogin2(usuario.getEmail(), usuario.getSenha());
-        String email = usuario.getEmail();
-        String senha = usuario.getSenha();
+
         if (!users.isEmpty()){
             UsuarioLogin usuarioLogin = users.get(0);
-            Usuario usuarioUsuario = repository.findByEmailAndSenha(email, senha);
-            
-//            if(repository.findByAutenticadoTrue()){
-//                return ResponseEntity.status(418).build();
-//            }
-//            repository.updateAutenticado(true);
-//            return ResponseEntity.status(200).build();
-            return ResponseEntity.status(200).body(usuarioUsuario);
+            if(usuarioLogin.getAutenticado()){
+                return ResponseEntity.status(418).build();
+            }
+
+            Usuario userLogado = repository.findByEmailAndSenha(usuarioLogin.getEmail(), usuarioLogin.getSenha());
+            userLogado.setAutenticado(true);
+            repository.save(userLogado);
+
+            return ResponseEntity.status(200).body(userLogado);
         }
         return ResponseEntity.status(404).build();
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity logout(@RequestBody UserDto usuario){
+        List<UsuarioLogin> users = repository.pesquisarLogin2(usuario.getEmail(), usuario.getSenha());
+
+        if (!users.isEmpty()){
+            UsuarioLogin usuarioLogin = users.get(0);
+            if(!usuarioLogin.getAutenticado()){
+                return ResponseEntity.status(418).build();
+            }
+
+            Usuario userLogado = repository.findByEmailAndSenha(usuarioLogin.getEmail(), usuarioLogin.getSenha());
+            userLogado.setAutenticado(false);
+            repository.save(userLogado);
+
+            return ResponseEntity.status(200).body(userLogado);
+        }
+        return ResponseEntity.status(404).build();
+
     }
 
 }
