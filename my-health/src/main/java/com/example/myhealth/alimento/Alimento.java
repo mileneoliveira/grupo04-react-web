@@ -22,25 +22,8 @@ public class Alimento {
     private Double proteina;            // em gramas
 
 
-  @Column(name = "categoria_id")
-  private Integer categoriaId;
-
-    public Alimento(Integer idAlimento, String nome, Double porcao, Double calorias, Double colesterol, Double carboidrato,
-                    Double fibra, Double calcio, Double ferro, Double sodio, Double proteina,Integer categoriaId) {
-        this.idAlimento = idAlimento;
-        this.nome = nome;
-        this.porcao = porcao;
-        this.calorias = calorias;
-        this.colesterol = colesterol;
-        this.carboidrato = carboidrato;
-        this.fibra = fibra;
-        this.calcio = calcio;
-        this.ferro = ferro;
-        this.sodio = sodio;
-        this.proteina = proteina;
-        this.categoriaId = categoriaId;
-    }
-
+    @Column(name = "categoria_id")
+    private Integer categoriaId;
 
     public Integer getIdAlimento() {
         return idAlimento;
@@ -134,25 +117,8 @@ public class Alimento {
         return categoriaId;
     }
 
-   public void setCategoriaId(Integer categoriaId) {
+    public void setCategoriaId(Integer categoriaId) {
         this.categoriaId = categoriaId;
-   }
-
-    @Override
-    public String toString() {
-        return "Alimento{" +
-                "idAlimento=" + idAlimento +
-                ", nome='" + nome + '\'' +
-                ", porcao=" + porcao +
-                ", calorias=" + calorias +
-                ", colesterol=" + colesterol +
-                ", carboidrato=" + carboidrato +
-                ", fibra=" + fibra +
-                ", calcio=" + calcio +
-                ", ferro=" + ferro +
-                ", sodio=" + sodio +
-                ", proteina=" + proteina +
-                ", categoriaId=" + categoriaId +
-                '}';
     }
+
 }

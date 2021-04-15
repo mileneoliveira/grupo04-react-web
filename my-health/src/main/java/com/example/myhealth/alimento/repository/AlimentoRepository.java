@@ -11,4 +11,5 @@ public interface AlimentoRepository extends JpaRepository<Alimento, Integer> {
 
     List<Alimento> findByCategoriaId(Integer categoria);
 
+    long count();
 }
