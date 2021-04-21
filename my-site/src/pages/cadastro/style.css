@@ -54,3 +54,11 @@
     width: 75vmin; 
    
 }
+
+/* ----------------- CADASTRO MOBILE -------------- */
+
+@media(max-width: 870px) {
+    .celular-cadastro{
+        display: none;
+    }
+}

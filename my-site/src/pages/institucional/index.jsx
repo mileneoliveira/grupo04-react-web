@@ -13,15 +13,15 @@ export default class institucional extends Component {
                             <li><a href="#sobre">Sobre nós</a></li>
                             <li><a href="#vantagens">Vantagens</a></li>
                             <li><a href="#equipe">Equipe</a></li>
-                            <li><a href="#entrar"> <span className="myhealth">Entrar</span></a></li>
+                            <li><a href="login"> <span className="myhealth">Entrar</span></a></li>
                         </ul>
                     </nav>
                     <div className="welcome-home">
                         <div className="welcome-text">
                         <p>Com o <span className="myhealth">My Health</span> você dará o primeira passo em direção a uma vida balanceada.</p>
                         <div className="botoes">
-                        <a href="cadastro.html" className="btn">Crie sua conta</a>
-                        <a href="#cadastro" className="btn">Acesse sua conta</a>
+                        <a href="cadastro" className="btn">Crie sua conta</a>
+                        <a href="login" className="btn">Acesse sua conta</a>
                         </div>
                         </div>
                         <div className="correndo">
@@ -38,7 +38,7 @@ export default class institucional extends Component {
                     <p>Nós somos uma empresa que visa o seu <b>equilibrio</b> e <b>bem estar</b></p>
                     <p>Acompanhar sua <b>evolução</b> nunca foi tão fácil.</p>
                     <br/>
-                    <a href="#cadastro" className="btn1">Crie sua conta</a>
+                    <a href="cadastro" className="btn1">Crie sua conta</a>
                     </div>
                 </section>
 

@@ -1,0 +1,140 @@
+
+    #check:checked~.sidebar {
+        left: 0;
+    }
+    
+    #check:checked~label #btn-side {
+        left: 250px;
+        opacity: 0;
+        pointer-events: none;
+    }
+    
+    #check:checked~label #cancel {
+        left: 195px;
+    }
+
+#check:checked~.conteudo {
+    margin-left: 100px;
+}
+
+.conteudo {
+    height: 100vh;
+    transition: all .4s;
+    display: flex;
+    justify-content: left;
+}
+
+.conteudo__dash {
+    display: grid;
+    grid-gap: .4rem;
+    grid-template-columns: 29.6vmin 29.6vmin 29.6vmin 29.6vmin 29.6vmin;
+    grid-auto-rows: 10vmin 10vmin 10vmin 10vmin 10vmin;
+    height: calc(100vh - 50px);
+}
+
+.conteudo__dash {
+    margin-right: 4vmin;
+    /* margin-left: 30vmin; */
+    margin-top: 30vmin;
+    min-width: 20vmin;
+    height: 75vmin;
+}
+
+.botao1 {
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
+    padding: 4vmin;
+    text-align: center;
+    background: #53CC89;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+}
+
+.botao2 {
+    grid-column: 1 / 1;
+    grid-row: 2 / 2;
+    padding: 4vmin;
+    text-align: center;
+    background: #53CC89;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+}
+
+.botao3 {
+    grid-column: 1 / 1;
+    grid-row: 3 / 3;
+    padding: 4vmin;
+    text-align: center;
+    background: #53CC89;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+}
+
+.botao4 {
+    grid-column: 1 / 1;
+    grid-row: 4 / 4;
+    padding: 4vmin;
+    text-align: center;
+    background: #53CC89;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+}
+
+.botao5 {
+    grid-column: 1 / 1;
+    grid-row: 5 / 5;
+    padding: 4vmin;
+    text-align: center;
+    background: #53CC89;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+}
+
+.dashboard {
+    margin-top: -8vmin;
+    grid-column: 2 / 6;
+    grid-row: 1 / 6;
+}
+
+
+
+.botao1:hover {
+    background: #0A9849;
+    transition: all .5s
+}
+
+.botao2:hover {
+    background: #0A9849;
+    transition: all .5s
+}
+
+.botao3:hover {
+    background: #0A9849;
+    transition: all .5s
+}
+
+.botao4:hover {
+    background: #0A9849;
+    transition: all .5s
+}
+
+
+.botao5:hover {
+    background: #0A9849;
+    transition: all .5s
+}

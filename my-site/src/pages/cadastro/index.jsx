@@ -17,7 +17,7 @@ export default class Cadastro extends Component {
 
                     <input type="text" class="input-padrao" placeholder="Nome completo" />
 
-                    <input type="text" class="input-padrao" placeholder="CEP" />
+                    <input type="date" class="input-padrao" placeholder="CEP" />
 
                     <input type="text" class="input-padrao" placeholder="E-mail" />
 
@@ -36,7 +36,7 @@ export default class Cadastro extends Component {
                         <img src="./imgs/google-cadastro.svg" alt=""/>
                         <img src="./imgs/facebook-cadastro.svg" alt=""/>
 
-                        <input className="buttom-cadastrar" type="submit" value="Cadastrar-se"/>
+                        <a href="login" className="buttom-cadastrar" type="submit">Cadastrar-se</a>
                     </div>
 
                   </section>

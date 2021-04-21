@@ -4,7 +4,8 @@ flex-direction: row;
 justify-content: center;
 align-items: center
 }
-.form_login{
+.box_login{
+display: inline;
 width: 95vmin;
 height: 80vmin;
 border-radius: 10px;
@@ -15,17 +16,134 @@ border: solid 2px;
 }
 .redes{
 margin-right: 5vmin;
-display: inline-block;
-width: 30vmin;
+display: inline-flex;
+width: 32vmin;
 height: 8vmin;    
 border-radius: 5px;
 border: solid 2px;
 }
 
 .redes img{
-    display: inline-block;
+    display: inline-flex;
     padding-top: 0.5vmin;
 }
+
+.redes a{
+  display: inline-flex;
+  padding-top: 2.5vmin;
+  color: black;
+}
+
+.input-login {
+  display: flex;
+  margin-left: 15vmin;
+  height: 5vmin;
+  padding: 10px 25px;
+  border-radius: 5px;
+  width:  60vmin;
+}
+
+.p-email{
+  margin-top: 5vmin;
+  margin-left: 15vmin;
+}
+
+.buttom-login{
+  margin-left: 35vmin;
+  padding: 2.5vmin;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  position: absolute;
+  margin-top: 3.5vmin;
+}
+
 .texto-divisor{
-  padding-left: 10vmin;
+  display: none;
+}
+
+.nao-tem {
+  margin-top: 15vmin;
+  margin-left: 25vmin;
+}
+
+/* ----------------- CADASTRO MOBILE -------------- */
+
+@media(max-width: 870px) {
+  .conteudo_login{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
+    }
+
+
+  .box_login{
+    display: inline;
+    width: 95vmin;
+    height: 150vmin;
+    border-radius: 10px;
+    border: solid 0px;
+    }
+
+    .login_redes{
+      margin-top: 2.5vmin;
+      margin-right: 1vmin;
+      padding: 5vmin 0 0 10vmin;
+  }
+  .redes{
+    margin-right: 2.5vmin;
+    display: inline-flex;
+    width: 34vmin;
+    height: 13vmin;
+    border-radius: 5px;
+    border: solid 2px;
+  }
+  
+  .redes img{
+      display: flex;
+      padding-top: 0.5vmin;
+  }
+  
+  .redes a{
+    display: flex;
+    padding-top: .5vmin;
+    color: black;
+  }
+  
+  .input-login {
+    display: flex;
+    margin-left: 15vmin;
+    height: 5vmin;
+    padding: 10px 25px;
+    border-radius: 5px;
+    width:  60vmin;
+  }
+  
+  .p-email{
+    margin-top: 15vmin;
+    margin-left: 15vmin;
+  }
+  
+  .buttom-login{
+    margin-left: 26vmin;
+    padding: 2.5vmin;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    position: absolute;
+    margin-top: 5.5vmin;
+    font-size: 5vmin;
+  }
+  
+  .texto-divisor{
+    width: 1vmin;
+    display: none;
+  }
+
+
+  .nao-tem {
+    margin-top: 20vmin;
+    margin-left: 15vmin;
+  }
 }
