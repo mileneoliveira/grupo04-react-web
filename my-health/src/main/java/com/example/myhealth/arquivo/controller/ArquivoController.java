@@ -125,18 +125,18 @@ public class ArquivoController {
                 for (int i = 0; i < lista.getTamanhoVetor(); i++) {
                     Alimento alimento = lista.getElemento(i);
                     corpo = "02";
-                    corpo += String.format(" %04d", alimento.getIdAlimento());
-                    corpo += String.format(" %-45s", alimento.getNome());
-                    corpo += String.format(" %.2f", alimento.getPorcao());
-                    corpo += String.format(" %.2f", alimento.getCalorias());
-                    corpo += String.format(" %.2f", alimento.getColesterol());
-                    corpo += String.format(" %.2f", alimento.getCarboidrato());
-                    corpo += String.format(" %.2f", alimento.getFibra());
-                    corpo += String.format(" %.2f", alimento.getCalcio());
-                    corpo += String.format(" %.2f", alimento.getFerro());
-                    corpo += String.format(" %.2f", alimento.getSodio());
-                    corpo += String.format(" %.2f", alimento.getProteina());
-                    corpo += String.format(" %04d", alimento.getCategoriaId());
+                    corpo += String.format("%04d", alimento.getIdAlimento());
+                    corpo += String.format("%-45s", alimento.getNome());
+                    corpo += String.format("%07.2f", alimento.getPorcao());
+                    corpo += String.format("%07.2f", alimento.getCalorias());
+                    corpo += String.format("%07.2f", alimento.getColesterol());
+                    corpo += String.format("%07.2f", alimento.getCarboidrato());
+                    corpo += String.format("%07.2f", alimento.getFibra());
+                    corpo += String.format("%07.2f", alimento.getCalcio());
+                    corpo += String.format("%07.2f", alimento.getFerro());
+                    corpo += String.format("%07.2f", alimento.getSodio());
+                    corpo += String.format("%07.2f", alimento.getProteina());
+                    corpo += String.format("%04d", alimento.getCategoriaId());
 
                     contRegDados++;
 
