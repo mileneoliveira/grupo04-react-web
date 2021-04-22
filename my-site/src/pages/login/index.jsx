@@ -38,7 +38,7 @@ export default class Login extends Component {
                             <a href="feed" className="buttom-login" type="submit">Iniciar sessão</a>
                         </form>
                         <div className="nao-tem">
-                            <p>Não tem uma conta? Cadastre-se</p>
+                            <p>Não tem uma conta? <a href="cadastro">Cadastre-se</a></p>
                         </div>
 
                     </div>

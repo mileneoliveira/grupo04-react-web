@@ -46,7 +46,7 @@ function Molde() {
 
 
             </div>
-            <div class="componente-imagem">
+            <div className="componente-imagem">
                 <img src="./imgs/Component11.svg" alt="" />
             </div>
         </div>
