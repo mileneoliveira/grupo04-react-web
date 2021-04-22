@@ -70,7 +70,7 @@ nav ul li {
 
 .botoes {
     margin-right: -4vmin;
-    margin-top: 5.5vmin;
+    margin-top: 13.5vmin;
 }
 
 .botoes :nth-child(2) {
@@ -83,7 +83,7 @@ nav ul li {
 }
 
 .welcome-home p{
-    font-size: 11vmin;
+    font-size: 10vmin;
     font-weight: 600;
     line-height: 100%;
     /* margin-top: -10vmin */
@@ -103,7 +103,7 @@ nav ul li {
     text-align: center;
     cursor: pointer;
     width: 15vmin;
-    font-size: 5vmin;
+    font-size: 4vmin;
     text-transform: uppercase;
     text-decoration: none;
     border-radius: 10px;
@@ -114,17 +114,22 @@ nav ul li {
 
 #sobre {
     background-color: #53CC89;
-    height: 120vmin;
+    height: 100vmin;
     margin-top: 16vmin;
     display: grid;
     grid-template-columns: 1fr 1fr;
+}
+
+#sobre img {
+    width: 90vmin;
 }
 
 #sobre p{
     color: white;
     font-weight: 400;
     margin-top: 8.5vmin;
-    font-size: 10vmin;
+    font-size: 8vmin;
+    margin-right: 4vmin;
 }
 
 .btn1 {
@@ -238,6 +243,10 @@ nav ul li {
 .links-uteis ul li{
     list-style: none;
     box-sizing: border-box;
+}
+
+.lista1 {
+    margin-left: 10vmin;
 }
 
 .lista2 {
