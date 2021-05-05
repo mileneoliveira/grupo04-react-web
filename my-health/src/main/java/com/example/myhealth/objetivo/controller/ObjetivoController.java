@@ -2,6 +2,7 @@ package com.example.myhealth.objetivo.controller;
 
 import com.example.myhealth.objetivo.Objetivo;
 import com.example.myhealth.objetivo.repository.ObjetivoRepository;
+import com.example.myhealth.objetivo.response.ObjetivoResponse;
 import com.example.myhealth.publicacao.Publicacao;
 import com.example.myhealth.usuario.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/objetivos")
@@ -23,7 +25,8 @@ public class ObjetivoController {
         List<Objetivo> objetivos = repository.findAll();
 
         if (!objetivos.isEmpty()){
-            return ResponseEntity.ok(objetivos);
+            return ResponseEntity.status(200).body
+                    (objetivos.stream().map(ObjetivoResponse::new).collect(Collectors.toList()));
         }
         else {
             return ResponseEntity.noContent().build();

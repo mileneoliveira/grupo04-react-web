@@ -17,7 +17,6 @@ import java.util.List;
 @RequestMapping("/usuarios")
 public class UsuarioController {
 
-
     @Autowired
     private UsuarioRepository repository;
 
