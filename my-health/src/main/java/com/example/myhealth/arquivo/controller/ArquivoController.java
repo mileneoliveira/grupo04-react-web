@@ -94,7 +94,7 @@ public class ArquivoController {
                     corpo += String.format(";%.2f", alimento.getFerro());
                     corpo += String.format(";%.2f", alimento.getSodio());
                     corpo += String.format(";%.2f", alimento.getProteina());
-                    corpo += String.format(";%04d", alimento.getCategoriaId());
+                    corpo += String.format(";%04d", alimento.getCategoria());
 
                     contRegDados++;
 
@@ -136,7 +136,7 @@ public class ArquivoController {
                     corpo += String.format("%07.2f", alimento.getFerro());
                     corpo += String.format("%07.2f", alimento.getSodio());
                     corpo += String.format("%07.2f", alimento.getProteina());
-                    corpo += String.format("%04d", alimento.getCategoriaId());
+                    corpo += String.format("%04d", alimento.getCategoria());
 
                     contRegDados++;
 

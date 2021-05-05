@@ -41,10 +41,10 @@ public class AlimentoController {
         }
     }
 
-    @GetMapping("/categoria")
-    public ResponseEntity getAlimentos(@RequestParam int id) {
-        return ResponseEntity.ok().body(repository.findByCategoriaId(id));
-    }
+//    @GetMapping("/categoria")
+//    public ResponseEntity getAlimentos(@RequestParam int id) {
+//        return ResponseEntity.ok().body(repository.findByCategoriaId(id));
+//    }
 
     @PostMapping()
     public ResponseEntity postCadastrarAlimento(@RequestBody @Valid Alimento alimento) {

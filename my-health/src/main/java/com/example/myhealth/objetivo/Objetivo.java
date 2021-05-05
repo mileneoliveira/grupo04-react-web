@@ -1,5 +1,7 @@
 package com.example.myhealth.objetivo;
 
+import com.example.myhealth.usuario.Usuario;
+
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.time.LocalDate;
@@ -37,6 +39,7 @@ public class Objetivo {
     @Column(name = "data_meta")
     private LocalDate dataMeta;
 
+<<<<<<< HEAD
     @NotNull
     @Column(name = "usuario_id")
     private Integer usuarioId;
@@ -44,6 +47,11 @@ public class Objetivo {
     public Objetivo() {
         this.dataCriacao = LocalDate.now();
     }
+=======
+    @JoinColumn(name = "usuario_id")
+    @OneToOne
+    private Usuario usuario;
+>>>>>>> d6bcc01b62337df2cd834e58e13e6220963df714
 
     public Integer getIdObjetivo() {
         return idObjetivo;
@@ -93,11 +101,11 @@ public class Objetivo {
         this.dataMeta = dataMeta;
     }
 
-    public Integer getUsuarioId() {
-        return usuarioId;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setUsuarioId(Integer usuarioId) {
-        this.usuarioId = usuarioId;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }

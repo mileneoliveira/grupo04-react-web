@@ -1,5 +1,7 @@
 package com.example.myhealth.publicacao;
 
+import com.example.myhealth.usuario.Usuario;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PositiveOrZero;
@@ -22,8 +24,9 @@ public class Publicacao {
     @Column(name = "url_imagem")
     private String urlImagem;
 
-    @Column(name = "usuario_id")
-    private Integer usuarioId;
+    @JoinColumn(name = "usuario_id")
+    @ManyToOne
+    private Usuario usuario;
 
     public Integer getIdPublicacao() {
         return idPublicacao;
@@ -57,11 +60,11 @@ public class Publicacao {
         this.urlImagem = urlImagem;
     }
 
-    public Integer getUsuarioId() {
-        return usuarioId;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setUsuarioId(Integer usuarioId) {
-        this.usuarioId = usuarioId;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }

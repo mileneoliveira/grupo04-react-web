@@ -9,7 +9,7 @@ public interface AlimentoRepository extends JpaRepository<Alimento, Integer> {
 
     List<Alimento> findByNomeContains(String nome);
 
-    List<Alimento> findByCategoriaId(Integer categoria);
+//    List<Alimento> findByCategoriaId(Integer categoria);
 
     long count();
 }
