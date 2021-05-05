@@ -1,8 +1,8 @@
 package com.example.myhealth.alimento;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import com.example.myhealth.categoria.Categoria;
+
+import javax.persistence.*;
 
 @Entity
 public class Alimento {
@@ -21,9 +21,10 @@ public class Alimento {
     private Double sodio;               // em miligramas
     private Double proteina;            // em gramas
 
+    @JoinColumn(name = "categoria_id")
+    @ManyToOne
+    private Categoria categoria;
 
-    @Column(name = "categoria_id")
-    private Integer categoriaId;
 
     public Integer getIdAlimento() {
         return idAlimento;
@@ -113,12 +114,11 @@ public class Alimento {
         this.proteina = proteina;
     }
 
-    public Integer getCategoriaId() {
-        return categoriaId;
+    public Categoria getCategoria() {
+        return categoria;
     }
 
-    public void setCategoriaId(Integer categoriaId) {
-        this.categoriaId = categoriaId;
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
-
 }

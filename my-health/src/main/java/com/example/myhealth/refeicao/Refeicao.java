@@ -1,5 +1,7 @@
 package com.example.myhealth.refeicao;
 
+import com.example.myhealth.usuario.Usuario;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -24,9 +26,9 @@ public class Refeicao {
     @Column(name = "data_refeicao")
     private LocalDateTime dataRefeicao;
 
-    @NotNull
-    @Column(name = "usuario_id")
-    private Integer usuarioId;
+    @JoinColumn(name = "usuario_id")
+    @ManyToOne
+    private Usuario usuario;
 
 
     public Integer getIdRefeicao() {
@@ -53,11 +55,11 @@ public class Refeicao {
         this.dataRefeicao = dataRefeicao;
     }
 
-    public Integer getUsuarioId() {
-        return usuarioId;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setUsuarioId(Integer usuarioId) {
-        this.usuarioId = usuarioId;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }
