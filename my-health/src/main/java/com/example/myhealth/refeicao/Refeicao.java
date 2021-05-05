@@ -5,6 +5,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Size;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -20,7 +21,6 @@ public class Refeicao {
     @Size(min = 1, max = 45)
     private String tipo;
 
-    @NotNull
     @Column(name = "data_refeicao")
     private LocalDateTime dataRefeicao;
 
@@ -28,6 +28,9 @@ public class Refeicao {
     @Column(name = "usuario_id")
     private Integer usuarioId;
 
+    public Refeicao() {
+        this.dataRefeicao = LocalDateTime.now();
+    }
 
     public Integer getIdRefeicao() {
         return idRefeicao;

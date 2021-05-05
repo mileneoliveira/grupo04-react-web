@@ -3,6 +3,7 @@ package com.example.myhealth.objetivo;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 public class Objetivo {
@@ -23,7 +24,6 @@ public class Objetivo {
     private String descricao;
 
     @PastOrPresent
-    @NotNull
     @Column(name = "data_criacao")
     private LocalDate dataCriacao;
 
@@ -41,6 +41,9 @@ public class Objetivo {
     @Column(name = "usuario_id")
     private Integer usuarioId;
 
+    public Objetivo() {
+        this.dataCriacao = LocalDate.now();
+    }
 
     public Integer getIdObjetivo() {
         return idObjetivo;

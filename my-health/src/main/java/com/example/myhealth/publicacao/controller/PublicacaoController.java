@@ -2,12 +2,14 @@ package com.example.myhealth.publicacao.controller;
 
 import com.example.myhealth.publicacao.Publicacao;
 import com.example.myhealth.publicacao.repository.PublicacaoRepository;
+import com.example.myhealth.publicacao.response.PublicacaoResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/publicacoes")
@@ -20,7 +22,8 @@ public class PublicacaoController {
     public ResponseEntity getPublicacoes() {
         List<Publicacao> publicacoes = repository.findAll();
         if (!publicacoes.isEmpty()) {
-            return ResponseEntity.ok(publicacoes);
+            return ResponseEntity.status(200).body(
+                    publicacoes.stream().map(PublicacaoResponse::new).collect(Collectors.toList()));
         } else {
             return ResponseEntity.noContent().build();
         }

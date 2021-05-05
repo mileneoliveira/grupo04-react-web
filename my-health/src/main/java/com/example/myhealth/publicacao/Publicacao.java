@@ -17,8 +17,7 @@ public class Publicacao {
     private String descricao;
 
     @PositiveOrZero
-    @NotNull
-    private Integer curtida;
+    private Integer curtida = 0;
 
     @Column(name = "url_imagem")
     private String urlImagem;
