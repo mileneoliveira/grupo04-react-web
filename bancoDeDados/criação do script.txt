@@ -1,24 +1,25 @@
 -- criação das tabelas
 
 CREATE TABLE Objetivo(
-	idObjetivo int NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	id_objetivo int NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	titulo varchar(45) NOT NULL,
 	descricao varchar(45) NOT NULL,
-	tempo int NOT NULL,
-	pesoMeta decimal(10,2) NOT NULL,
-	dataMeta date NOT NULL
+	peso_meta decimal(10,2) NOT NULL,
+	data_meta date NOT NULL,
+	data_criacao date NOT NULL,
+	FOREIGN KEY (objetivoId) REFERENCES Objetivo(idObjetivo)
+	
 );
 
 CREATE TABLE Usuario(
-	idUsuario int NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	id_usuario int NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	nome varchar(45) NOT NULL,
 	senha varchar(45) NOT NULL,
 	email varchar(45) NOT NULL,
-	peso decimal(10,2) NOT NULL,
-	altura int NOT NULL,
-	dataNascimento date NOT NULL,
-	objetivoId int NOT NULL,
-	FOREIGN KEY (objetivoId) REFERENCES Objetivo(idObjetivo)
+	peso decimal(10,2) 
+	altura int ,
+	data_nascimento date ,
+	autenticado bit 
 );
 
 

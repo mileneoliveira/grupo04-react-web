@@ -21,6 +21,7 @@ public class RefeicaoAlimento {
     @ManyToOne(optional = false)
     private Alimento alimento;
 
+
     public RefeicaoAlimentoId getId() {
         return id;
     }
