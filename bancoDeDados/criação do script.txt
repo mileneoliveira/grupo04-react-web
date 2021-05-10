@@ -81,25 +81,25 @@ CREATE TABLE Refeicao_alimento(
 	
 -- insert 
 
-INSERT INTO Categoria(idCategoria, nome) VALUES
-(1, 'Cereais e derivados'),
-(2, 'Verduras, hortaliças e derivados'),
-(3, 'Frutas e derivados'),
-(4, 'Gorduras e óleos'),
-(5, 'Pescados e frutos do mar'),
-(6, 'Carnes e derivados'),
-(7, 'Leite e derivados'),
-(8, 'Bebidas (alcoólicas e não alcoólicas)'),
-(9, 'Ovos e derivados'),
-(10, 'Produtos açucarados'),
-(11, 'Miscelâneas'),
-(12, 'Outros alimentos industrializados'),
-(13, 'Alimentos preparados'),
-(14, 'Leguminosas e derivados'),
-(15, 'Nozes e sementes');
+INSERT INTO Categoria(nome) VALUES
+('Cereais e derivados'),
+('Verduras, hortaliças e derivados'),
+('Frutas e derivados'),
+('Gorduras e óleos'),
+('Pescados e frutos do mar'),
+('Carnes e derivados'),
+('Leite e derivados'),
+('Bebidas (alcoólicas e não alcoólicas)'),
+('Ovos e derivados'),
+('Produtos açucarados'),
+('Miscelâneas'),
+('Outros alimentos industrializados'),
+('Alimentos preparados'),
+('Leguminosas e derivados'),
+('Nozes e sementes');
 
 
-INSERT INTO Alimento(nome, porcao, proteina, colesterol, carboidrato, fibra, calcio, ferro, sodio, calorias, categoriaId) VALUES
+INSERT INTO Alimento(nome, porcao, proteina, colesterol, carboidrato, fibra, calcio, ferro, sodio, calorias, id_categoria) VALUES
 
 
 
