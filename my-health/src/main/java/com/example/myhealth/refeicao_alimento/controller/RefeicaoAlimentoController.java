@@ -1,8 +1,6 @@
 package com.example.myhealth.refeicao_alimento.controller;
 
-import com.example.myhealth.refeicao.response.RefeicoesResponse;
 import com.example.myhealth.refeicao_alimento.RefeicaoAlimento;
-import com.example.myhealth.refeicao_alimento.RefeicaoAlimentoId;
 import com.example.myhealth.refeicao_alimento.repository.RefeicaoAlimentoRepository;
 import com.example.myhealth.refeicao_alimento.response.RefeicaoAlimentoResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,18 +21,20 @@ public class RefeicaoAlimentoController {
     @GetMapping()
     public ResponseEntity getRefeicoesAlimento() {
         List<RefeicaoAlimento> refeicaoAlimentos = repository.findAll();
-        if (!refeicaoAlimentos.isEmpty()){
+        if (!refeicaoAlimentos.isEmpty()) {
             return ResponseEntity.status(200).body(
                     refeicaoAlimentos.stream().map(RefeicaoAlimentoResponse::new).collect(Collectors.toList()));
-        } else{
+        } else {
             return ResponseEntity.noContent().build();
         }
     }
 
-    @PostMapping()
-    public ResponseEntity postCadastrarRefeicaoAlimento(@RequestBody @Valid RefeicaoAlimento refeicaoAlimento){
-        repository.save(refeicaoAlimento);
-        return ResponseEntity.status(201).build();
-    }
+
+        @PostMapping()
+        public ResponseEntity postCadastrarRefeicaoAlimento (@RequestBody @Valid RefeicaoAlimento refeicaoAlimento){
+            repository.save(refeicaoAlimento);
+            return ResponseEntity.status(201).build();
+        }
+
 
 }
