@@ -2,6 +2,7 @@ package com.example.myhealth.objetivo.controller;
 
 import com.example.myhealth.objetivo.Objetivo;
 import com.example.myhealth.objetivo.repository.ObjetivoRepository;
+import com.example.myhealth.objetivo.request.ObjetivoRequest;
 import com.example.myhealth.objetivo.response.ObjetivoResponse;
 import com.example.myhealth.publicacao.Publicacao;
 import com.example.myhealth.usuario.Usuario;

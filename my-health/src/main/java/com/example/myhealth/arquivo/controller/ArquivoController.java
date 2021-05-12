@@ -34,27 +34,7 @@ public class ArquivoController {
         String trailer = "";
 
 
-        for (int i = 1; i < 586; i++) {
-            if (i == 121) {
-                i = 224;
-            }
-
-            if (i == 308) {
-                i = 346;
-            }
-
-            if (i == 351) {
-                i = 379;
-            }
-
-            if (i == 389) {
-                i = 393;
-            }
-
-            if (i == 396) {
-                i = 397;
-            }
-
+        for (int i = 1; i < 412; i++) {
             lista.adiciona(repository.getOne(i));
         }
 
@@ -94,7 +74,7 @@ public class ArquivoController {
                     corpo += String.format(";%.2f", alimento.getFerro());
                     corpo += String.format(";%.2f", alimento.getSodio());
                     corpo += String.format(";%.2f", alimento.getProteina());
-                    corpo += String.format(";%04d", alimento.getCategoria());
+                    corpo += String.format(";%04d", alimento.getCategoria().getIdCategoria());
 
                     contRegDados++;
 
@@ -136,7 +116,7 @@ public class ArquivoController {
                     corpo += String.format("%07.2f", alimento.getFerro());
                     corpo += String.format("%07.2f", alimento.getSodio());
                     corpo += String.format("%07.2f", alimento.getProteina());
-                    corpo += String.format("%04d", alimento.getCategoria());
+                    corpo += String.format("%04d", alimento.getCategoria().getIdCategoria());
 
                     contRegDados++;
 
