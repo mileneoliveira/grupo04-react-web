@@ -1,8 +1,31 @@
 import React, { Component } from 'react';
 import './style.css';
+import api from '../../services/api';
+import { useHistory, Link } from 'react-router-dom';
 
-export default class Login extends Component {
-    render() {
+const Login = () => {
+    const [values, setValues] = React.useState({
+        email: "",
+        senha: ""
+
+    });
+    const hist = useHistory();
+
+    function onChange(ev) {
+        const { name, value } = ev.target;
+
+        setValues({ ...values, [name]: value });
+    }
+
+    function onSubmit(ev) {
+        ev.preventDefault();
+
+        api.post('/usuarios/login', values)
+            .then((response) => {
+                hist.push('/feed')
+            })
+    }
+
         return (
 
             <div className="container">
@@ -26,16 +49,17 @@ export default class Login extends Component {
                             <img classNome="texto-divisor" src="./imgs/texto-ou.svg" alt="" />
                         </center> */}
 
-                        <form>
-                            <label >
+                        <form onSubmit={onSubmit}>
+                            <label htmlFor="email">
                                 <h2 className="p-email">Insira seu E-mail</h2>
-                                <input type="text" class="input-login" placeholder="E-mail" />
+                                <input type="text" className="input-login" placeholder="E-mail" name="email" onChange={onChange}/>
                             </label>
-                            <label >
+                            <label htmlFor="">
                                 <h2 className="p-email">Insira sua senha</h2>
-                                <input type="text" class="input-login" placeholder="Senha" />
+                                <input type="text" className="input-login" placeholder="Senha" name="senha" onChange={onChange}/>
                             </label>
-                            <a href="feed" className="buttom-login" type="submit">Iniciar sessão</a>
+                            <button className="buttom-login">Iniciar sessão</button>
+                            {/* <a href="feed" className="buttom-login" type="submit">Iniciar sessão</a> */}
                         </form>
                         <div className="nao-tem">
                             <p>Não tem uma conta? <a href="cadastro">Cadastre-se</a></p>
@@ -45,5 +69,7 @@ export default class Login extends Component {
                 </div>
             </div>
         )
-    }
+    
 }
+
+export default Login;
