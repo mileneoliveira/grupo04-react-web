@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './style.css';
 
-export default class Cadastro extends Component {
-    render() {
+const Cadastro = () => {
+
         return (
             <div className="conteudo_cadastro">
 
@@ -62,5 +62,7 @@ export default class Cadastro extends Component {
 
             </div>
         )
-    }
+    
 }
+
+export default Cadastro;

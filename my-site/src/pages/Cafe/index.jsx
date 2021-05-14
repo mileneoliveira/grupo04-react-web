@@ -11,7 +11,6 @@ export default class Cafe extends Component {
             <div>
                 <div>
                 <MoldeSide />
-                <MoldePesquisa />
                 </div>
 
 

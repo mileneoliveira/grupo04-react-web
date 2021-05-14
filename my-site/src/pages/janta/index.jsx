@@ -11,7 +11,6 @@ export default class Janta extends Component {
             <div>
                 <div>
                 <MoldeSide />
-                <MoldePesquisa />
                 </div>
 
 
