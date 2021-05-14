@@ -22,8 +22,8 @@ public class ObjetivoController {
     private ObjetivoRepository repository;
 
     @GetMapping
-    public ResponseEntity getObjetivos(){
-        List<Objetivo> objetivos = repository.findAll();
+    public ResponseEntity getObjetivos(@RequestParam Integer idUsuario){
+        List<Objetivo> objetivos = repository.pesquisarPorUser(idUsuario);
 
         if (!objetivos.isEmpty()){
             return ResponseEntity.status(200).body

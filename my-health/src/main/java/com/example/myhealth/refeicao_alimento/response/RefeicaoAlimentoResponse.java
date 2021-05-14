@@ -1,12 +1,10 @@
 package com.example.myhealth.refeicao_alimento.response;
 
 import com.example.myhealth.refeicao_alimento.RefeicaoAlimento;
-import com.example.myhealth.refeicao_alimento.RefeicaoAlimentoId;
 
 public class RefeicaoAlimentoResponse {
 
     private Integer usuarioId;
-    private String nomeUsuario;
     private Integer idRefeicao;
     private Integer idTipoRefeicao;
     private String tipoRefeicao;
@@ -24,7 +22,6 @@ public class RefeicaoAlimentoResponse {
 
     public RefeicaoAlimentoResponse(RefeicaoAlimento entidade) {
         this.usuarioId = entidade.getRefeicao().getUsuario().getIdUsuario();
-        this.nomeUsuario = entidade.getRefeicao().getUsuario().getNome();
         this.idRefeicao = entidade.getRefeicao().getIdRefeicao();
         this.idTipoRefeicao = entidade.getRefeicao().getCategoriaRefeicao().getIdCategoriaRefeicao();
         this.tipoRefeicao = entidade.getRefeicao().getCategoriaRefeicao().getNome();
@@ -43,10 +40,6 @@ public class RefeicaoAlimentoResponse {
 
     public Integer getUsuarioId() {
         return usuarioId;
-    }
-
-    public String getNomeUsuario() {
-        return nomeUsuario;
     }
 
     public Integer getIdRefeicao() {
