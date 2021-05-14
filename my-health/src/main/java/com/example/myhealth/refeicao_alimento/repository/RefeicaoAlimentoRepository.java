@@ -5,32 +5,40 @@ import com.example.myhealth.refeicao_alimento.RefeicaoAlimentoId;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 public interface RefeicaoAlimentoRepository extends JpaRepository<RefeicaoAlimento, RefeicaoAlimentoId> {
 
-    @Query(value = "SELECT sum(proteina) FROM Refeicao_alimento ra, Refeicao r, Alimento a where ra.id_refeicao = ?1 and r.id_refeicao = ra.id_refeicao and ra.id_alimento = a.id_alimento", nativeQuery = true)
+    @Query(value = "SELECT sum((a.proteina / a.porcao) * ra.porcao ) FROM Refeicao_alimento ra, Refeicao r, Alimento a where ra.id_refeicao = ?1 and r.id_refeicao = ra.id_refeicao and ra.id_alimento = a.id_alimento", nativeQuery = true)
     Double somaProteina(Integer idRefeicao);
 
-    @Query(value = "SELECT sum(colesterol) FROM Refeicao_alimento ra, Refeicao r, Alimento a where ra.id_refeicao = ?1 and r.id_refeicao = ra.id_refeicao and ra.id_alimento = a.id_alimento", nativeQuery = true)
+    @Query(value = "SELECT sum((a.colesterol / a.porcao) * ra.porcao ) FROM Refeicao_alimento ra, Refeicao r, Alimento a where ra.id_refeicao = ?1 and r.id_refeicao = ra.id_refeicao and ra.id_alimento = a.id_alimento", nativeQuery = true)
     Double somaColesterol(Integer idRefeicao);
 
-    @Query(value = "SELECT sum(carboidrato) FROM Refeicao_alimento ra, Refeicao r, Alimento a where ra.id_refeicao = ?1 and r.id_refeicao = ra.id_refeicao and ra.id_alimento = a.id_alimento", nativeQuery = true)
+    @Query(value = "SELECT sum((a.carboidrato / a.porcao) * ra.porcao ) FROM Refeicao_alimento ra, Refeicao r, Alimento a where ra.id_refeicao = ?1 and r.id_refeicao = ra.id_refeicao and ra.id_alimento = a.id_alimento", nativeQuery = true)
     Double somaCarboidrato(Integer idRefeicao);
 
-    @Query(value = "SELECT sum(fibra) FROM Refeicao_alimento ra, Refeicao r, Alimento a where ra.id_refeicao = ?1 and r.id_refeicao = ra.id_refeicao and ra.id_alimento = a.id_alimento", nativeQuery = true)
+    @Query(value = "SELECT sum((a.fibra / a.porcao) * ra.porcao ) FROM Refeicao_alimento ra, Refeicao r, Alimento a where ra.id_refeicao = ?1 and r.id_refeicao = ra.id_refeicao and ra.id_alimento = a.id_alimento", nativeQuery = true)
     Double somaFibra(Integer idRefeicao);
 
-    @Query(value = "SELECT sum(calcio) FROM Refeicao_alimento ra, Refeicao r, Alimento a where ra.id_refeicao = ?1 and r.id_refeicao = ra.id_refeicao and ra.id_alimento = a.id_alimento", nativeQuery = true)
+    @Query(value = "SELECT sum((a.calcio / a.porcao) * ra.porcao ) FROM Refeicao_alimento ra, Refeicao r, Alimento a where ra.id_refeicao = ?1 and r.id_refeicao = ra.id_refeicao and ra.id_alimento = a.id_alimento", nativeQuery = true)
     Double somaCalcio(Integer idRefeicao);
 
-    @Query(value = "SELECT sum(ferro) FROM Refeicao_alimento ra, Refeicao r, Alimento a where ra.id_refeicao = ?1 and r.id_refeicao = ra.id_refeicao and ra.id_alimento = a.id_alimento", nativeQuery = true)
+    @Query(value = "SELECT sum((a.ferro / a.porcao) * ra.porcao ) FROM Refeicao_alimento ra, Refeicao r, Alimento a where ra.id_refeicao = ?1 and r.id_refeicao = ra.id_refeicao and ra.id_alimento = a.id_alimento", nativeQuery = true)
     Double somaFerro(Integer idRefeicao);
 
-    @Query(value = "SELECT sum(sodio) FROM Refeicao_alimento ra, Refeicao r, Alimento a where ra.id_refeicao = ?1 and r.id_refeicao = ra.id_refeicao and ra.id_alimento = a.id_alimento", nativeQuery = true)
+    @Query(value = "SELECT sum((a.sodio / a.porcao) * ra.porcao ) FROM Refeicao_alimento ra, Refeicao r, Alimento a where ra.id_refeicao = ?1 and r.id_refeicao = ra.id_refeicao and ra.id_alimento = a.id_alimento", nativeQuery = true)
     Double somaSodio(Integer idRefeicao);
 
-    @Query(value = "SELECT sum(calorias) FROM Refeicao_alimento ra, Refeicao r, Alimento a where ra.id_refeicao = ?1 and r.id_refeicao = ra.id_refeicao and ra.id_alimento = a.id_alimento", nativeQuery = true)
+    @Query(value = "SELECT sum((a.calorias / a.porcao) * ra.porcao ) FROM Refeicao_alimento ra, Refeicao r, Alimento a where ra.id_refeicao = ?1 and r.id_refeicao = ra.id_refeicao and ra.id_alimento = a.id_alimento", nativeQuery = true)
     Double somaCalorias(Integer idRefeicao);
 
+    @Query(value = "SELECT case WHEN EXISTS ( SELECT * FROM Refeicao_alimento ra  where ra.id_refeicao = ?1) then CAST (1 AS BIT) ELSE CAST(0 AS BIT) END", nativeQuery = true)
+    boolean refeicaoAlimentoExiste(Integer idRefeicao);
+
+    @Query(value = "SELECT sum((a.calorias / a.porcao) * ra.porcao ) FROM Refeicao_alimento ra, Refeicao r, Alimento a, Usuario u where r.data_refeicao BETWEEN ?1 and ?2 and r.id_refeicao = ra.id_refeicao and ra.id_alimento = a.id_alimento and u.id_usuario = ?3", nativeQuery = true)
+    Double somaCaloriasDia(LocalDateTime dataInicio , LocalDateTime LocalDateFim, Integer idUsuario);
 
 //    @Query(value = "SELECT sum(proteina), sum(colesterol), sum(carboidrato), sum(fibra), sum(calcio), sum(ferro), sum(sodio), sum(calorias)" +
 //            " FROM Refeicao_alimento ra, Refeicao r, Alimento a where r.id_refeicao = 3 and ra.id_alimento = a.id_alimento", nativeQuery = true)

@@ -21,6 +21,8 @@ public class RefeicaoAlimento {
     @ManyToOne(optional = false)
     private Alimento alimento;
 
+    private Double porcao;
+
 
     public RefeicaoAlimentoId getId() {
         return id;
@@ -44,5 +46,13 @@ public class RefeicaoAlimento {
 
     public void setAlimento(Alimento alimento) {
         this.alimento = alimento;
+    }
+
+    public Double getPorcao() {
+        return porcao;
+    }
+
+    public void setPorcao(Double porcao) {
+        this.porcao = porcao;
     }
 }

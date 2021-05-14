@@ -65,7 +65,8 @@ CREATE TABLE Refeicao_alimento(
 	id_alimento int NOT NULL PRIMARY KEY,
 	FOREIGN KEY (id_alimento) REFERENCES Alimento(id_alimento),
 	id_refeicao int NOT NULL PRIMARY KEY,
-	FOREIGN KEY (id_refeicao) REFERENCES Refeicao(id_refeicao)
+	FOREIGN KEY (id_refeicao) REFERENCES Refeicao(id_refeicao),
+	porcao decimal(10,2) NOT NULL
 );
 
 CREATE TABLE Refeicao_alimento(

@@ -8,6 +8,7 @@ public class RefeicaoAlimentoResponse {
     private Integer usuarioId;
     private String nomeUsuario;
     private Integer idRefeicao;
+    private Integer idTipoRefeicao;
     private String tipoRefeicao;
     private Integer idAlimento;
     private String nomeAlimento;
@@ -25,10 +26,11 @@ public class RefeicaoAlimentoResponse {
         this.usuarioId = entidade.getRefeicao().getUsuario().getIdUsuario();
         this.nomeUsuario = entidade.getRefeicao().getUsuario().getNome();
         this.idRefeicao = entidade.getRefeicao().getIdRefeicao();
-        this.tipoRefeicao = entidade.getRefeicao().getTipo();
+        this.idTipoRefeicao = entidade.getRefeicao().getCategoriaRefeicao().getIdCategoriaRefeicao();
+        this.tipoRefeicao = entidade.getRefeicao().getCategoriaRefeicao().getNome();
         this.idAlimento = entidade.getAlimento().getIdAlimento();
         this.nomeAlimento = entidade.getAlimento().getNome();
-        this.porcaoAlimento = entidade.getAlimento().getPorcao();
+        this.porcaoAlimento = entidade.getPorcao();
         this.calorias = entidade.getAlimento().getCalorias();
         this.colesterol = entidade.getAlimento().getColesterol();
         this.carboidrato = entidade.getAlimento().getCarboidrato();
@@ -97,5 +99,9 @@ public class RefeicaoAlimentoResponse {
 
     public Double getProteina() {
         return proteina;
+    }
+
+    public Integer getIdTipoRefeicao() {
+        return idTipoRefeicao;
     }
 }
