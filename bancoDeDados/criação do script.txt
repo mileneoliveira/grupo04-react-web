@@ -1,57 +1,52 @@
 -- criação das tabelas
 
 CREATE TABLE Objetivo(
-	idObjetivo int NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	id_objetivo int NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	titulo varchar(45) NOT NULL,
-	descricao varchar(45) NOT NULL,
-	tempo int NOT NULL,
-	pesoMeta decimal(10,2) NOT NULL,
-	dataMeta date NOT NULL
+	descricao varchar(45) ,
+	peso_meta decimal(10,2) ,
+	data_meta date NOT NULL ,
+	data_criacao date NOT NULL,
+	usuario_id int NOT NULL,
+	FOREIGN KEY (usuario_id) REFERENCES Usuario(id_usuario)
 );
 
 CREATE TABLE Usuario(
-	idUsuario int NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	id_usuario int NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	nome varchar(45) NOT NULL,
 	senha varchar(45) NOT NULL,
 	email varchar(45) NOT NULL,
-	peso decimal(10,2) NOT NULL,
-	altura int NOT NULL,
-	dataNascimento date NOT NULL,
-	objetivoId int NOT NULL,
-	FOREIGN KEY (objetivoId) REFERENCES Objetivo(idObjetivo)
+	peso decimal(10,2) ,
+	altura int ,
+	data_nascimento date ,
+	autenticado bit 
 );
 
 
 CREATE TABLE Publicacao(
-	idPublicacao int NOT NULL IDENTITY(1,1) PRIMARY KEY,
-	titulo varchar(45) NOT NULL,
+	id_publicacao int NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	descricao varchar(300) NOT NULL,
 	curtida int NOT NULL,
-	usuarioId int NOT NULL, 
-	FOREIGN KEY (usuarioId) REFERENCES Usuario(idUsuario)
+	url_imagem varchar(450) NOT NULL,
+	usuario_id int NOT NULL, 
+	FOREIGN KEY (usuario_id) REFERENCES Usuario(id_usuario)
 );
 
 CREATE TABLE Refeicao(
-	idRefeicao int NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	id_refeicao int NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	tipo varchar(45) NOT NULL,
-	totalCalorias decimal(10,2) NOT NULL,
-	totalColesterol decimal(10,2) NOT NULL,
-	totalCarboidrato decimal(10,2) NOT NULL,
-	totalFibra decimal(10,2) NOT NULL,
-	totalCalcio decimal(10,2) NOT NULL,
-	totalFerro decimal(10,2) NOT NULL,
-	totalSodio decimal(10,2) NOT NULL,
-	totalProteina decimal(10,2) NOT NULL,
-	usuarioId int NOT NULL,
+	data_refeicao date NOT NULL,
+	usuario_id int NOT NULL,
+	FOREIGN KEY (usuario_id) REFERENCES Usuario(id_usuario)
 );
 
 CREATE TABLE Categoria(
-	idCategoria int NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	id_categoria int NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	nome varchar(100)
 );
 
 CREATE TABLE Alimento(
-	idAlimento int NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	id_alimento int NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	nome varchar(45) NOT NULL,
 	porcao decimal(10,2) NOT NULL,
 	proteina decimal(10,2) NOT NULL,
@@ -62,33 +57,50 @@ CREATE TABLE Alimento(
 	ferro decimal(10,2) NOT NULL,
 	sodio decimal(10,2) NOT NULL,
 	calorias decimal(10,2) NOT NULL,
-	categoriaId int NOT NULL,
-	FOREIGN KEY (categoriaId) REFERENCES Categoria(idCategoria)
+	categoria_id int NOT NULL,
+	FOREIGN KEY (categoria_id) REFERENCES Categoria(id_categoria)
 );
+
+CREATE TABLE Refeicao_alimento(
+	id_alimento int NOT NULL PRIMARY KEY,
+	FOREIGN KEY (id_alimento) REFERENCES Alimento(id_alimento),
+	id_refeicao int NOT NULL PRIMARY KEY,
+	FOREIGN KEY (id_refeicao) REFERENCES Refeicao(id_refeicao),
+	porcao decimal(10,2) NOT NULL
+);
+
+CREATE TABLE Refeicao_alimento(
+    id_alimento int NOT NULL,
+    id_refeicao int NOT NULL,
+    PRIMARY KEY CLUSTERED ( [id_alimento], [id_refeicao] ),
+    FOREIGN KEY (id_alimento) REFERENCES Alimento(id_alimento),
+    FOREIGN KEY (id_refeicao) REFERENCES Refeicao(id_refeicao)
+);
+
 
 
 	
 -- insert 
 
-INSERT INTO Categoria(idCategoria, nome) VALUES
-(1, 'Cereais e derivados'),
-(2, 'Verduras, hortaliças e derivados'),
-(3, 'Frutas e derivados'),
-(4, 'Gorduras e óleos'),
-(5, 'Pescados e frutos do mar'),
-(6, 'Carnes e derivados'),
-(7, 'Leite e derivados'),
-(8, 'Bebidas (alcoólicas e não alcoólicas)'),
-(9, 'Ovos e derivados'),
-(10, 'Produtos açucarados'),
-(11, 'Miscelâneas'),
-(12, 'Outros alimentos industrializados'),
-(13, 'Alimentos preparados'),
-(14, 'Leguminosas e derivados'),
-(15, 'Nozes e sementes');
+INSERT INTO Categoria(nome) VALUES
+('Cereais e derivados'),
+('Verduras, hortaliças e derivados'),
+('Frutas e derivados'),
+('Gorduras e óleos'),
+('Pescados e frutos do mar'),
+('Carnes e derivados'),
+('Leite e derivados'),
+('Bebidas (alcoólicas e não alcoólicas)'),
+('Ovos e derivados'),
+('Produtos açucarados'),
+('Miscelâneas'),
+('Outros alimentos industrializados'),
+('Alimentos preparados'),
+('Leguminosas e derivados'),
+('Nozes e sementes');
 
 
-INSERT INTO Alimento(nome, porcao, proteina, colesterol, carboidrato, fibra, calcio, ferro, sodio, calorias, categoriaId) VALUES
+INSERT INTO Alimento(nome, porcao, proteina, colesterol, carboidrato, fibra, calcio, ferro, sodio, calorias, id_categoria) VALUES
 
 
 

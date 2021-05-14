@@ -1,5 +1,6 @@
 package com.example.myhealth.refeicao.response;
 
+import com.example.myhealth.categoria_refeicao.CategoriaRefeicao;
 import com.example.myhealth.refeicao.Refeicao;
 
 import java.time.LocalDateTime;
@@ -7,14 +8,14 @@ import java.time.LocalDateTime;
 public class RefeicoesResponse {
 
     private Integer idRefeicao;
-    private String tipo;
+    private Integer idTipo;
     private LocalDateTime dataRefeicao;
     private Integer usuarioId;
     private String nomeUsuario;
 
     public RefeicoesResponse(Refeicao entidade) {
         this.idRefeicao = entidade.getIdRefeicao();
-        this.tipo = entidade.getTipo();
+        this.idTipo = entidade.getCategoriaRefeicao().getIdCategoriaRefeicao();
         this.dataRefeicao = entidade.getDataRefeicao();
         this.usuarioId = entidade.getUsuario().getIdUsuario();
         this.nomeUsuario = entidade.getUsuario().getNome();
@@ -24,8 +25,8 @@ public class RefeicoesResponse {
         return idRefeicao;
     }
 
-    public String getTipo() {
-        return tipo;
+    public Integer getIdTipo() {
+        return idTipo;
     }
 
     public LocalDateTime getDataRefeicao() {

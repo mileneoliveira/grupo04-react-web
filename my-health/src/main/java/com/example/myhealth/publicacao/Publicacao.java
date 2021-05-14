@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PositiveOrZero;
 import javax.validation.constraints.Size;
+import java.time.LocalDateTime;
 
 @Entity
 public class Publicacao {
@@ -24,9 +25,16 @@ public class Publicacao {
     @Column(name = "url_imagem")
     private String urlImagem;
 
+    @Column(name = "data_publicacao")
+    private LocalDateTime dataPublicacao;
+
     @JoinColumn(name = "usuario_id")
     @ManyToOne
     private Usuario usuario;
+
+    public Publicacao() {
+        this.dataPublicacao = LocalDateTime.now();
+    }
 
     public Integer getIdPublicacao() {
         return idPublicacao;
@@ -66,5 +74,13 @@ public class Publicacao {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    public LocalDateTime getDataPublicacao() {
+        return dataPublicacao;
+    }
+
+    public void setDataPublicacao(LocalDateTime dataPublicacao) {
+        this.dataPublicacao = dataPublicacao;
     }
 }

@@ -1,6 +1,9 @@
 package com.example.myhealth.objetivo;
 
+import com.example.myhealth.objetivo.request.ObjetivoRequest;
 import com.example.myhealth.usuario.Usuario;
+import com.example.myhealth.usuario.repository.UsuarioRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;

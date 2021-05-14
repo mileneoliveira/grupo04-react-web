@@ -2,6 +2,7 @@ package com.example.myhealth.objetivo.controller;
 
 import com.example.myhealth.objetivo.Objetivo;
 import com.example.myhealth.objetivo.repository.ObjetivoRepository;
+import com.example.myhealth.objetivo.request.ObjetivoRequest;
 import com.example.myhealth.objetivo.response.ObjetivoResponse;
 import com.example.myhealth.publicacao.Publicacao;
 import com.example.myhealth.usuario.Usuario;
@@ -21,8 +22,8 @@ public class ObjetivoController {
     private ObjetivoRepository repository;
 
     @GetMapping
-    public ResponseEntity getObjetivos(){
-        List<Objetivo> objetivos = repository.findAll();
+    public ResponseEntity getObjetivos(@RequestParam Integer idUsuario){
+        List<Objetivo> objetivos = repository.pesquisarPorUser(idUsuario);
 
         if (!objetivos.isEmpty()){
             return ResponseEntity.status(200).body

@@ -1,5 +1,6 @@
 package com.example.myhealth.refeicao;
 
+import com.example.myhealth.categoria_refeicao.CategoriaRefeicao;
 import com.example.myhealth.usuario.Usuario;
 
 import javax.persistence.*;
@@ -18,13 +19,13 @@ public class Refeicao {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idRefeicao;
 
-    @NotBlank
-    @NotNull
-    @Size(min = 1, max = 45)
-    private String tipo;
 
     @Column(name = "data_refeicao")
     private LocalDateTime dataRefeicao;
+
+    @JoinColumn(name = "categoria_refeicao_id")
+    @ManyToOne
+    private CategoriaRefeicao categoriaRefeicao;
 
     @JoinColumn(name = "usuario_id")
     @ManyToOne
@@ -42,12 +43,12 @@ public class Refeicao {
         this.idRefeicao = idRefeicao;
     }
 
-    public String getTipo() {
-        return tipo;
+    public CategoriaRefeicao getCategoriaRefeicao() {
+        return categoriaRefeicao;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setCategoriaRefeicao(CategoriaRefeicao categoriaRefeicao) {
+        this.categoriaRefeicao = categoriaRefeicao;
     }
 
     public LocalDateTime getDataRefeicao() {

@@ -2,16 +2,17 @@ package com.example.myhealth.usuario.controller;
 
 
 import com.example.myhealth.usuario.Usuario;
+import com.example.myhealth.usuario.request.AtualizarUserPesoDto;
 import com.example.myhealth.usuario.request.UserDto;
 import com.example.myhealth.usuario.response.UsuarioLogin;
 import com.example.myhealth.usuario.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/usuarios")
@@ -62,7 +63,7 @@ public class UsuarioController {
 
     @PostMapping("/login")
     public ResponseEntity login (@RequestBody UserDto usuario){
-        List<UsuarioLogin> users = repository.pesquisarLogin2(usuario.getEmail(), usuario.getSenha());
+        List<UsuarioLogin> users = repository.pesquisarLogin(usuario.getEmail(), usuario.getSenha());
 
         if (!users.isEmpty()){
             UsuarioLogin usuarioLogin = users.get(0);
@@ -81,7 +82,7 @@ public class UsuarioController {
 
     @PostMapping("/logout")
     public ResponseEntity logout(@RequestBody UserDto usuario){
-        List<UsuarioLogin> users = repository.pesquisarLogin2(usuario.getEmail(), usuario.getSenha());
+        List<UsuarioLogin> users = repository.pesquisarLogin(usuario.getEmail(), usuario.getSenha());
 
         if (!users.isEmpty()){
             UsuarioLogin usuarioLogin = users.get(0);
@@ -96,7 +97,17 @@ public class UsuarioController {
             return ResponseEntity.status(200).body(userLogado);
         }
         return ResponseEntity.status(404).build();
-
     }
 
+//    @PutMapping("/atualizar")
+//    public ResponseEntity atualizar(@RequestBody AtualizarUserPesoDto usuario){
+//        AtualizarUserPesoDto user = repository.pesquisarPorId(usuario.getUsuarioId());
+//        if (user != null){
+//            Usuario usera = repository.findById(usuario.getUsuarioId());
+//            usera.setPeso(usuario.getPeso());
+//            repository.save(usuario1);
+//            return ResponseEntity.status(200).build();
+//        }
+//        return ResponseEntity.status(404).build();
+//    }
 }
