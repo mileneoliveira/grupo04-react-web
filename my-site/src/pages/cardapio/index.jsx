@@ -19,7 +19,7 @@ export default class Cardapio extends Component {
                         </li>
                         <li className="icones"><a href="perfil"><i className="fas fa-user-circle"></i>Perfil</a></li>
                         <li className="icones"><a href="dashboard"><i class="fas fa-qrcode"></i>Dashboard</a></li>
-                        <li className="icones"><a href="cardapio"><i class="fas fa-plus"></i>Adicionar</a></li>
+                        <li className="icones"><a href="cardapio"><i class="fas fa-plus"></i>Refeição</a></li>
                         <li className="icones"><a href="login"><i class="fas fa-power-off"></i>Desconectar</a></li>
                         <li className="icones"><a href="feed"><i class="fas fa-sync"></i>Recarregar</a></li>
 

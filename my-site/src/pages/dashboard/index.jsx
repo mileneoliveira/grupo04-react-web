@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ChartJs from '../../components/ChartJs';
-import MoldePesquisa from '../../components/molde-barra-pesquisa';
+import MoldeData from '../../components/molde-data';
 import MoldeSide from '../../components/molde-sidebar/molde-sidebar';
 import './style.css';
 
@@ -11,7 +11,7 @@ export default class Dashboard extends Component {
             <div>
                 <div>
                 <MoldeSide />
-                <MoldePesquisa />
+                <MoldeData />
                 </div>
 
 

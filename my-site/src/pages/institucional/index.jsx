@@ -39,8 +39,6 @@ export default class institucional extends Component {
                     <p>Acompanhar sua <b>evolução</b> nunca foi tão fácil.</p>
                     <br/>
                     <br/>
-                    <br/>
-                    <br/>
                     <a href="cadastro" className="btn1">Crie sua conta</a>
                     </div>
                 </section>

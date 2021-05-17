@@ -11,7 +11,6 @@ export default class Perfil extends Component {
         return (
             <div>
                 <MoldeSide />
-                <MoldePesquisa />
                 <div className="ChartDiv">
                     <ChartJs />
                     <ChartPie />

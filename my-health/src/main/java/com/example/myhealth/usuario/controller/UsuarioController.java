@@ -33,6 +33,7 @@ public class UsuarioController {
         }
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping()
     public ResponseEntity postCadastrarUsuario(@RequestBody @Valid Usuario usuario) {
         repository.save(usuario);
@@ -61,6 +62,7 @@ public class UsuarioController {
         return ResponseEntity.status(404).build();
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/login")
     public ResponseEntity login (@RequestBody UserDto usuario){
         List<UsuarioLogin> users = repository.pesquisarLogin(usuario.getEmail(), usuario.getSenha());

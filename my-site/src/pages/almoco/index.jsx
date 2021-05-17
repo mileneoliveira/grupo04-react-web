@@ -11,7 +11,6 @@ export default class Almoco extends Component {
             <div>
                 <div>
                 <MoldeSide />
-                <MoldePesquisa />
                 </div>
 
 
