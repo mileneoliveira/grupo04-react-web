@@ -38,7 +38,7 @@ public class RefeicaoAlimentoController {
     }
 
     @GetMapping("/refeicoes-dia")
-    public ResponseEntity getRefeicoesAlimento(
+    public ResponseEntity getRefeicoesAlimentoDia(
             @RequestParam("data") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate data,
             @RequestParam Integer idUsuario) {
         LocalDateTime dtStart = data.atStartOfDay();

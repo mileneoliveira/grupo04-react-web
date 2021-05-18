@@ -20,9 +20,9 @@ public class RefeicaoController {
     private RefeicaoRepository repository;
 
     @GetMapping()
-    public ResponseEntity listarRefeicao() {
+    public ResponseEntity listarRefeicao(@RequestParam Integer idUsuario) {
         List<Refeicao> refeicoes = repository.findAll();
-        if (!refeicoes.isEmpty()){
+        if (!(refeicoes.isEmpty() )){
             return ResponseEntity.status(200).body(
                     refeicoes.stream().map(RefeicoesResponse::new).collect(Collectors.toList()));
         }

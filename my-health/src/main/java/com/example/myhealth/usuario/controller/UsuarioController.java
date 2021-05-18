@@ -2,16 +2,16 @@ package com.example.myhealth.usuario.controller;
 
 
 import com.example.myhealth.usuario.Usuario;
-import com.example.myhealth.usuario.request.AtualizarUserPesoDto;
+import com.example.myhealth.usuario.repository.UsuarioRepository;
 import com.example.myhealth.usuario.request.UserDto;
 import com.example.myhealth.usuario.response.UsuarioLogin;
-import com.example.myhealth.usuario.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -57,7 +57,7 @@ public class UsuarioController {
         if (repository.existsById(id)){
             usuario.setId(id);
             repository.save(usuario);
-            return ResponseEntity.status(200).build();
+            return ResponseEntity.status(200).body(usuario);
         }
         return ResponseEntity.status(404).build();
     }
@@ -69,9 +69,6 @@ public class UsuarioController {
 
         if (!users.isEmpty()){
             UsuarioLogin usuarioLogin = users.get(0);
-            if(usuarioLogin.getAutenticado()){
-                return ResponseEntity.status(418).build();
-            }
 
             Usuario userLogado = repository.findByEmailAndSenha(usuarioLogin.getEmail(), usuarioLogin.getSenha());
             userLogado.setAutenticado(true);
@@ -88,9 +85,6 @@ public class UsuarioController {
 
         if (!users.isEmpty()){
             UsuarioLogin usuarioLogin = users.get(0);
-            if(!usuarioLogin.getAutenticado()){
-                return ResponseEntity.status(418).build();
-            }
 
             Usuario userLogado = repository.findByEmailAndSenha(usuarioLogin.getEmail(), usuarioLogin.getSenha());
             userLogado.setAutenticado(false);
@@ -99,17 +93,7 @@ public class UsuarioController {
             return ResponseEntity.status(200).body(userLogado);
         }
         return ResponseEntity.status(404).build();
+
     }
 
-//    @PutMapping("/atualizar")
-//    public ResponseEntity atualizar(@RequestBody AtualizarUserPesoDto usuario){
-//        AtualizarUserPesoDto user = repository.pesquisarPorId(usuario.getUsuarioId());
-//        if (user != null){
-//            Usuario usera = repository.findById(usuario.getUsuarioId());
-//            usera.setPeso(usuario.getPeso());
-//            repository.save(usuario1);
-//            return ResponseEntity.status(200).build();
-//        }
-//        return ResponseEntity.status(404).build();
-//    }
 }
