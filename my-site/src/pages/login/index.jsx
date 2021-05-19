@@ -20,8 +20,12 @@ const Login = () => {
     function onSubmit(ev) {
         ev.preventDefault();
 
+
         api.post('/usuarios/login', values)
             .then((response) => {
+                sessionStorage.setItem('idUsuario',response.data.idUsuario);
+                sessionStorage.setItem('nome',response.data.nome);
+                sessionStorage.setItem('email',response.data.email);
                 hist.push('/feed')
             })
     }
