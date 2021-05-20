@@ -1,0 +1,127 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+.container{
+display: grid;
+grid-gap: .2rem;
+grid-template-columns: 16.6% 16.6% 16.6% 16.6% 16.6% 16.6% 16.6%;
+grid-auto-rows: 33.33% 33.33% 33.33%;
+height: calc(100vh - 50px);
+}
+.conteudo{
+  /* background: blue; */
+  grid-column: 1 / 4;
+  grid-row: 1 / 4;
+}
+.alimento{
+margin-top: 40px;
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center
+}
+
+.informar-alimento{
+background: #11BD5D;
+height: 500px;
+width: 500px;
+border-radius: 10px;
+box-shadow: 1px 0px 15px black;
+
+}
+.titulo-lista{
+  text-align: center;
+  padding: 10px;
+}
+.informar-alimento label{
+  margin-left: 8px;
+  margin-top: 30px;
+  display: block;
+  font-size: 20px;
+  align-items: center;
+}
+.input-padrao{
+  display: block;
+  width: 70vmin;
+  padding: 10px;
+  background: white;
+  border: 1px #1D6C55 solid;
+  border-radius: 5px 5px 5px 5px;
+  margin-left: 8px;
+}
+.btn-adicionar{
+  display: block;
+  font-size: 20px;
+  margin-top: 50px;
+  padding: 10px;
+  width: 45vmin;
+  margin-left: 14vmin;
+  background: #2e8352;
+  border-radius: 5px 5px 5px 5px;
+  border:none;
+  transition: .4s;
+  color: aliceblue;
+}
+.btn-adicionar:hover{
+  color: #2e8352;
+  background: white;
+}
+
+
+/* CONTEUDO LISTA DE ALIMENTO*/
+.conteudo-lista{
+  /* background: black; */
+  grid-column: 4 / 7;
+  grid-row: 1 / 4;
+}
+.lista-alimento{
+margin-top: 40px;
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center
+}
+.itens-lista{
+background: #11BD5D;
+height: 500px;
+width: 500px;
+border-radius: 10px;
+box-shadow: 1px 0px 15px black;
+}
+.titulo-itens-alimento{
+  text-align: center;
+  padding: 10px;
+}
+.titulo-adicionado{
+  margin-top: 20px;
+  margin-left: 10px;
+}
+.alimentos-adicionados{
+  text-decoration: none;
+  margin-left: 10px;
+
+}
+.alimentos-adicionados li{
+font-size: 20px;
+font-weight: bold;
+color: antiquewhite;  
+}
+table {
+    margin: 40px 0px 0px 120px;
+}
+thead {
+  background: #555555;
+  color: white;
+  font-weight: bold;
+}
+
+td,
+th {
+  border: 1px solid #000000;
+  padding: 8px 15px;
+}
+
