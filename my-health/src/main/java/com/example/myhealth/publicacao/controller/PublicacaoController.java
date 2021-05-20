@@ -18,6 +18,7 @@ public class PublicacaoController {
     @Autowired
     private PublicacaoRepository repository;
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping
     public ResponseEntity getPublicacoes() {
         List<Publicacao> publicacoes = repository.findAll();

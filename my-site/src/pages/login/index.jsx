@@ -60,7 +60,7 @@ const Login = () => {
                             </label>
                             <label htmlFor="">
                                 <h2 className="p-email">Insira sua senha</h2>
-                                <input type="text" className="input-login" placeholder="Senha" name="senha" onChange={onChange}/>
+                                <input type="password" className="input-login" placeholder="Senha" name="senha" onChange={onChange}/>
                             </label>
                             <button className="buttom-login">Iniciar sessão</button>
                             {/* <a href="feed" className="buttom-login" type="submit">Iniciar sessão</a> */}

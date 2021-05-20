@@ -57,7 +57,7 @@ const Cadastro = () => {
                         </label>
                         <label htmlFor="senha">
                             <h3>Senha</h3>
-                            <input type="text" className="input-padrao" placeholder="Senha"  name="senha" onChange={onChange}/>
+                            <input type="password" className="input-padrao" placeholder="Senha"  name="senha" onChange={onChange}/>
                         </label>
 
                         <label className="checkbox"> <input type="checkbox" />
