@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Molde from '../../components/molde-feed-perfil/molde-feed';
 import MoldeSidebar from '../../components/molde-sidebar/molde-sidebar';
 import api from '../../services/api';
+import Publicar from '../../components/Publicar';
 
 const Feed = () => {
 
@@ -18,10 +19,13 @@ const Feed = () => {
     return (
         <>
         <MoldeSidebar />
+        <Publicar/>
             <div className="container">
                 <div className="publicacoes">
                 {publis.map((publi) => (
-                    <Molde nome={publi.nomeUsuario} descricao={publi.descricao} />
+                   <article key={publi.idUsuario}>
+                        <Molde nome={publi.nomeUsuario} descricao={publi.descricao} />               
+             </article>
                 ))}
                 </div>
             </div>

@@ -1,5 +1,6 @@
 body {
     font-family: 'Roboto', sans-serif;
+    
 }
 
 
@@ -8,6 +9,7 @@ body {
     padding: 0;
     list-style: none;
     text-decoration: none;
+
 }
 
 .sidebar {
@@ -101,7 +103,7 @@ label #cancel {
 
 .feed {
     z-index: 10;
-    height: 100vh;
+    min-height: 100vh;
     transition: all .5s;
     display: flex;
     justify-content: center;
@@ -114,13 +116,16 @@ label #cancel {
 .header_feed {
     z-index: 10;
     width: 65vmin;
-    position: absolute;
+    position: relative;
     height: 10vmin;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
+    right: 70vmin;
+  
+   
 }
 
 .header_feed input {
@@ -132,6 +137,8 @@ label #cancel {
     border-radius: 5px;
     border: none;
     text-align: center;
+    
+   
 }
 
 ::-webkit-input-placeholder {
@@ -234,10 +241,21 @@ label #cancel {
    
 
 .Publico {
-    margin-left: 48vmin;
+    /* margin-left: 50vmin; */
     padding: 1.5vmin;
     border-radius: 5px;
-    background-color: black;
+    font-weight: bold;
+    border: none;
+    background-color:#11BD5D;
     color: white;
     margin-top: 0.5vmin;
+    position: absolute;
+    left: 66vmin;
+    top: 3.7vmin;
+    transition: 0.2s;
+}
+.Publico:hover{
+    background: rgb(255, 255, 255);
+    border: 1px solid black;
+    color: #11BD5D;
 }
