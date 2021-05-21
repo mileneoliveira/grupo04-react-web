@@ -35,6 +35,7 @@ html,body{
   line-height: 45px;
   margin: 0 3em;
   }
+<<<<<<< HEAD
   .menu-lista-alimentos ul {
     list-style: none;
   }
@@ -62,18 +63,29 @@ html,body{
   /* background: red; */
   }
   .container-lista-alimentos{
+=======
+  .container{
+>>>>>>> 478e0fb5e9125081c987717d895d8afd4b0d6007
     display: grid;
     grid-gap: .2rem;
     grid-template-columns: 16.6% 16.6% 16.6% 16.6% 16.6% 16.6% 16.6%;
     grid-auto-rows: 33.33% 33.33% 33.33%;
     /* height: calc(100vh - 50px); */
     }
+<<<<<<< HEAD
     .conteudo-lista-alimentos{
+=======
+    .conteudo{
+>>>>>>> 478e0fb5e9125081c987717d895d8afd4b0d6007
       /* background: blue; */
       grid-column: 3 / 5;
       grid-row: 1 / 4;
     }
+<<<<<<< HEAD
     .alimento-lista-alimentos{
+=======
+    .alimento{
+>>>>>>> 478e0fb5e9125081c987717d895d8afd4b0d6007
     margin-top: 40px;
     display: flex;
     flex-direction: row;
@@ -81,24 +93,40 @@ html,body{
     align-items: center
     }
     
+<<<<<<< HEAD
     .informar-alimento-lista-alimentos{
+=======
+    .informar-alimento{
+>>>>>>> 478e0fb5e9125081c987717d895d8afd4b0d6007
     min-height: 350px;
     width: 100%;
     border-radius: 10px;
     border: solid 2px;
     }
+<<<<<<< HEAD
     .titulo-lista-lista-alimentos{
       text-align: center;
       padding: 10px;
     }
     .informar-alimento-lista-alimentos label{
+=======
+    .titulo-lista{
+      text-align: center;
+      padding: 10px;
+    }
+    .informar-alimento label{
+>>>>>>> 478e0fb5e9125081c987717d895d8afd4b0d6007
       margin-left: 8px;
       margin-top: 30px;
       display: block;
       font-size: 20px;
       align-items: center;
     }
+<<<<<<< HEAD
     .input-padrao-lista-alimentos{
+=======
+    .input-padrao{
+>>>>>>> 478e0fb5e9125081c987717d895d8afd4b0d6007
       /* display: inline-block; */
       width:50%;
       padding: 12px;
@@ -116,7 +144,11 @@ html,body{
    /* .input-padrao::-webkit-input-placeholder{
     
   } */
+<<<<<<< HEAD
     .btn-adicionar-lista-alimentos{
+=======
+    .btn-adicionar{
+>>>>>>> 478e0fb5e9125081c987717d895d8afd4b0d6007
       font-size: 18px;
       height: 40px;
       margin-left: 5px;
@@ -127,35 +159,59 @@ html,body{
       color: aliceblue;
       border-radius: 5px;
     }
+<<<<<<< HEAD
     .btn-adicionar-lista-alimentos:hover{
+=======
+    .btn-adicionar:hover{
+>>>>>>> 478e0fb5e9125081c987717d895d8afd4b0d6007
       border: 1px solid black;
       color: #2e8352;
       background: white;
     }
+<<<<<<< HEAD
     .logo-box-lista-alimentos{
+=======
+    .logo-box{
+>>>>>>> 478e0fb5e9125081c987717d895d8afd4b0d6007
       margin-left: 26vmin;
       margin-top: 25px;
     }
     
     
     /* CONTEUDO LISTA DE ALIMENTO*/
+<<<<<<< HEAD
     .conteudo-lista-lista-alimentos{
       grid-column: 3 / 5;
       grid-row: 3 / 5;
     }
     .lista-alimento-lista-alimentos{
+=======
+    .conteudo-lista{
+      grid-column: 3 / 5;
+      grid-row: 3 / 5;
+    }
+    .lista-alimento{
+>>>>>>> 478e0fb5e9125081c987717d895d8afd4b0d6007
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center
     }
+<<<<<<< HEAD
     .itens-lista-lista-alimentos{
+=======
+    .itens-lista{
+>>>>>>> 478e0fb5e9125081c987717d895d8afd4b0d6007
       min-height: 400px;
       min-width: 100%;
       border-radius: 10px;
       border: solid 2px;
     }
+<<<<<<< HEAD
     .titulo-itens-alimento-lista-alimentos{
+=======
+    .titulo-itens-alimento{
+>>>>>>> 478e0fb5e9125081c987717d895d8afd4b0d6007
       text-align: center;
       padding: 10px;
     }

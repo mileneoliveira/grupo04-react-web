@@ -8,10 +8,7 @@ import com.example.myhealth.usuario.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -30,7 +27,7 @@ public class DashboardController {
     @Autowired
     private UsuarioRepository repositoryUsuario;
 
-
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/somaNutrientes")
     public ResponseEntity somaElemento(
             @RequestParam("data") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate data,
@@ -54,6 +51,7 @@ public class DashboardController {
         return ResponseEntity.notFound().build();
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("caloriasDia")
     public ResponseEntity getCaloriasDia(@RequestParam("data") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate data, Integer idUsuario) {
         LocalDateTime dtStart = data.atStartOfDay();
@@ -66,6 +64,7 @@ public class DashboardController {
         }
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("caloriasIntervalo")
     public ResponseEntity getCaloriasIntervalo(@RequestParam("dataInicio") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dataInicio,
                                                @RequestParam("dataFim") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dataFim,

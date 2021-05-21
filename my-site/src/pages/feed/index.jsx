@@ -18,6 +18,7 @@ const Feed = () => {
 
     return (
         <>
+<<<<<<< HEAD
         <MoldeSidebar />
         <Publicar/>
             <div className="container">
@@ -27,6 +28,16 @@ const Feed = () => {
                         <Molde nome={publi.nomeUsuario} descricao={publi.descricao} />               
              </article>
                 ))}
+=======
+            <MoldeSidebar />
+            <div className="container">
+                <div className="publicacoes">
+                    {publis.map((publi) => (
+                        <article key={publi.idUsuario}>
+                            <Molde nome={publi.nomeUsuario} descricao={publi.descricao} />
+                        </article>
+                    ))}
+>>>>>>> 478e0fb5e9125081c987717d895d8afd4b0d6007
                 </div>
             </div>
         </>

@@ -53,4 +53,8 @@ export default class VisualizarAlimentos extends Component {
 
         )
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 478e0fb5e9125081c987717d895d8afd4b0d6007
