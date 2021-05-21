@@ -17,12 +17,14 @@ const Feed = () => {
 
     return (
         <>
-        <MoldeSidebar />
+            <MoldeSidebar />
             <div className="container">
                 <div className="publicacoes">
-                {publis.map((publi) => (
-                    <Molde nome={publi.nomeUsuario} descricao={publi.descricao} />
-                ))}
+                    {publis.map((publi) => (
+                        <article key={publi.idUsuario}>
+                            <Molde nome={publi.nomeUsuario} descricao={publi.descricao} />
+                        </article>
+                    ))}
                 </div>
             </div>
         </>
