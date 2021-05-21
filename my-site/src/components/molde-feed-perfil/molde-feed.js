@@ -11,11 +11,7 @@ function Molde(props) {
 
             <div className="feed">
 
-                <header className="header_feed">
-                    <input type="text" placeholder="O que comeu hoje?" />
-                    <button className="Publico">Publicar</button>
-                </header>
-
+         
                 <section className="perfil_feed">
                     <header className="header__perfl">
                         <div className="info_perfil">
@@ -28,7 +24,7 @@ function Molde(props) {
                                     <p>{props.descricao}</p>
                                 </li>
                             </ul>
-                            <a href="#sob"><i class="fas fa-ellipsis-v"></i></a>
+                            <a href="#sob"><i className="fas fa-ellipsis-v"></i></a>
                         </div>
 
                     </header>
@@ -42,9 +38,7 @@ function Molde(props) {
 
 
             </div>
-            <div className="componente-imagem">
-                <img src="./imgs/Component11.svg" alt="" />
-            </div>
+               
         </div>
 
     )
