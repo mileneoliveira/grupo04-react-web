@@ -3,7 +3,7 @@ package com.example.myhealth.publicacao;
 import com.example.myhealth.usuario.Usuario;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.PositiveOrZero;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
@@ -22,8 +22,8 @@ public class Publicacao {
     @PositiveOrZero
     private Integer curtida = 0;
 
-    @Column(name = "url_imagem")
-    private String urlImagem;
+    @NotBlank
+    private String imagem;
 
     @Column(name = "data_publicacao")
     private LocalDateTime dataPublicacao;
@@ -60,12 +60,12 @@ public class Publicacao {
         this.curtida = curtida;
     }
 
-    public String getUrlImagem() {
-        return urlImagem;
+    public String getImagem() {
+        return imagem;
     }
 
-    public void setUrlImagem(String urlImagem) {
-        this.urlImagem = urlImagem;
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
     }
 
     public Usuario getUsuario() {

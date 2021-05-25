@@ -1,7 +1,6 @@
 package com.example.myhealth.usuario.repository;
 
 import com.example.myhealth.usuario.Usuario;
-import com.example.myhealth.usuario.request.AtualizarUserPesoDto;
 import com.example.myhealth.usuario.response.UsuarioLogin;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -20,8 +19,5 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
     List<UsuarioLogin> updateAutenticado(Boolean autenticado);
 
     Usuario findByEmailAndSenha(String email, String senha);
-
-    @Query(value = "SELECT * FROM Usuario u where id_usuario = ?1", nativeQuery = true)
-    AtualizarUserPesoDto pesquisarPorId(Integer idUsuario);
 
 }

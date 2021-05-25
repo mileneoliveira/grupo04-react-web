@@ -6,14 +6,14 @@ public class PublicacaoResponse {
 
     private String descricao;
     private Integer curtida;
-    private String urlImagem;
+    private String imagem;
     private Integer usuarioId;
     private String nomeUsuario;
 
     public PublicacaoResponse(Publicacao entidade) {
         this.descricao = entidade.getDescricao();
         this.curtida = entidade.getCurtida();
-        this.urlImagem = entidade.getUrlImagem();
+        this.imagem = entidade.getImagem();
         this.usuarioId = entidade.getUsuario().getIdUsuario();
         this.nomeUsuario = entidade.getUsuario().getNome();
     }
@@ -26,8 +26,8 @@ public class PublicacaoResponse {
         return curtida;
     }
 
-    public String getUrlImagem() {
-        return urlImagem;
+    public String getImagem() {
+        return imagem;
     }
 
     public Integer getUsuarioId() {

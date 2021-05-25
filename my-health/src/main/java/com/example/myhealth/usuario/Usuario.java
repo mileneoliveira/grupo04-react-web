@@ -37,6 +37,9 @@ public class Usuario {
     @Column(name = "data_nascimento")
     private LocalDate dataNascimento;
 
+    @NotBlank
+    private String imagem;
+
 
     public Integer getIdUsuario() {
         return idUsuario;
@@ -104,5 +107,17 @@ public class Usuario {
 
     public void setAutenticado(boolean autenticado) {
         this.autenticado = autenticado;
+    }
+
+    public boolean isAutenticado() {
+        return autenticado;
+    }
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
     }
 }
