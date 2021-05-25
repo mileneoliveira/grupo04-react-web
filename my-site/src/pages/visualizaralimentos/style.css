@@ -32,7 +32,7 @@ html,body{
   }
   .menu-historico-alimento{
   float: right;
-  line-height: 45px;
+  line-height: 75px;
   margin: 0 3em;
   }
   .menu-historico-alimento ul {
@@ -67,8 +67,8 @@ html,body{
   }
   .teste-historico-alimento{
     position: absolute;
-    top: 15vmin;
-    left:95vmin ;
+    top: 17vmin;
+    left:96vmin ;
   }
   .refeicao-historico-alimento{
   

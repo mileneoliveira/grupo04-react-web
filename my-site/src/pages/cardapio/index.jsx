@@ -43,7 +43,7 @@ export default class Cardapio extends Component {
                                 <p>Café da manhã</p>
                                 <a href="#add"><i class="fas fa-plus"></i></a>
                             </div>
-                            <p className="ver-refeicao"><a href="#">Visualizar sua refeição</a></p>
+                            <p className="ver-refeicao"><a href="../visualizaralimentos/">Visualizar sua refeição</a></p>
                         </div>
 
                         <div className="cardapio__almoco itens">
@@ -54,7 +54,7 @@ export default class Cardapio extends Component {
                                 <p>Almoço</p>
                                 <a href="#add"><i class="fas fa-plus"></i></a>
                             </div>
-                            <p className="ver-refeicao"><a href="#">Visualizar sua refeição</a></p>
+                            <p className="ver-refeicao"><a href="../visualizaralimentos/">Visualizar sua refeição</a></p>
                         </div>
 
                         <div className="cardapio__jantar itens">
@@ -63,7 +63,7 @@ export default class Cardapio extends Component {
                                 <p>Jantar</p>
                                 <a href="#add"><i class="fas fa-plus"></i></a>
                             </div>
-                            <p className="ver-refeicao"><a href="#">Visualizar sua refeição</a></p>
+                            <p className="ver-refeicao"><a href="../visualizaralimentos/">Visualizar sua refeição</a></p>
                         </div>
 
                         <div className="cardapio__lanches_outros itens ">
@@ -72,7 +72,7 @@ export default class Cardapio extends Component {
                                 <p>Lanches/Outros</p>
                                 <a href="#add"><i class="fas fa-plus"></i></a>
                             </div>
-                            <p className="ver-refeicao"><a href="#">Visualizar sua refeição</a></p>
+                            <p className="ver-refeicao"><a href="../visualizaralimentos/">Visualizar sua refeição</a></p>
                         </div>
                     </section>
 
