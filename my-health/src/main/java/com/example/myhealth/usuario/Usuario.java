@@ -37,8 +37,7 @@ public class Usuario {
     @Column(name = "data_nascimento")
     private LocalDate dataNascimento;
 
-    @NotBlank
-    private String imagem;
+    private String avatar;
 
 
     public Integer getIdUsuario() {
@@ -113,11 +112,11 @@ public class Usuario {
         return autenticado;
     }
 
-    public String getImagem() {
-        return imagem;
+    public String getAvatar() {
+        return avatar;
     }
 
-    public void setImagem(String imagem) {
-        this.imagem = imagem;
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 }
