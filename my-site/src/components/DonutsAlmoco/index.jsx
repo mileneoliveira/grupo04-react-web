@@ -87,7 +87,7 @@ const ChartAlmoco = () => {
 
     return(
         <div className="divChart">
-            <form className="form-cadastro" onSubmit={onSubmit}>
+            <form className="form-data" onSubmit={onSubmit}>
                 <input id="date" type="date" defaultValue={dateNow} onChange={handleDate} />
                 <button>CLIQYEU AQYI</button>
             </form>

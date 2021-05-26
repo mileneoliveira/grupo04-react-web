@@ -31,6 +31,7 @@ const ChartJs = () => {
                <Line data={chartData} /> 
             </div>
         </div>
+       
     )
 }
 

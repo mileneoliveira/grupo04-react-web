@@ -1,3 +1,11 @@
 .divChart {
     text-align: center;
 }
+.div-conteudo-dash{
+    position: relative;
+}
+.grafico-geral{
+    text-align: center;
+   
+    top: 30px;
+}
