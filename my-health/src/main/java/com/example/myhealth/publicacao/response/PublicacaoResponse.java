@@ -1,19 +1,22 @@
 package com.example.myhealth.publicacao.response;
 
 import com.example.myhealth.publicacao.Publicacao;
+import com.example.myhealth.usuario.Usuario;
 
 public class PublicacaoResponse {
 
     private String descricao;
     private Integer curtida;
     private String imagem;
+    private String imagemUsuario;
     private Integer usuarioId;
     private String nomeUsuario;
 
-    public PublicacaoResponse(Publicacao entidade) {
+    public PublicacaoResponse(Publicacao entidade, Usuario entidade2) {
         this.descricao = entidade.getDescricao();
         this.curtida = entidade.getCurtida();
         this.imagem = "/publicacoes/imagem/" + entidade.getIdPublicacao();
+        this.imagemUsuario = "/usuarios/imagem/" + entidade2.getIdUsuario();
         this.usuarioId = entidade.getUsuario().getIdUsuario();
         this.nomeUsuario = entidade.getUsuario().getNome();
     }
@@ -57,4 +60,6 @@ public class PublicacaoResponse {
     public void setNomeUsuario(String nomeUsuario) {
         this.nomeUsuario = nomeUsuario;
     }
+    
+
 }

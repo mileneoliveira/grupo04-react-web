@@ -1,6 +1,7 @@
 package com.example.myhealth.usuario.controller;
 
 
+import com.example.myhealth.publicacao.Publicacao;
 import com.example.myhealth.usuario.Usuario;
 import com.example.myhealth.usuario.repository.UsuarioRepository;
 import com.example.myhealth.usuario.request.UserDto;
@@ -8,8 +9,10 @@ import com.example.myhealth.usuario.response.UsuarioLogin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -48,6 +51,17 @@ public class UsuarioController {
             return ResponseEntity.status(404).build();
         }
 
+    }
+
+    @PostMapping("/cadastrarImagem")
+    public ResponseEntity postCadastrarImagem(@RequestParam MultipartFile arquivo, @RequestParam int idUsuario) throws IOException {
+        if (arquivo.isEmpty()){
+            return ResponseEntity.status(400).body("Arquivo não enviado");
+        }
+        Usuario usuario = repository.getOne(idUsuario);
+        usuario.setAvatar(arquivo.getBytes());
+        repository.save(usuario);
+        return ResponseEntity.status(201).build();
     }
 
     @PutMapping()

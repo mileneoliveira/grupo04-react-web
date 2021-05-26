@@ -37,7 +37,7 @@ public class Usuario {
     @Column(name = "data_nascimento")
     private LocalDate dataNascimento;
 
-    private String avatar;
+    private byte[] avatar;
 
 
     public Integer getIdUsuario() {
@@ -112,11 +112,11 @@ public class Usuario {
         return autenticado;
     }
 
-    public String getAvatar() {
+    public byte[] getAvatar() {
         return avatar;
     }
 
-    public void setAvatar(String avatar) {
+    public void setAvatar(byte[] avatar) {
         this.avatar = avatar;
     }
 }

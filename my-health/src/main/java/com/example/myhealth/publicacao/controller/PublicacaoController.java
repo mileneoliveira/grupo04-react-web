@@ -39,6 +39,7 @@ public class PublicacaoController {
         return ResponseEntity.status(201).build();
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/cadastrarImagem")
     public ResponseEntity postCadastrarImagem(@RequestParam MultipartFile arquivo, @RequestParam int idPublicacao) throws IOException {
         if (arquivo.isEmpty()){
@@ -50,6 +51,7 @@ public class PublicacaoController {
         return ResponseEntity.status(201).build();
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/imagem/{id}")
     public ResponseEntity getProdutoImagem2(@PathVariable int id){
         Publicacao imagemOptional = repository.getOne(id);

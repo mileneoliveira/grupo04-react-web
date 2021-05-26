@@ -16,6 +16,16 @@ const Feed = () => {
         getFeed();
     }, []);
 
+    // const [publisImg, setPublisImg] = useState([]);
+    // useEffect(() => {
+    //     async function getFeedImg() {
+    //         const resposta = await api.get("/${props.imagem}");
+    //         setPublisImg(resposta.data);
+    //         console.log(resposta.data);
+    //     }
+    //     getFeedImg();
+    // }, []);
+
     return (
         <>
             <MoldeSidebar />
@@ -24,7 +34,7 @@ const Feed = () => {
                 <div className="publicacoes">
                     {publis.map((publi) => (
                         <article key={publi.idUsuario}>
-                            <Molde nome={publi.nomeUsuario} descricao={publi.descricao} />
+                            <Molde nome={publi.nomeUsuario} descricao={publi.descricao} imagem={"http://localhost:8080" + publi.imagem}/>
                         </article>
                     ))}
                 </div>
