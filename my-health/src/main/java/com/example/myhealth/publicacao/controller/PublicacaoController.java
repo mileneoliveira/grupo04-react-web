@@ -6,9 +6,12 @@ import com.example.myhealth.publicacao.response.PublicacaoResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
+import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -31,9 +34,32 @@ public class PublicacaoController {
     }
 
     @PostMapping()
-    public ResponseEntity postCadastrarPublicacao(@RequestBody @Valid Publicacao publicacao) {
+    public ResponseEntity postCadastrarPublicacao(@RequestBody @Valid Publicacao publicacao)  {
         repository.save(publicacao);
         return ResponseEntity.status(201).build();
+    }
+
+    @PostMapping("/cadastrarImagem")
+    public ResponseEntity postCadastrarImagem(@RequestParam MultipartFile arquivo, @RequestParam int idPublicacao) throws IOException {
+        if (arquivo.isEmpty()){
+            return ResponseEntity.status(400).body("Arquivo não enviado");
+        }
+        Publicacao publicacao = repository.getOne(idPublicacao);
+        publicacao.setImagem(arquivo.getBytes());
+        repository.save(publicacao);
+        return ResponseEntity.status(201).build();
+    }
+
+    @GetMapping("/imagem/{id}")
+    public ResponseEntity getProdutoImagem2(@PathVariable int id){
+        Publicacao imagemOptional = repository.getOne(id);
+
+        byte[] imagem = imagemOptional.getImagem();
+
+        if(imagemOptional != null){
+            return ResponseEntity.status(200).header("content-type", "image/jpeg").body(imagem);
+        }
+        return ResponseEntity.status(404).build();
     }
 
     @DeleteMapping()
