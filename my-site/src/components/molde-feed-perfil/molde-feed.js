@@ -15,7 +15,7 @@ function Molde(props) {
                 <section className="perfil_feed">
                     <header className="header__perfl">
                         <div className="info_perfil">
-                            <img src="./imgs/marcelo.svg" alt="" />
+                            <img src={props.imagemUsuario} alt="" />
                             <ul>
                                 <li>
                                     <p>{props.nome}</p>

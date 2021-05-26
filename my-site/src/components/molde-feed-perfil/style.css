@@ -103,7 +103,7 @@ label #cancel {
 
 .feed {
     z-index: 10;
-    min-height: 100vh;
+    min-height: 85vh;
     transition: all .5s;
     display: flex;
     justify-content: center;
@@ -202,6 +202,7 @@ label #cancel {
 
 .img_comida_feed {
     width: 100%;
+    height: 85%
 }
 
 .perfil_feed{

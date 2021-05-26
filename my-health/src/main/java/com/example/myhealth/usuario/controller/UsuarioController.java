@@ -64,6 +64,19 @@ public class UsuarioController {
         return ResponseEntity.status(201).build();
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping("/imagem/{id}")
+    public ResponseEntity getProdutoImagem2(@PathVariable int id){
+        Usuario imagemOptional = repository.getOne(id);
+
+        byte[] imagem = imagemOptional.getAvatar();
+
+        if(imagemOptional != null){
+            return ResponseEntity.status(200).header("content-type", "image/jpeg").body(imagem);
+        }
+        return ResponseEntity.status(404).build();
+    }
+
     @PutMapping()
     public ResponseEntity alterUsuario(@RequestBody @Valid Usuario usuario, @RequestParam int id) {
         if (repository.existsById(id)){
