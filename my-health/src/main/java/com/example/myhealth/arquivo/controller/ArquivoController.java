@@ -4,6 +4,7 @@ import com.example.myhealth.alimento.Alimento;
 import com.example.myhealth.alimento.repository.AlimentoRepository;
 import com.example.myhealth.arquivo.GravaArquivo;
 import com.example.myhealth.arquivo.ListaObj;
+import com.example.myhealth.objetos.FilaObj;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,7 +27,8 @@ public class ArquivoController {
     public ResponseEntity gerarArquivoAlimento(@RequestParam boolean isCsv) {
 
         long contagemRegistros = repository.count();
-        ListaObj<Alimento> lista = new ListaObj<Alimento>((int) contagemRegistros);
+        FilaObj<Alimento> fila = new FilaObj<Alimento>((int) contagemRegistros);
+
 
         String nomeArquivo = "Alimentos";
         String header = "";
@@ -34,16 +36,12 @@ public class ArquivoController {
         String trailer = "";
 
 
-        for (int i = 1; i < 412; i++) {
-            lista.adiciona(repository.getOne(i));
+        for (int i = 1; i < 441; i++) {
+            fila.insert(repository.getOne(i));
         }
 
-        System.out.println(lista);
-
-        lista.exibe();
-
         if (isCsv) {
-            if (lista.getTamanhoVetor() <= 0) {
+            if (fila.getTamanho() <= 0) {
                 return ResponseEntity.status(400).body("erro em Alimento");
             } else {
                 Date dataDeHoje = new Date();
@@ -60,8 +58,8 @@ public class ArquivoController {
 //                corpo = "ID_CORPO;ID_ALIMENTO;NOME;PORÇÃO;CALORIAS;COLESTEROL;CARBOIDRATO;FIBRA;CALCIO;FERRO;SODIO;PROTEINA;CATEGORIA_ID";
 //                GravaArquivo.gravaRegistro("Alimentos.csv", corpo);
 
-                for (int i = 0; i < lista.getTamanhoVetor(); i++) {
-                    Alimento alimento = lista.getElemento(i);
+                for (int i = 0; i < fila.getTamanho(); i++) {
+                    Alimento alimento = fila.poll();
                     corpo = "02";
                     corpo += String.format(";%04d", alimento.getIdAlimento());
                     corpo += String.format(";%-45s", alimento.getNome());
@@ -88,7 +86,7 @@ public class ArquivoController {
                 GravaArquivo.gravaRegistro("Alimentos.csv", trailer);
             }
         } else {
-            if (lista.getTamanhoVetor() <= 0) {
+            if (fila.getTamanho() <= 0) {
                 return ResponseEntity.status(400).body("erro em Alimento");
             } else {
                 Date dataDeHoje = new Date();
@@ -102,8 +100,8 @@ public class ArquivoController {
                 int contRegDados = 0;
 
 
-                for (int i = 0; i < lista.getTamanhoVetor(); i++) {
-                    Alimento alimento = lista.getElemento(i);
+                for (int i = 0; i < fila.getTamanho(); i++) {
+                    Alimento alimento = fila.poll();
                     corpo = "02";
                     corpo += String.format("%04d", alimento.getIdAlimento());
                     corpo += String.format("%-45s", alimento.getNome());

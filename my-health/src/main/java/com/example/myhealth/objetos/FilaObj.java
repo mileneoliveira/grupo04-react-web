@@ -61,5 +61,8 @@ public class FilaObj<T> {
             }
         }
     }
+    public int getTamanho(){
+        return fila.length;
+    }
 
 }
