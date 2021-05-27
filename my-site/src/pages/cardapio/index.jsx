@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './style.css';
 
-export default class Cardapio extends Component {
-    render() {
+const Cardapio = () => {
+
         return (
-            <div>
+            <>
                 <input type="checkbox" id="check" />
                 <label for="check">
                     <i class="fas fa-bars" id="btn-cardapio"></i>
@@ -41,7 +41,7 @@ export default class Cardapio extends Component {
                             <div className="img_titulo teste">
                                 <img src="./imgs/coffee.svg" alt="" />
                                 <p>Café da manhã</p>
-                                <a href="#add"><i class="fas fa-plus"></i></a>
+                                <a href="../listaalimentos/"><i class="fas fa-plus"></i></a>
                             </div>
                             <p className="ver-refeicao"><a href="../visualizaralimentos/">Visualizar sua refeição</a></p>
                         </div>
@@ -52,7 +52,7 @@ export default class Cardapio extends Component {
 
                                 <img src="./imgs/beverage.svg" alt="" />
                                 <p>Almoço</p>
-                                <a href="#add"><i class="fas fa-plus"></i></a>
+                                <a href="../listaalimentos/"><i class="fas fa-plus"></i></a>
                             </div>
                             <p className="ver-refeicao"><a href="../visualizaralimentos/">Visualizar sua refeição</a></p>
                         </div>
@@ -61,7 +61,7 @@ export default class Cardapio extends Component {
                             <div className="img_titulo teste">
                                 <img src="./imgs/prato(1).svg" alt="" />
                                 <p>Jantar</p>
-                                <a href="#add"><i class="fas fa-plus"></i></a>
+                                <a href="../listaalimentos/"><i class="fas fa-plus"></i></a>
                             </div>
                             <p className="ver-refeicao"><a href="../visualizaralimentos/">Visualizar sua refeição</a></p>
                         </div>
@@ -70,7 +70,7 @@ export default class Cardapio extends Component {
                             <div className="img_titulo teste">
                                 <img src="./imgs/salad(1).svg" alt="" />
                                 <p>Lanches/Outros</p>
-                                <a href="#add"><i class="fas fa-plus"></i></a>
+                                <a href="../listaalimentos/"><i class="fas fa-plus"></i></a>
                             </div>
                             <p className="ver-refeicao"><a href="../visualizaralimentos/">Visualizar sua refeição</a></p>
                         </div>
@@ -82,7 +82,8 @@ export default class Cardapio extends Component {
                     <img src="./imgs/Component11.svg" alt="" />
                 </div>
 
-            </div>
+            </>
         )
     }
-}
+
+export default Cardapio;

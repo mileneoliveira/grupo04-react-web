@@ -16,16 +16,6 @@ const Feed = () => {
         getFeed();
     }, []);
 
-    // const [publisImg, setPublisImg] = useState([]);
-    // useEffect(() => {
-    //     async function getFeedImg() {
-    //         const resposta = await api.get("/${props.imagem}");
-    //         setPublisImg(resposta.data);
-    //         console.log(resposta.data);
-    //     }
-    //     getFeedImg();
-    // }, []);
-
     return (
         <>
             <MoldeSidebar />

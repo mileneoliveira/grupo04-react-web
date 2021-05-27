@@ -12,7 +12,6 @@ export default class Perfil extends Component {
             <div>
                 <MoldeSide />
                 <div className="ChartDiv">
-                    <ChartJs />
                     <ChartPie />
                 </div>
             </div>
