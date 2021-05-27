@@ -24,9 +24,7 @@ import ListaAlimentos from './pages/listaalimentos';
 
 import VisualizarAlimentos from './pages/visualizaralimentos';
 
-
-
-
+import Teste from './pages/teste';
 
 function Routes() {
     return(
@@ -44,8 +42,7 @@ function Routes() {
                 <Route exact path='/janta' component={Janta}/>
                 <Route exact path='/listaalimentos' component={ListaAlimentos}/>
                 <Route exact path='/visualizaralimentos' component={VisualizarAlimentos}/>
-
-
+                <Route exact path='/teste' component={Teste}/>
             </Switch>
         </BrowserRouter>
     )

@@ -2,9 +2,11 @@ package com.example.myhealth.usuario.controller;
 
 
 import com.example.myhealth.publicacao.Publicacao;
+import com.example.myhealth.publicacao.response.PublicacaoResponse;
 import com.example.myhealth.usuario.Usuario;
 import com.example.myhealth.usuario.repository.UsuarioRepository;
 import com.example.myhealth.usuario.request.UserDto;
+import com.example.myhealth.usuario.response.UsuarioEdit;
 import com.example.myhealth.usuario.response.UsuarioLogin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +15,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 import java.io.IOException;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/usuarios")
@@ -22,16 +26,14 @@ public class UsuarioController {
     @Autowired
     private UsuarioRepository repository;
 
-    @GetMapping
-    public ResponseEntity getUsuario(){
-        List<Usuario> users = repository.findAll();
-
-        if (!users.isEmpty()){
-            return ResponseEntity.ok(users);
+    @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping()
+    public ResponseEntity getUsuario(@RequestParam Integer idUsuario){
+        List<Usuario> usuario = repository.findAllById(Collections.singleton(idUsuario));
+        if (usuario.isEmpty()){
+            return ResponseEntity.status(404).build();
         }
-        else {
-            return ResponseEntity.noContent().build();
-        }
+        return ResponseEntity.status(201).body(usuario.stream().map(UsuarioEdit::new).collect(Collectors.toList()));
     }
 
     @CrossOrigin(origins = "http://localhost:3000")
@@ -76,7 +78,7 @@ public class UsuarioController {
         }
         return ResponseEntity.status(404).build();
     }
-
+    @CrossOrigin(origins = "http://localhost:3000")
     @PutMapping()
     public ResponseEntity alterUsuario(@RequestBody @Valid Usuario usuario, @RequestParam int id) {
         if (repository.existsById(id)){
