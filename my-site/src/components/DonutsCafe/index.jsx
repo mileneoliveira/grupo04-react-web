@@ -90,7 +90,7 @@ const ChartCafe = () => {
         <div className="divChart">
             <form className="form-data" onSubmit={onSubmit}>
                 <input id="date" type="date" defaultValue={dateNow} onChange={handleDate} />
-                <button>CLIQYEU AQYI</button>
+                <button>CLIQUE AQUI</button>
             </form>
             <h1>Café da manhã - Nutrientes</h1>
 
