@@ -1,6 +1,7 @@
 import React, { Component, useEffect } from 'react';
 
 import './style.css';
+import SimpleModal2 from '../../components/modal-alimento';
 
 const ListaAlimentos = () => {
 
@@ -14,9 +15,9 @@ const ListaAlimentos = () => {
                     </div>
                     <div className="menu-lista-alimentos">
                         <ul>
-                            <li><a className="botao-nav-lista-alimentos" href="">HOME</a></li>
-                            <li><a className="botao-nav-lista-alimentos" href="">REFEIÇÃO</a></li>
-                            <li><a className="botao-nav-lista-alimentos" href="">SAIR</a></li>
+                            <li><a className="botao-nav-lista-alimentos" href="feed">HOME</a></li>
+                            <li><a className="botao-nav-lista-alimentos" href="cardapio">REFEIÇÃO</a></li>
+                            <li><a className="botao-nav-lista-alimentos" href="perfil">SAIR</a></li>
                         </ul>
                     </div>
                 </div>
@@ -31,7 +32,7 @@ const ListaAlimentos = () => {
                                 <hr />
                                 <label for="">Nome do alimento:</label>
                                 <input type="text" id="" className="input-padrao-lista-alimentos" placeholder="Informe o nome do alimento" required />
-                                <button className="btn-adicionar-lista-alimentos">Adicionar</button>
+                                <SimpleModal2 />    
                                 <img className="logo-box-lista-alimentos" src="img/logo.svg" alt="" />
                             </section>
                         </div>

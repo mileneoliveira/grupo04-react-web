@@ -116,7 +116,7 @@ html,body{
    /* .input-padrao::-webkit-input-placeholder{
     
   } */
-    .btn-adicionar-lista-alimentos{
+    #btn-adicionar-lista-alimentos{
       font-size: 18px;
       height: 40px;
       margin-left: 5px;
@@ -128,7 +128,7 @@ html,body{
       border-radius: 5px;
     }
 
-    .btn-adicionar-lista-alimentos:hover{
+    #btn-adicionar-lista-alimentos:hover{
       border: 1px solid black;
       color: #2e8352;
       background: white;

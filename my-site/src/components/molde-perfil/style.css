@@ -1,0 +1,48 @@
+#btnmodal{
+        /* margin-left: 50vmin; */
+        padding: 1.5vmin;
+        border-radius: 5px;
+        font-weight: bold;
+        border: none;
+        background-color:#11BD5D;
+        color: white;
+        margin-top: 0.5vmin;
+        position: absolute;
+        left: 90vmin;
+        top: 3.7vmin;
+        transition: 0.2s;
+}
+
+#btnmodal2{
+    /* margin-left: 50vmin; */
+    padding: 1.5vmin;
+    border-radius: 5px;
+    font-weight: bold;
+    border: none;
+    background-color:#11BD5D;
+    color: white;
+    margin-top: 0.5vmin;
+    position: absolute;
+    top: 79vmin;
+    transition: 0.2s;
+}
+
+#btnmodal:hover{
+    background: rgb(255, 255, 255);
+    border: 1px solid black;
+    color: #11BD5D;
+}
+
+#btnmodal2:hover{
+    background: rgb(255, 255, 255);
+    border: 1px solid black;
+    color: #11BD5D;
+}
+
+.input-modal{
+    display: block;
+    margin: 0 0 2vmin;
+    padding: 5px 20px;
+    border-radius: 5px;
+    width:  50vmin;
+}
