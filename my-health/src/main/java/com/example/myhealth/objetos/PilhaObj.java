@@ -66,4 +66,8 @@ public class PilhaObj<T> {
         }
     }
 
+    public int getTamanho(){
+        return pilha.length;
+    }
+
 }
