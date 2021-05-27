@@ -22,8 +22,6 @@
     background-color:#11BD5D;
     color: white;
     margin-top: 0.5vmin;
-    position: absolute;
-    top: 79vmin;
     transition: 0.2s;
 }
 
@@ -44,5 +42,5 @@
     margin: 0 0 2vmin;
     padding: 5px 20px;
     border-radius: 5px;
-    width:  50vmin;
+    width:  100%;
 }

@@ -13,9 +13,6 @@ export default class Perfil extends Component {
             <div>
                 <MoldeSide />
                 <SimpleModal />
-                <div className="ChartDiv">
-                    <ChartPie />
-                </div>
             </div>
         )
     }
