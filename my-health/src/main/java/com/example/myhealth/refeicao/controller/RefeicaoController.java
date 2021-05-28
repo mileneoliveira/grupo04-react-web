@@ -34,7 +34,7 @@ public class RefeicaoController {
     @PostMapping()
     public ResponseEntity postCadastrarRefeicao(@RequestBody @Valid Refeicao refeicao) {
         repository.save(refeicao);
-        return ResponseEntity.status(201).build();
+        return ResponseEntity.status(201).body(refeicao.getIdRefeicao());
     }
 
 }
