@@ -119,9 +119,10 @@
 }
 
 .dashboard {
-    margin-top: -10vmin;
+   
     grid-column: 2 / 6;
-    grid-row: 2 / 6;
+    grid-row: 1 / 6;
+    /* background-color: red; */
 }
 
 .botao1:hover {

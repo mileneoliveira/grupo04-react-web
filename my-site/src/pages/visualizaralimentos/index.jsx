@@ -7,9 +7,9 @@ const VisualizarAlimentos = () => {
     
     return (
         <>
-            <MoldeSide />
+            
             <div className="conteudo-historico-alimento">
-                <div className="container-historico-alimento">
+            <MoldeSide />
                     <header className="teste-historico-alimento"><h1>Veja sua refeição!</h1></header>
                     <div className="refeicao-historico-alimento">
 
@@ -29,7 +29,6 @@ const VisualizarAlimentos = () => {
                             </ul>
                         </div>
                     </div>
-                </div>
             </div>
 
         </>

@@ -25,9 +25,6 @@ import ListaAlimentos from './pages/listaalimentos';
 import VisualizarAlimentos from './pages/visualizaralimentos';
 
 
-
-
-
 function Routes() {
     return(
         <BrowserRouter>
@@ -44,8 +41,6 @@ function Routes() {
                 <Route exact path='/janta' component={Janta}/>
                 <Route exact path='/listaalimentos' component={ListaAlimentos}/>
                 <Route exact path='/visualizaralimentos' component={VisualizarAlimentos}/>
-
-
             </Switch>
         </BrowserRouter>
     )

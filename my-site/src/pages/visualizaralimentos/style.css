@@ -57,13 +57,12 @@ html,body{
     color: #000000;
     background: white ;
   }
-  
-  .container-historico-alimento{
-    height: 100vh;
+  .conteudo-historico-alimento{
     transition: all .4s;
     display: flex;
     justify-content: center;
     position: relative;
+   
   }
   .teste-historico-alimento{
     position: absolute;
@@ -71,7 +70,7 @@ html,body{
     left:96vmin ;
   }
   .refeicao-historico-alimento{
-  
+
     display: grid;
     grid-gap: .4rem;
     grid-template-columns: 29.6vmin 29.6vmin 29.6vmin 29.6vmin 29.6vmin ;
@@ -81,6 +80,7 @@ html,body{
     margin-right: 4vmin;
     margin-top: 30vmin;
     min-width: 20vmin;
+
   }
   .historico-refeicao{
     background: white;
