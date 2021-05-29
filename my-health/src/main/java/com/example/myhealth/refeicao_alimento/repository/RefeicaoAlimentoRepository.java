@@ -47,8 +47,8 @@ public interface RefeicaoAlimentoRepository extends JpaRepository<RefeicaoAlimen
     @Query(value = "SELECT * FROM Refeicao_alimento ra, Refeicao r, Alimento a, Usuario u, Categoria_refeicao cr where u.id_usuario = ?1 and r.categoria_refeicao_id = 1 and cr.id_categoria_refeicao = r.categoria_refeicao_id and r.id_refeicao = ra.id_refeicao and ra.id_alimento = a.id_alimento", nativeQuery = true)
     List<RefeicaoAlimento> buscarTodasRefeicoesUsuario(Integer idUsuario);
 
-    @Query(value = "SELECT u.id_usuario, ra.*, r.*, a.* FROM Refeicao_alimento ra, Refeicao r, Alimento a, Usuario u where r.data_refeicao BETWEEN ?1 AND ?2 and u.id_usuario = ?3  and r.id_refeicao = ra.id_refeicao and ra.id_alimento = a.id_alimento", nativeQuery = true)
-    List<RefeicaoAlimento> buscarTodasRefeicoesUsuarioByDay(LocalDateTime dataInicio, LocalDateTime LocalDateFim, Integer idUsuario);
+    @Query(value = "SELECT u.id_usuario, ra.*, r.*, a.*, cr.* FROM Refeicao_alimento ra, Refeicao r, Alimento a, Usuario u, Categoria_refeicao cr where r.data_refeicao BETWEEN ?1 AND ?2 and u.id_usuario = ?3 and r.categoria_refeicao_id = ?4 and r.id_refeicao = ra.id_refeicao and ra.id_alimento = a.id_alimento and cr.id_categoria_refeicao = r.categoria_refeicao_id", nativeQuery = true)
+    List<RefeicaoAlimento> buscarTodasRefeicoesUsuarioByDay(LocalDateTime dataInicio, LocalDateTime LocalDateFim, Integer idUsuario, Integer idCategoria);
 
 //    @Query(value = "SELECT sum(proteina), sum(colesterol), sum(carboidrato), sum(fibra), sum(calcio), sum(ferro), sum(sodio), sum(calorias)" +
 //            " FROM Refeicao_alimento ra, Refeicao r, Alimento a where r.id_refeicao = 3 and ra.id_alimento = a.id_alimento", nativeQuery = true)

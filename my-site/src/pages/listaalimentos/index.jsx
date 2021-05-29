@@ -1,9 +1,10 @@
 import React, { Component, useEffect } from 'react';
-
+import api from '../../services/api';
 import './style.css';
-import SimpleModal2 from '../../components/modal-alimento';
 
 const ListaAlimentos = () => {
+
+
 
     return (
         <>
@@ -30,9 +31,18 @@ const ListaAlimentos = () => {
                             <section className="informar-alimento-lista-alimentos">
                                 <h2 className="titulo-lista-lista-alimentos">Informe seu alimento</h2>
                                 <hr />
-                                <label for="">Nome do alimento:</label>
-                                <input type="text" id="" className="input-padrao-lista-alimentos" placeholder="Informe o nome do alimento" required />
-                                <SimpleModal2 />    
+                                <form>
+                                <label for="">
+                                    <p>Nome do alimento:</p>
+                                <input type="Combo box" id="" className="input-padrao-lista-alimentos" placeholder="Informe o nome do alimento" required />
+
+                                </label>
+                                <label htmlFor="">
+                                <p>Quantia:</p>
+                                    <input type="number" className="input-padrao-lista-alimentos" placeholder="Quantia ingeria" />
+                                </label>
+                                <button id="btn-adicionar-lista-alimentos">Adicionar</button>
+                                </form>
                                 <img className="logo-box-lista-alimentos" src="img/logo.svg" alt="" />
                             </section>
                         </div>
