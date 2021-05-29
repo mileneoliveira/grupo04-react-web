@@ -16,6 +16,7 @@ public class AlimentoController {
     @Autowired
     private AlimentoRepository repository;
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping()
     public ResponseEntity getAlimentos() {
         List<Alimento> alimentos = repository.findAll();
@@ -26,6 +27,7 @@ public class AlimentoController {
         }
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/nome")
     public ResponseEntity getByName(@RequestParam String nome){
         return ResponseEntity.status(200).body(repository.findByNomeContains(nome));

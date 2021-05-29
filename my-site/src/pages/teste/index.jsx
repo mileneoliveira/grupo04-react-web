@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import FreeSoloCreateOption from '../../components/molde-addA';
+import FreeSolo from '../../components/molde-addA';
 import api from '../../services/api';
 
 function Teste() {
@@ -81,6 +83,7 @@ function Teste() {
                 <br />
                 <button id="btnmodal2" type="submit">Aplicar</button>
             </form>
+            <FreeSoloCreateOption />
         </>
     );
 }
