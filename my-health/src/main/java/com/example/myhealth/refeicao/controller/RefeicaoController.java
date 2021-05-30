@@ -19,6 +19,7 @@ public class RefeicaoController {
     @Autowired
     private RefeicaoRepository repository;
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping()
     public ResponseEntity listarRefeicao(@RequestParam Integer idUsuario) {
         List<Refeicao> refeicoes = repository.findAll();
@@ -31,6 +32,7 @@ public class RefeicaoController {
         }
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping()
     public ResponseEntity postCadastrarRefeicao(@RequestBody @Valid Refeicao refeicao) {
         repository.save(refeicao);

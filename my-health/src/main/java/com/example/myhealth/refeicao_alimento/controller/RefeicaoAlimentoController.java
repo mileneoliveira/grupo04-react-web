@@ -26,6 +26,7 @@ public class RefeicaoAlimentoController {
     @Autowired
     private UsuarioRepository repositoryUsuario;
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping()
     public ResponseEntity getRefeicoesAlimento(@RequestParam Integer idUsuario) {
         List<RefeicaoAlimento> refeicaoAlimentos = repository.buscarTodasRefeicoesUsuario(idUsuario);
@@ -53,6 +54,7 @@ public class RefeicaoAlimentoController {
         }
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping()
     public ResponseEntity postCadastrarRefeicaoAlimento(@RequestBody @Valid RefeicaoAlimento refeicaoAlimento) {
         repository.save(refeicaoAlimento);

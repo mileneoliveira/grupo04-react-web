@@ -33,6 +33,7 @@ public class AlimentoController {
         return ResponseEntity.status(200).body(repository.findByNomeContains(nome));
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("{id}")
     public ResponseEntity getById(@PathVariable int id){
         if (repository.existsById(id)){
@@ -42,12 +43,6 @@ public class AlimentoController {
             return ResponseEntity.notFound().build();
         }
     }
-
-//    @GetMapping("/categoria")
-//    public ResponseEntity getAlimentos(@RequestParam int id) {
-//        return ResponseEntity.ok().body(repository.findByCategoriaId(id));
-//    }
-
     @PostMapping()
     public ResponseEntity postCadastrarAlimento(@RequestBody @Valid Alimento alimento) {
         repository.save(alimento);

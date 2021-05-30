@@ -8,6 +8,7 @@ import com.example.myhealth.usuario.repository.UsuarioRepository;
 import com.example.myhealth.usuario.request.UserDto;
 import com.example.myhealth.usuario.response.UsuarioEdit;
 import com.example.myhealth.usuario.response.UsuarioLogin;
+import com.example.myhealth.usuario.response.UsuarioResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -94,14 +96,16 @@ public class UsuarioController {
     public ResponseEntity login (@RequestBody UserDto usuario){
         List<UsuarioLogin> users = repository.pesquisarLogin(usuario.getEmail(), usuario.getSenha());
 
+
         if (!users.isEmpty()){
             UsuarioLogin usuarioLogin = users.get(0);
 
             Usuario userLogado = repository.findByEmailAndSenha(usuarioLogin.getEmail(), usuarioLogin.getSenha());
             userLogado.setAutenticado(true);
             repository.save(userLogado);
+            UsuarioResponse response = new UsuarioResponse(userLogado);
 
-            return ResponseEntity.status(200).body(userLogado);
+            return ResponseEntity.status(200).body(response);
         }
         return ResponseEntity.status(404).build();
     }

@@ -23,7 +23,6 @@ public class RefeicaoAlimento {
 
     private Double porcao;
 
-
     public RefeicaoAlimentoId getId() {
         return id;
     }
