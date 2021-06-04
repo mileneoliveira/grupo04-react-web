@@ -52,7 +52,8 @@ public class UsuarioController {
         }
 
     }
-
+    
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/cadastrar-imagem")
     public ResponseEntity postCadastrarImagem(@RequestParam MultipartFile arquivo, @RequestParam int idUsuario) throws IOException {
         if (arquivo.isEmpty()) {
