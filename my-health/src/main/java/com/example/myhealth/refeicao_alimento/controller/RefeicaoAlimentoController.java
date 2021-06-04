@@ -39,6 +39,17 @@ public class RefeicaoAlimentoController {
     }
 
     @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping("/alimentos")
+    public ResponseEntity getAlimentosRefeicao(@RequestParam Integer idRefeicao){
+        List<RefeicaoAlimento> alimentos = repository.buscarAlimentos(idRefeicao);
+        if (!alimentos.isEmpty()){
+            return ResponseEntity.status(200).body(
+                    alimentos.stream().map(RefeicaoAlimentoResponse::new).collect(Collectors.toList()));
+        }
+        return ResponseEntity.noContent().build();
+    }
+
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/refeicoes-dia")
     public ResponseEntity getRefeicoesAlimentoDia(
             @RequestParam("data") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate data,

@@ -1,6 +1,5 @@
 package com.example.myhealth.refeicao.response;
 
-import com.example.myhealth.categoria_refeicao.CategoriaRefeicao;
 import com.example.myhealth.refeicao.Refeicao;
 
 import java.time.LocalDateTime;

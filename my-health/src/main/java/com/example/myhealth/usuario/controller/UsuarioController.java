@@ -1,8 +1,6 @@
 package com.example.myhealth.usuario.controller;
 
 
-import com.example.myhealth.publicacao.Publicacao;
-import com.example.myhealth.publicacao.response.PublicacaoResponse;
 import com.example.myhealth.usuario.Usuario;
 import com.example.myhealth.usuario.repository.UsuarioRepository;
 import com.example.myhealth.usuario.request.UserDto;
@@ -16,7 +14,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -30,9 +27,9 @@ public class UsuarioController {
 
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping()
-    public ResponseEntity getUsuario(@RequestParam Integer idUsuario){
+    public ResponseEntity getUsuario(@RequestParam Integer idUsuario) {
         List<Usuario> usuario = repository.findAllById(Collections.singleton(idUsuario));
-        if (usuario.isEmpty()){
+        if (usuario.isEmpty()) {
             return ResponseEntity.status(404).build();
         }
         return ResponseEntity.status(201).body(usuario.stream().map(UsuarioEdit::new).collect(Collectors.toList()));
@@ -47,19 +44,18 @@ public class UsuarioController {
 
     @DeleteMapping()
     public ResponseEntity deleteUsuarioById(@RequestParam Integer id) {
-        if (repository.existsById(id)){
+        if (repository.existsById(id)) {
             repository.deleteById(id);
             return ResponseEntity.status(200).build();
-        }
-        else{
+        } else {
             return ResponseEntity.status(404).build();
         }
 
     }
 
-    @PostMapping("/cadastrarImagem")
+    @PostMapping("/cadastrar-imagem")
     public ResponseEntity postCadastrarImagem(@RequestParam MultipartFile arquivo, @RequestParam int idUsuario) throws IOException {
-        if (arquivo.isEmpty()){
+        if (arquivo.isEmpty()) {
             return ResponseEntity.status(400).body("Arquivo não enviado");
         }
         Usuario usuario = repository.getOne(idUsuario);
@@ -70,20 +66,27 @@ public class UsuarioController {
 
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/imagem/{id}")
-    public ResponseEntity getProdutoImagem2(@PathVariable int id){
+    public ResponseEntity getProdutoImagem2(@PathVariable int id) {
         Usuario imagemOptional = repository.getOne(id);
 
         byte[] imagem = imagemOptional.getAvatar();
 
-        if(imagemOptional != null){
+        if (imagemOptional != null) {
             return ResponseEntity.status(200).header("content-type", "image/jpeg").body(imagem);
         }
         return ResponseEntity.status(404).build();
     }
+
     @CrossOrigin(origins = "http://localhost:3000")
     @PutMapping()
     public ResponseEntity alterUsuario(@RequestBody @Valid Usuario usuario, @RequestParam int id) {
-        if (repository.existsById(id)){
+        Usuario usuarioPut = repository.getOne(id);
+        byte[] avatar = null;
+        if (repository.existsById(id)) {
+            if (usuario.getAvatar() == null) {
+                avatar = usuarioPut.getAvatar();
+                usuario.setAvatar(avatar);
+            }
             usuario.setId(id);
             repository.save(usuario);
             return ResponseEntity.status(200).body(usuario);
@@ -93,11 +96,11 @@ public class UsuarioController {
 
     @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/login")
-    public ResponseEntity login (@RequestBody UserDto usuario){
+    public ResponseEntity login(@RequestBody UserDto usuario) {
         List<UsuarioLogin> users = repository.pesquisarLogin(usuario.getEmail(), usuario.getSenha());
 
 
-        if (!users.isEmpty()){
+        if (!users.isEmpty()) {
             UsuarioLogin usuarioLogin = users.get(0);
 
             Usuario userLogado = repository.findByEmailAndSenha(usuarioLogin.getEmail(), usuarioLogin.getSenha());
@@ -111,10 +114,10 @@ public class UsuarioController {
     }
 
     @PostMapping("/logout")
-    public ResponseEntity logout(@RequestBody UserDto usuario){
+    public ResponseEntity logout(@RequestBody UserDto usuario) {
         List<UsuarioLogin> users = repository.pesquisarLogin(usuario.getEmail(), usuario.getSenha());
 
-        if (!users.isEmpty()){
+        if (!users.isEmpty()) {
             UsuarioLogin usuarioLogin = users.get(0);
 
             Usuario userLogado = repository.findByEmailAndSenha(usuarioLogin.getEmail(), usuarioLogin.getSenha());
