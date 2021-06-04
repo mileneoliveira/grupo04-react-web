@@ -44,15 +44,14 @@ const VisualizarAlimentos = () => {
     
     return (
         <>
-           
+            <form className="form-data" onSubmit={onSubmit}>
+                <input id="date" type="date" defaultValue={dateNow} onChange={handleDate} />
+                <button>CLIQUE AQUI</button>
+            </form>
             <div className="conteudo-historico-alimento">
             <MoldeSide />
                     
                     <div className="refeicao-historico-alimento">
-                    <form className="form-data" onSubmit={onSubmit}>
-                         <input id="date" type="date" defaultValue={dateNow} onChange={handleDate} />
-                         <button>CLIQUE AQUI</button>
-                    </form>
 
                         <a href="#" className="botao1-historico-alimento botao-padrao-alimento" >Café da manhã</a>
 

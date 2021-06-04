@@ -1,35 +1,33 @@
 /* eslint-disable no-use-before-define */
-import React, { useEffect, useState } from 'react';
-import TextField from '@material-ui/core/TextField';
-import Autocomplete, { createFilterOptions } from '@material-ui/lab/Autocomplete';
-import api from '../../services/api';
-
+import React, { useEffect, useState } from "react";
+import TextField from "@material-ui/core/TextField";
+import Autocomplete, {
+  createFilterOptions,
+} from "@material-ui/lab/Autocomplete";
+import api from "../../services/api";
 
 const filter = createFilterOptions();
 
 export default function FreeSoloCreateOption() {
   const [value, setValue] = React.useState(null);
-  const[alimentos, setAlimentos] = useState([]);
-  
+  const [alimentos, setAlimentos] = useState([]);
 
   useEffect(() => {
     async function getAlimentos() {
-        const resposta = await api.get('/alimentos');
-        setAlimentos(resposta.data.nome);
-        console.log(resposta.data);
+      const resposta = await api.get("/alimentos");
+      setAlimentos(resposta.data.nome);
+      console.log(resposta.data);
     }
     getAlimentos();
-}, [])
+  }, []);
 
-const alimentoVetor = [null];
-alimentoVetor = [alimentos.map((aliemntu) => 
-    aliemntu.nome)];
+  const alimentoVetor = [null];
 
   return (
     <Autocomplete
       value={value}
       onChange={(event, newValue) => {
-        if (typeof newValue === 'string') {
+        if (typeof newValue === "string") {
           setValue({
             title: newValue,
           });
@@ -46,7 +44,7 @@ alimentoVetor = [alimentos.map((aliemntu) =>
         const filtered = filter(options, params);
 
         // Suggest the creation of a new value
-        if (params.inputValue !== '') {
+        if (params.inputValue !== "") {
           filtered.push({
             inputValue: params.inputValue,
             title: `Add "${params.inputValue}"`,
@@ -62,7 +60,7 @@ alimentoVetor = [alimentos.map((aliemntu) =>
       options={alimentoVetor}
       getOptionLabel={(option) => {
         // Value selected with enter, right from the input
-        if (typeof option === 'string') {
+        if (typeof option === "string") {
           return option;
         }
         // Add "xxx" option created dynamically
@@ -76,12 +74,14 @@ alimentoVetor = [alimentos.map((aliemntu) =>
       style={{ width: 300 }}
       freeSolo
       renderInput={(params) => (
-        <TextField {...params} label="Free solo with text demo" variant="outlined" />
+        <TextField
+          {...params}
+          label="Free solo with text demo"
+          variant="outlined"
+        />
       )}
     />
   );
-
 }
 
 // Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top
-

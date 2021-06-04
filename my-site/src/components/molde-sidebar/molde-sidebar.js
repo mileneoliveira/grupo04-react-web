@@ -1,13 +1,10 @@
 import React from "react";
+import { useAuth } from "hooks/useAuth";
+
 import "./style.css";
-import { useHistory, Link } from "react-router-dom";
 
 function MoldeSide() {
-  const hist = useHistory();
-  const doLogout = (event) => {
-    sessionStorage.clear();
-    hist.push("/login");
-  };
+  const { singOut, user } = useAuth();
 
   return (
     /* sidebar */
@@ -20,7 +17,11 @@ function MoldeSide() {
       <div className="sidebar">
         <header>Meu perfil</header>
         <a href="perfil">
-          <img src="./imgs/Rectangle 14.svg" alt="" className="foto_perfil" />
+          <img
+            src={"http://localhost:8080/" + user.picture}
+            alt=""
+            className="foto_perfil"
+          />
         </a>
         <ul>
           {/* <li><a href="#teste"><img src="./imgs/milene.svg" alt="" /></a></li> */}
@@ -40,9 +41,7 @@ function MoldeSide() {
             </a>
           </li>
           <li>
-            <a>
-              <i onClick={doLogout} className="fas fa-power-off"></i>Desconectar
-            </a>
+            <i onClick={singOut} className="fas fa-power-off"></i>Desconectar
           </li>
           <li>
             <a href="feed">
@@ -50,7 +49,7 @@ function MoldeSide() {
             </a>
           </li>
         </ul>
-        <img className="logo_sidebar" src="./imgs/logo.svg" alt="" />
+        <img className="logo_sidebar" src="./imgs/logo.svg" alt="logo" />
       </div>
     </div>
   );

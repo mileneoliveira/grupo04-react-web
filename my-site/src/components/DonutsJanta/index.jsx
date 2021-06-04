@@ -40,34 +40,6 @@ const ChartJanta = () => {
         })
     }
 
-    // useEffect(() => {
-    //     const test = date ? date : dateNow
-
-    //     async function getValues() {
-    //         const resposta = await api.get('dashboards/somaNutrientes', {
-    //             params: {
-    //                 data: test,
-    //                 idUsuario: sessionStorage.getItem('idUsuario'),
-    //                 idCategoriaRefeicao: 1
-    //             }
-    //         })
-    //         console.log("salve");
-    //         if(resposta.status == 404){
-    //             return alert("IF!!");
-    //         }
-    //         else{
-    //             return alert("ELSE!");
-    //         }
-    //         setValues(resposta.data);
-    //         console.log(resposta.data);
-
-
-    //     }
-    //     chart();
-    //     getValues();
-
-    // }, [date]);
-
     const chart = () => {
         let nome1 = ['Colesterol', 'Carboidrato', 'Fibra', 'Calcio', 'Ferro', 'Sodio', 'Proteina'];
         let quantidade1 = [values.totalColesterol, values.totalCarboidrato, values.totalFibra, values.totalCalcio, values.totalFerro, values.totalSodio, values.totalProteina];

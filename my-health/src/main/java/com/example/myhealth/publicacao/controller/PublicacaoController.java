@@ -45,14 +45,15 @@ public class PublicacaoController {
         }
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping()
     public ResponseEntity postCadastrarPublicacao(@RequestBody @Valid Publicacao publicacao) {
         repository.save(publicacao);
-        return ResponseEntity.status(201).build();
+        return ResponseEntity.status(201).body(publicacao.getIdPublicacao());
     }
 
     @CrossOrigin(origins = "http://localhost:3000")
-    @PostMapping("/cadastrarImagem")
+    @PostMapping("/cadastrar-imagem")
     public ResponseEntity postCadastrarImagem(@RequestParam MultipartFile arquivo, @RequestParam int idPublicacao) throws IOException {
         if (arquivo.isEmpty()) {
             return ResponseEntity.status(400).body("Arquivo não enviado");

@@ -1,91 +1,135 @@
-import React, { useEffect, useState } from 'react';
-import FreeSoloCreateOption from '../../components/molde-addA';
-import FreeSolo from '../../components/molde-addA';
-import api from '../../services/api';
+import React, { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { SchemaLogin } from "utils/schema";
+import { useAuth } from "hooks/useAuth";
+import FreeSoloCreateOption from "../../components/molde-addA";
+import FreeSolo from "components/molde-addA";
+import api from "services/api";
+import UploadImg from "components/UploadImg";
+
+import Input from "components/Inputs";
+import { notificationError, notificationSuccess } from "utils/notifications";
 
 function Teste() {
-    const[usuarioEdit, setUsuarioEdit] = useState({});
+  const { user } = useAuth();
 
-    useEffect(() => {
-        async function getUsuario() {
-            const resposta = await api.get('usuarios', {
-                params: {
-                    idUsuario: sessionStorage.getItem('idUsuario'),
-                }
-            });
-            setUsuarioEdit(resposta.data);
-        }
-        getUsuario();
-    }, [])
+  useEffect(() => {
+    const getUser = async () => {
+      const { data } = await api.get(`usuarios?idUsuario=${user.id}`);
 
-    function handle(e) {
-        const newUsuario = {...usuarioEdit};
-        newUsuario[e.target.id] = e.target.value;
-        setUsuarioEdit(newUsuario);
+      console.log(data);
+
+      setValue("nome", data[0].nome);
+      setValue("dataNascimento", data[0].dataNascimento);
+      setValue("email", data[0].email);
+      setValue("senha", data[0].senha);
+      setValue("peso", data[0].peso);
+      setValue("altura", data[0].altura);
+    };
+    getUser();
+  }, []);
+
+  const { register, handleSubmit, setValue } = useForm({});
+
+  const onSubmit = async (data) => {
+    try {
+      await api.put(`/usuarios?id=${user.id}`, data);
+      notificationSuccess("Sucesso", "O usuario foi alterado com sucesso");
+    } catch (error) {
+      console.log(error);
+      notificationError("Erro", "Não foi possivel alterar o usuario");
     }
+  };
 
-    function atualizar(e) {
-        e.preventDefault();
-        api.put('usuarios', {
-            params: {
-                id: sessionStorage.getItem('idUsuario'),
-            },
-            nome: usuarioEdit.nome,
-            senha: usuarioEdit.senha,
-            email: usuarioEdit.email,
-            peso: usuarioEdit.peso,
-            altura: usuarioEdit.altura,
-            dataNascimento: usuarioEdit.dataNascimento
-        }).then(resposta => {
-            if (resposta.status == 200) {
-                alert("Seus dados foram alterados com sucesso!");
-            } else if (resposta.status == 429) {
-                alert("Aguarde um momento, nosso servidor esta sobrecarregado!")
+  return (
+    <>
+      <h2 id="simple-modal-title">Perfil:</h2>
+      <p id="simple-modal-description">
+        Atualize as informações do seu perfil!
+      </p>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <label>
+          <h3>Nome:</h3>
+          <Input
+            className="input-login"
+            id="nome"
+            name="nome"
+            placeholder="coloque seu nome"
+            register={register}
+          />
+        </label>
+        <label>
+          <h3>Data de Nascimento:</h3>
+          <Input
+            className="input-login"
+            id="dataNasc"
+            name="dataNascimento"
+            type="date"
+            placeholder="you@example.com"
+            register={register}
+          />
+        </label>
+        <label>
+          <h3>Email:</h3>
+          <Input
+            className="input-login"
+            id="email"
+            name="email"
+            type="email"
+            placeholder="you@example.com"
+            register={register}
+          />
+        </label>
+        <label>
+          <h3>Senha:</h3>
+          <Input
+            className="input-login"
+            id="senha"
+            name="senha"
+            type="password"
+            placeholder="coloque sua senha"
+            register={register}
+          />
+        </label>
+        <label>
+          <h3>Peso:</h3>
+          <Input
+            className="input-login"
+            id="peso"
+            name="peso"
+            type="number"
+            placeholder="coloque seu peso"
+            register={register}
+          />
+        </label>
+        <label>
+          <h3>Altura:</h3>
+          <Input
+            className="input-login"
+            id="altura"
+            name="altura"
+            type="number"
+            placeholder="coloque sua altura"
+            register={register}
+          />
+        </label>
+        <label>
+          <h3>Imagem de perfil:</h3>
+          <UploadImg
+            url={
+              "http://localhost:8080/usuarios/cadastrar-imagem?idUsuario=" +
+              user.id
             }
-        })
-    }
-
-    return (
-        <>
-            <h2 id="simple-modal-title">Perfil:</h2>
-            <p id="simple-modal-description">
-                Atualize as informações do seu perfil!
-        </p>
-            <form onSubmit={(e) => atualizar(e)}>
-                <label>
-                    <h3>Nome:</h3>
-                    <input type="text" onChange={(e) => handle(e)} id="nome" value={usuarioEdit.nome} defaultValue={usuarioEdit.nome} />
-                </label>
-                <label>
-                    <h3>Data de Nascimento:</h3>
-                    <input  type="date" id="dataNasc" onChange={(e) => handle(e)} value={usuarioEdit.dataNascimento} defaultValue={usuarioEdit.dataNascimento} />
-                </label>
-                <label>
-                    <h3>Email:</h3>
-                    <input  ype="text"  id="email" onChange={(e) => handle(e)}  value={usuarioEdit.email} defaultValue={usuarioEdit.email} />
-                </label>
-                <label>
-                    <h3>Senha:</h3>
-                    <input type="Password" id="senha" onChange={(e) => handle(e)} value={usuarioEdit.senha} defaultValue={usuarioEdit.senha} />
-                </label>
-                <label>
-                    <h3>Peso:</h3>
-                    <input type="number" id="peso" onChange={(e) => handle(e)}  value={usuarioEdit.peso} defaultValue={usuarioEdit.peso} />
-                </label>
-                <label>
-                    <h3>Altura:</h3>
-                    <input type="number" id="altura" onChange={(e) => handle(e)} value={usuarioEdit.altura} defaultValue={usuarioEdit.altura} />
-                </label>
-                <label>
-                    <h3>Imagem de perfil:</h3>
-                    <input type="file" placeholder="Nome:" />
-                </label>
-                <br />
-                <button id="btnmodal2" type="submit">Aplicar</button>
-            </form>
-            <FreeSoloCreateOption />
-        </>
-    );
+          />
+        </label>
+        <br />
+        <button id="btnmodal2" type="submit">
+          Aplicar
+        </button>
+      </form>
+    </>
+  );
 }
 
 export default Teste;
