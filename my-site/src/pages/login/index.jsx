@@ -78,10 +78,12 @@ const Login = () => {
             </label>
 
             {loading ? (
-              <LocalDiningOutlined />
+              <button type="submit" className="buttom-login">
+              Carregando
+             </button>
             ) : (
               <button type="submit" className="buttom-login">
-                Iniciar sessão
+                Iniciar Sessão
               </button>
             )}
           </form>
