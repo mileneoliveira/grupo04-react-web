@@ -74,14 +74,16 @@ html,body{
     display: grid;
     grid-gap: .4rem;
     grid-template-columns: 29.6vmin 29.6vmin 29.6vmin 29.6vmin 29.6vmin ;
-    grid-auto-rows: 10vmin 10vmin 10vmin 10vmin 10vmin ;
+    grid-auto-rows: 10vmin 10vmin 10vmin 10vmin 10vmin 10vmin ;
   }
+ 
   .refeicao-historico-alimento{
     margin-right: 4vmin;
     margin-top: 30vmin;
     min-width: 20vmin;
 
   }
+ 
   .historico-refeicao{
     background: white;
     border: 3px solid black;
@@ -89,20 +91,13 @@ html,body{
     grid-column: 2 / 6;
     grid-row: 1 / 5;
   }
-  .botao1-historico-alimento {
-    grid-column: 1 / 1;
+
+  .form-data{
+    grid-column: 3 / 6;
     grid-row: 1 / 1;
-    padding: 4vmin;
-    text-align: center;
-    background: #53CC89;
-    color: white;
-    font-size: 15px;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
   }
-  
-  .botao2-historico-alimento {
+
+  .botao1-historico-alimento {
     grid-column: 1 / 1;
     grid-row: 2 / 2;
     padding: 4vmin;
@@ -115,7 +110,7 @@ html,body{
     border-radius: 5px;
   }
   
-  .botao3-historico-alimento {
+  .botao2-historico-alimento {
     grid-column: 1 / 1;
     grid-row: 3 / 3;
     padding: 4vmin;
@@ -128,9 +123,22 @@ html,body{
     border-radius: 5px;
   }
   
-  .botao4-historico-alimento {
+  .botao3-historico-alimento {
     grid-column: 1 / 1;
     grid-row: 4 / 4;
+    padding: 4vmin;
+    text-align: center;
+    background: #53CC89;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .botao4-historico-alimento {
+    grid-column: 1 / 1;
+    grid-row: 5 / 5;
     padding: 4vmin;
     text-align: center;
     background: #53CC89;

@@ -68,7 +68,9 @@ const Cardapio = () => {
             </a>
           </li>
           <li className="icones">
+            <a href="">
             <i className="fas fa-power-off"></i>Desconectar
+            </a>
           </li>
           <li className="icones">
             <a href="feed">

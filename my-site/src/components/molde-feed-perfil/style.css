@@ -198,6 +198,7 @@ label #cancel {
 .header__perfl .info_perfil li p {
     padding: 1px;
     font-size: 15px;
+    margin: 0;
 }
 
 .img_comida_feed {

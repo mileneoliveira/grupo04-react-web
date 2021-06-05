@@ -41,7 +41,9 @@ function MoldeSide() {
             </a>
           </li>
           <li>
+            <a href="">
             <i onClick={singOut} className="fas fa-power-off"></i>Desconectar
+            </a>
           </li>
           <li>
             <a href="feed">
