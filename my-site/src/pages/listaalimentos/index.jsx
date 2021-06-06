@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 
+import MoldeSide from '../../components/molde-sidebar/molde-sidebar';
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { SchemaLogin } from "utils/schema";
@@ -80,32 +81,7 @@ const ListaAlimentos = () => {
 
   return (
     <>
-      <div className="wrapper-lista-alimentos">
-        <div className="nav-lista-alimentos">
-          <div className="logo-lista-alimentos">
-            <img src="img/logo.svg" alt="" />
-          </div>
-          <div className="menu-lista-alimentos">
-            <ul>
-              <li>
-                <a className="botao-nav-lista-alimentos" href="feed">
-                  HOME
-                </a>
-              </li>
-              <li>
-                <a className="botao-nav-lista-alimentos" href="cardapio">
-                  REFEIÇÃO
-                </a>
-              </li>
-              <li>
-                <a className="botao-nav-lista-alimentos" href="perfil">
-                  SAIR
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+    <MoldeSide />
 
       <div className="box-lista-alimentos">
         <div className="container-lista-alimentos">
@@ -120,7 +96,7 @@ const ListaAlimentos = () => {
                   <label htmlFor="">
                     <p>Nome do alimento:</p>
 
-                    <Select
+                    <Select 
                       showSearch
                       style={{ width: 300 }}
                       placeholder="Selecione seu alimento"

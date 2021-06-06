@@ -47,9 +47,9 @@ const Cardapio = () => {
       </label>
       <div className="sidebar">
         <header>Meu perfil</header>
-        <a href="perfil">
+        <Link to="perfil">
           <img src="./imgs/Rectangle 14.svg" alt="" className="foto_perfil" />
-        </a>
+        </Link>
         <ul>
           <li></li>
           <li className="icones">
