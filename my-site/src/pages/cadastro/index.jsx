@@ -32,7 +32,7 @@ const Cadastro = () => {
 
         return (
             <div className="conteudo_cadastro">
-
+                    <img className="celular-cadastro" src="./imgs/celular-cadastro.svg" alt="" />
                 <h1 className="logo"><img src="./imgs/logo.svg" alt="" /></h1>
 
 
@@ -76,10 +76,12 @@ const Cadastro = () => {
                             <button className="buttom-cadastrar" >Cadastrar-se</button>
 
                         </div>
-
+                       
                     </section>
-
-                    <img className="celular-cadastro" src="./imgs/celular-cadastro.svg" alt="" />
+                   
+                    
+                   
+                  
 
 
 

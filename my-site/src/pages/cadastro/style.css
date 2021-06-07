@@ -6,7 +6,7 @@
 }
 
 .cadastro{
-    display: inline-block;
+    display: inline;
     margin-right: 15vmin;
 }
 .titulo_cadastro{
@@ -29,6 +29,7 @@
 .form-cadastro p {
     font-weight: bold;
     margin-top: 5vmin;
+    display: inline;
 }
 
 .imagens-buttom-cadastro{
@@ -48,12 +49,12 @@
    position: absolute;
    margin-top: 0.5vmin;
 }
-
 .celular-cadastro{
-    margin-left: 20vmin;
-    width: 75vmin; 
-   
+    margin-top: 80px;
+    float: right;
 }
+
+
 
 ::-webkit-input-placeholder {
     color: black;

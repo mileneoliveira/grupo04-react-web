@@ -44,6 +44,7 @@ export default function SimpleModal() {
   };
 
   const body = (
+    
     <div style={modalStyle} className={classes.paper}>
       <h2 id="simple-modal-title">Perfil:</h2>
       <p id="simple-modal-description">
@@ -80,6 +81,7 @@ export default function SimpleModal() {
       <br/>
       <button id="btnmodal2">Aplicar</button>
     </div>
+    
   );
 
   return (

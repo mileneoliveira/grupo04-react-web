@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { SchemaLogin } from "utils/schema";
 import { useAuth } from "hooks/useAuth";
+import MoldeSide from '../../components/molde-sidebar/molde-sidebar';
 import FreeSoloCreateOption from "../../components/molde-addA";
 import FreeSolo from "components/molde-addA";
 import api from "services/api";
@@ -44,6 +45,10 @@ function Teste() {
 
   return (
     <>
+      <MoldeSide />
+    <div className="conteudo-perfil">
+    <img className="img-celular" src="./imgs/celular-cadastro.svg" alt="" />
+      <div className="info-perfil">
       <h2 id="simple-modal-title">Perfil:</h2>
       <p id="simple-modal-description">
         Atualize as informações do seu perfil!
@@ -52,7 +57,7 @@ function Teste() {
         <label>
           <h3>Nome:</h3>
           <Input
-            className="input-login"
+            className="input-modal"
             id="nome"
             name="nome"
             placeholder="coloque seu nome"
@@ -62,7 +67,7 @@ function Teste() {
         <label>
           <h3>Data de Nascimento:</h3>
           <Input
-            className="input-login"
+            className="input-modal"
             id="dataNasc"
             name="dataNascimento"
             type="date"
@@ -73,7 +78,7 @@ function Teste() {
         <label>
           <h3>Email:</h3>
           <Input
-            className="input-login"
+            className="input-modal"
             id="email"
             name="email"
             type="email"
@@ -84,7 +89,7 @@ function Teste() {
         <label>
           <h3>Senha:</h3>
           <Input
-            className="input-login"
+            className="input-modal"
             id="senha"
             name="senha"
             type="password"
@@ -95,7 +100,7 @@ function Teste() {
         <label>
           <h3>Peso:</h3>
           <Input
-            className="input-login"
+            className="input-modal"
             id="peso"
             name="peso"
             type="number"
@@ -106,7 +111,7 @@ function Teste() {
         <label>
           <h3>Altura:</h3>
           <Input
-            className="input-login"
+            className="input-modal"
             id="altura"
             name="altura"
             type="number"
@@ -128,6 +133,8 @@ function Teste() {
           Aplicar
         </button>
       </form>
+      </div>
+      </div>
     </>
   );
 }
