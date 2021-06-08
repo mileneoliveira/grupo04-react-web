@@ -1,5 +1,6 @@
 package com.example.myhealth.alimento.controller;
 
+
 import com.example.myhealth.alimento.Alimento;
 import com.example.myhealth.alimento.repository.AlimentoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+
 
 @RestController
 @RequestMapping("/alimentos")
