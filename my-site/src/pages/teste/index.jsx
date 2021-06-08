@@ -49,10 +49,10 @@ function Teste() {
     <div className="conteudo-perfil">
     <img className="img-celular" src="./imgs/celular-cadastro.svg" alt="" />
       <div className="info-perfil">
-      <h2 id="simple-modal-title">Perfil:</h2>
-      <p id="simple-modal-description">
+      <h1 id="simple-modal-title">Perfil:</h1>
+      <h2 id="simple-modal-description">
         Atualize as informações do seu perfil!
-      </p>
+      </h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>
           <h3>Nome:</h3>
@@ -128,10 +128,11 @@ function Teste() {
             }
           />
         </label>
-        <br />
+
         <button id="btnmodal2" type="submit">
           Aplicar
         </button>
+
       </form>
       </div>
       </div>

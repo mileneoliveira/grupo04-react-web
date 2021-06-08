@@ -32,7 +32,7 @@ function Molde(props) {
                     <img className="img_comida_feed" src={props.imagem} alt="" />
 
                     <footer className="footer__perfl">
-                        <i className="far fa-thumbs-up fa-3x"></i>
+                     
                     </footer>
                 </section>
 

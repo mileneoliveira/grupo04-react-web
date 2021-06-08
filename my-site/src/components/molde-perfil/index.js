@@ -78,7 +78,7 @@ export default function SimpleModal() {
           <h3>Imagem de perfil:</h3>
           <input className="input-modal" type="file" placeholder="Nome:"/>
       </label>
-      <br/>
+     
       <button id="btnmodal2">Aplicar</button>
     </div>
     

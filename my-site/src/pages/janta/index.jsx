@@ -22,7 +22,7 @@ export default class Janta extends Component {
 
                             <section className="conteudo__dash">
 
-                                <a href="dashboard" className="botao1" >Visão geral</a>
+                          
 
                                 <a href="cafe" className="botao2" >Café da manhã</a>
 

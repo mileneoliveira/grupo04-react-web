@@ -21,7 +21,7 @@ export default class Cafe extends Component {
                         <div className="container">
 
                             <section className="conteudo__dash">
-                               <a href="dashboard" className="botao1" >Visão geral</a>
+                              
 
                                 <a href="cafe" className="botao2" >Café da manhã</a>
 

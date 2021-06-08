@@ -25,7 +25,6 @@
     border: none;
     background-color:#11BD5D;
     color: white;
-    margin-top: 0.5vmin;
     transition: 0.2s;
 }
 
@@ -52,6 +51,7 @@
     margin: 0vmin 0 20vmin 20vmin
 }
 .img-celular{
-    margin-top: 25vmin;
+    margin-right: 10vmin;
+    margin-top: 15vmin;
     float: right;
 }
