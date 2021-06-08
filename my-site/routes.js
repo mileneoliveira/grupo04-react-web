@@ -24,6 +24,12 @@ import ListaAlimentos from './pages/listaalimentos';
 
 import VisualizarAlimentos from './pages/visualizaralimentos';
 
+import VisualizarAlmoco from './src/pages/visualizarAlmoco';
+
+import VisualizarJantar from './src/pages/visualizarJantar';
+
+import VisualizarOutros from './src/pages/visualizarOutros';
+
 
 function Routes() {
     return(
@@ -41,6 +47,12 @@ function Routes() {
                 <Route exact path='/janta' component={Janta}/>
                 <Route exact path='/listaalimentos' component={ListaAlimentos}/>
                 <Route exact path='/visualizaralimentos' component={VisualizarAlimentos}/>
+                <Route exact path='/visualizaralmoco' component={VisualizarAlmoco}/>
+                <Route exact path='/visualizarjantar' component={VisualizarJantar}/>
+                <Route exact path='/visualizaroutros' component={VisualizarOutros}/>
+
+
+
             </Switch>
         </BrowserRouter>
     )

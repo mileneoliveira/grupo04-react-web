@@ -109,7 +109,7 @@ const Cardapio = () => {
               </Link>
             </div>
             <p className="ver-refeicao">
-              <Link to="/visualizaralimentos">Visualizar sua refeição</Link>
+              <Link to="visualizaralmoco">Visualizar sua refeição</Link>
             </p>
           </div>
 
@@ -122,7 +122,7 @@ const Cardapio = () => {
               </Link>
             </div>
             <p className="ver-refeicao">
-              <Link to="/visualizaralimentos">Visualizar sua refeição</Link>
+              <Link to="/visualizarjantar">Visualizar sua refeição</Link>
             </p>
           </div>
 
@@ -135,7 +135,7 @@ const Cardapio = () => {
               </Link>
             </div>
             <p className="ver-refeicao">
-              <Link to="/visualizaralimentos">Visualizar sua refeição</Link>
+              <Link to="/visualizaroutros">Visualizar sua refeição</Link>
             </p>
           </div>
         </section>
