@@ -9,7 +9,6 @@ function MoldeRefe(props) {
             <div className="historico-refeicao">
                 <ul>
                     <li>{props.alimento} | <b>Porçao:</b> {props.porcaoAlimento}</li>
-                    <li></li>
                 </ul>
             </div>
         </>

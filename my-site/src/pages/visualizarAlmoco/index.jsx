@@ -2,6 +2,7 @@ import React, { useEffect, useState, Component } from 'react';
 import MoldeSide from '../../components/molde-sidebar/molde-sidebar';
 import './style.css';
 import moment from "moment";
+import { useAuth } from "hooks/useAuth";
 
 import api from '../../services/api';
 import MoldeRefe from '../../components/molde-refeicao';
@@ -11,6 +12,7 @@ const VisualizarAlmoco = () => {
     const [date, setDate] = useState('');
     const dateNow = moment().format("YYYY-MM-DD");
     const [values, setValues] = useState([]);
+    const { user } = useAuth();
 
 
     const handleDate = (evt) => {
@@ -28,7 +30,7 @@ const VisualizarAlmoco = () => {
         const resposta = api.get('refeicoes-alimentos/refeicoes-dia', {
             params: {
                 data: test,
-                idUsuario: sessionStorage.getItem('idUsuario'),
+                idUsuario: `${user.id}`,
                 idTipo: 2
             }
         }).then((response) => {
