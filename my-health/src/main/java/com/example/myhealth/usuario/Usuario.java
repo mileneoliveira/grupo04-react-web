@@ -2,6 +2,9 @@ package com.example.myhealth.usuario;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.time.LocalDate;
 
 @Entity
@@ -39,6 +42,10 @@ public class Usuario {
 
     private byte[] avatar;
 
+    public Usuario() throws IOException {
+        File file = new File("user.jpg");
+        this.avatar = Files.readAllBytes(file.toPath());
+    }
 
     public Integer getIdUsuario() {
         return idUsuario;
