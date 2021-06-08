@@ -28,7 +28,7 @@ const VisualizarAlimentos = () => {
         const resposta = api.get('refeicoes-alimentos/refeicoes-dia', {
             params: {
                 data: test,
-                idUsuario: sessionStorage.getItem('idUsuario'),
+                idUsuario: 7,
                 idTipo: 1
             }
         }).then((response) => {
