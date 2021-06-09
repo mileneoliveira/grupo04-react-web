@@ -37,4 +37,4 @@ jobs:
         app-name: 'my-health-aplication'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_5f6f81bf68674d798019a35cbe53a4aa }}
-        package: ./my-site/build
+        package: ./my-site
