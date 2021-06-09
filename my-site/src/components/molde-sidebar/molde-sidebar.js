@@ -40,9 +40,9 @@ function MoldeSide() {
               <i className="fas fa-plus"></i>Refeição
             </a>
           </li>
-          <li>
+          <li onClick={singOut}>
             <a href="">
-            <i onClick={singOut} className="fas fa-power-off"></i>Desconectar
+            <i className="fas fa-power-off"></i>Desconectar
             </a>
           </li>
           <li>

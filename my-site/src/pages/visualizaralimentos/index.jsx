@@ -63,10 +63,13 @@ const VisualizarAlimentos = () => {
                     <a href="#" className="botao3-historico-alimento botao-padrao-alimento">Janta</a>
 
                     <a href="#" className="botao4-historico-alimento botao-padrao-alimento">Lanches/Outros</a>
-
+                    <div className="historico-refeicao">
+                        <ul>
                     {values.map((alimento) => (
-                        <MoldeRefe key={alimento.idAlimento} alimento={alimento.nomeAlimento} porcaoAlimento={alimento.porcaoAlimento} />
+                        <li className="lista-de-alimentos">{alimento.nomeAlimento} | <b>Porção:</b> {alimento.porcaoAlimento} g</li>    
                     ))}
+                    </ul>
+                    </div>
                 </div>
             </div>
 

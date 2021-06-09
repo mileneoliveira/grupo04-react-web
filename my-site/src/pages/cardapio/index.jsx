@@ -6,6 +6,8 @@ import { useSnack } from "hooks/useSnack";
 import "./style.css";
 import { notificationError } from "utils/notifications";
 import { notificationSuccess } from "../../utils/notifications";
+import MoldeSide from '../../components/molde-sidebar/molde-sidebar';
+
 
 const Cardapio = () => {
   const { user } = useAuth();
@@ -40,46 +42,7 @@ const Cardapio = () => {
 
   return (
     <>
-      <input type="checkbox" id="check" />
-      <label htmlFor="check">
-        <i className="fas fa-bars" id="btn-cardapio"></i>
-        <i className="fas fa-times" id="cancel"></i>
-      </label>
-      <div className="sidebar">
-        <header>Meu perfil</header>
-        <Link to="perfil">
-          <img src="./imgs/Rectangle 14.svg" alt="" className="foto_perfil" />
-        </Link>
-        <ul>
-          <li></li>
-          <li className="icones">
-            <a href="perfil">
-              <i className="fas fa-user-circle"></i>Perfil
-            </a>
-          </li>
-          <li className="icones">
-            <a href="dashboard">
-              <i className="fas fa-qrcode"></i>Dashboard
-            </a>
-          </li>
-          <li className="icones">
-            <a href="cardapio">
-              <i className="fas fa-plus"></i>Refeição
-            </a>
-          </li>
-          <li className="icones">
-            <a href="">
-            <i className="fas fa-power-off"></i>Desconectar
-            </a>
-          </li>
-          <li className="icones">
-            <a href="feed">
-              <i className="fas fa-sync"></i>Recarregar
-            </a>
-          </li>
-        </ul>
-        <img className="logo_sidebar" src="./imgs/logo.svg" alt="" />
-      </div>
+    <MoldeSide />
 
       <div className="conteudo">
         <header className="header_feed">

@@ -89,8 +89,18 @@ html,body{
     border: 3px solid black;
     border-radius: 5px;
     grid-column: 2 / 6;
-    grid-row: 1 / 5;
+    grid-row: 2 / 6;
   }
+  .historico-refeicao ul li{
+   font-size:17px;
+  }
+  .lista-de-alimentos:nth-child(odd) {          
+    clear:both;                
+    float:left;                
+    width:45%; 
+  }
+
+  
 
   .form-data{
     grid-column: 3 / 6;
