@@ -33,5 +33,5 @@ jobs:
       with:
         app-name: 'my-health-aplication'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_012fda3de15a4423a50518a45f296b8d }}
+        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_F738D6942C0747298A76D7B9E13A04B8 }}
         package: .
