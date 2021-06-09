@@ -1,0 +1,165 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  body{
+    width: 100%;
+    /* height: 100vh; */
+    /* background: url('../imgs/fundo-alimentos.svg') top center no-repeat; */
+    font-family:"Exo 2";
+  }
+ 
+  .nav-lista-alimentos{
+    background-color: #39e285;
+    border-bottom: 1px solid black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 80px;
+  }
+  .logo-lista-alimentos{
+    letter-spacing: 1px;
+    float: left;
+    font-size: 22px;
+    line-height: 88px;
+    padding: 0px 1em;
+  }
+  .logo-lista-alimentos img{
+    height: 80px;
+  }
+  .menu-lista-alimentos{
+  float: right;
+  line-height: 45px;
+  margin: 0 3em;
+  } 
+  .menu-lista-alimentos ul {
+    list-style: none;
+  }
+  .menu-lista-alimentos ul li{
+  display: inline-block;
+  margin: 3px;
+  }
+  .botao-nav-lista-alimentos{
+    text-decoration: none;
+    font-weight: lighter;
+    padding: 7px 13px;
+    background: #1ac065;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    transition: 0.5s;
+  }
+   .botao-nav-lista-alimentos:hover{
+  color: #000000;
+  background: white;
+  }
+  
+  .box-lista-alimentos{
+  margin-top: 80px; 
+  /* background: red; */
+  }
+  .container-lista-alimentos{
+    display: grid;
+    grid-gap: .2rem;
+    grid-template-columns: 16.6% 16.6% 16.6% 16.6% 16.6% 16.6% 16.6%;
+    grid-auto-rows: 33.33% 33.33% 33.33%;
+    /* height: calc(100vh - 50px); */
+    }
+    .conteudo-lista-alimentos{
+      /* background: blue; */
+      grid-column: 2 / 4;
+      grid-row: 1 / 4;
+    }
+    .alimento-lista-alimentos{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
+    }
+    
+    .informar-alimento-lista-alimentos{
+    min-height: 350px;
+    width: 100%;
+    border-radius: 10px;
+    border: solid 2px;
+    }
+
+    .titulo-lista-lista-alimentos{
+      text-align: center;
+      padding: 10px;
+    }
+    .informar-alimento-lista-alimentos label{
+      margin-left: 8px;
+      margin-top: 30px;
+      display: block;
+      font-size: 20px;
+      align-items: center;
+    }
+    .input-padrao-lista-alimentos{
+      /* display: inline-block; */
+      width:50%;
+      padding: 12px;
+      background: rgba(72, 209, 8, 0.39);
+      border: 1px #1D6C55 solid;
+      border-radius: 5px 5px 0px 0px;
+      margin-left: 8px;
+      margin-bottom: 30px;
+      border-style: none none solid;
+      outline: none;
+      border-image: initial; 
+      border-bottom: 2px solid rgb(0, 0, 0);
+    }
+   /* .input-padrao::-webkit-input-placeholder{
+    
+  } */
+    #btn-adicionar-lista-alimentos{
+      font-size: 18px;
+      height: 40px;
+      margin-left: 5px;
+      width: 40%;
+      background: #2e83519f;
+      border:none;
+      transition: .4s;
+      color: aliceblue;
+      border-radius: 5px;
+    }
+
+    #btn-adicionar-lista-alimentos:hover{
+      border: 1px solid black;
+      color: #2e8352;
+      background: white;
+    }
+
+    .logo-box-lista-alimentos{
+      margin-left: 26vmin;
+      margin-top: 25px;
+    }
+    
+    
+    /* CONTEUDO LISTA DE ALIMENTO*/
+    .conteudo-lista-lista-alimentos{
+      grid-column: 4 / 6;
+      grid-row: 1 / 4;
+    }
+    .lista-alimento-lista-alimentos{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
+    }
+
+    .itens-lista-lista-alimentos{
+      min-height: 366px;
+      min-width: 100%;
+      border-radius: 10px;
+      border: solid 2px;
+    }
+
+    .titulo-itens-alimento-lista-alimentos{
+      text-align: center;
+      padding: 10px;
+    }
