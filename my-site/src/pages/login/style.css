@@ -11,6 +11,12 @@
   border-radius: 10px;
   border: solid 2px;
 }
+.welcome-login h1{
+  text-align: center;
+}
+.welcome-login h2{
+  text-align: center;
+}
 .login_redes {
   padding: 5vmin 0 0 15vmin;
 }
@@ -37,9 +43,7 @@
 .input-login {
   display: flex;
   margin-left: 15vmin;
-  height: 5vmin;
-  padding: 10px 25px;
-  border-radius: 5px;
+  padding: 6px; 
   width: 69vmin;
 }
 
@@ -114,11 +118,10 @@
   .input-login {
     display: flex;
     margin-left: 15vmin;
-    height: 5vmin;
-    padding: 10px 25px;
-    border-radius: 5px;
+    padding: 6px;
     width: 60vmin;
   }
+
 
   .p-email {
     margin-top: 15vmin;

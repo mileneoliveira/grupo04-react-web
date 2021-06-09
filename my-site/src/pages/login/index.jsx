@@ -9,6 +9,7 @@ import { useHistory, Link } from "react-router-dom";
 import Input from "components/Inputs";
 import { notificationError } from "utils/notifications";
 
+
 import "antd/dist/antd.css";
 import "./style.css";
 
@@ -46,7 +47,10 @@ const Login = () => {
 
       <div className="conteudo_login">
         <div className="box_login">
-          <header><h1>Seja bem-vindo!</h1></header>
+          <header className="welcome-login">
+            <h1>Seja bem-vindo!</h1>
+            <h2>Realize o seu login:</h2>
+          </header>
           <form onSubmit={handleSubmit(onSubmit)}>
             <label htmlFor="email">
               <h2 className="p-email">
