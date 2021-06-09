@@ -26,7 +26,7 @@
     "yup": "^0.32.9"
   },
   "scripts": {
-    "start": "PORT=80 cd ./my-site react-scripts start"
+    "start": "PORT=8080 BROWSER=none cd ./my-site react-scripts start"
   },
   "eslintConfig": {
     "extends": [
