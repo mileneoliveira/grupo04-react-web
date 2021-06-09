@@ -21,7 +21,6 @@ export default class Dashboard extends Component {
 
                             <a href="cafe" className="botao2 " >Café da manhã</a>
 
-<<<<<<< HEAD
                         <div className="container">
 
                             <section className="conteudo__dash">
@@ -47,9 +46,6 @@ export default class Dashboard extends Component {
 
 
                         </div>
-=======
-                            <a href="almoco" className="botao3">Almoço</a>
->>>>>>> 150ebf2cb51651478fea51bd860378dc061be2a5
 
                             <a href="janta" className="botao4">Janta</a>
 
