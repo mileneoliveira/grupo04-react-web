@@ -10,14 +10,18 @@ export default class Dashboard extends Component {
         return (
             <div>
                 <div>
-                <MoldeSide />
+                    <MoldeSide />
                 </div>
 
+                <div className="conteudo">
 
+                    <div className="container">
 
-                    <div className="conteudo">
+                        <section className="conteudo__dash">
 
+                            <a href="cafe" className="botao2 " >Café da manhã</a>
 
+<<<<<<< HEAD
                         <div className="container">
 
                             <section className="conteudo__dash">
@@ -43,15 +47,25 @@ export default class Dashboard extends Component {
 
 
                         </div>
+=======
+                            <a href="almoco" className="botao3">Almoço</a>
+>>>>>>> 150ebf2cb51651478fea51bd860378dc061be2a5
 
+                            <a href="janta" className="botao4">Janta</a>
 
+                            <a href="janta" className="botao5">Lanches/Outros</a>
 
+                            <a href="#gerar" className="botao6">Gerar relatorio</a>
 
+                            <div className="dashboard">
+                                <ChartJs />
+                            </div>
 
+                        </section>
 
                     </div>
 
-                    
+                </div>
 
             </div>
         )
