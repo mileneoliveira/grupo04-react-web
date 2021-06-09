@@ -24,7 +24,7 @@ const Feed = () => {
                 <div className="publicacoes">
                     {publis.map((publi) => (
                         <article key={publi.idUsuario}>
-                            <Molde nome={publi.nomeUsuario} descricao={publi.descricao} imagem={"http://localhost:8080" + publi.imagem} imagemUsuario={"http://localhost:8080" + publi.imagemUsuario}/>
+                            <Molde nome={publi.nomeUsuario} descricao={publi.descricao} imagem={"https://my-health-1623118445103.azurewebsites.net/" + publi.imagem} imagemUsuario={"https://my-health-1623118445103.azurewebsites.net/" + publi.imagemUsuario}/>
                         </article>
                     ))}
                 </div>

@@ -18,7 +18,7 @@ function MoldeSide() {
         <header>Meu perfil</header>
         <a href="perfil">
           <img
-            src={"http://localhost:8080/" + user.picture}
+            src={"https://my-health-1623118445103.azurewebsites.net/" + user.picture}
             alt=""
             className="foto_perfil"
           />
