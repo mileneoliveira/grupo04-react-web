@@ -20,6 +20,8 @@ import Almoco from './pages/almoco';
 
 import Janta from './pages/janta';
 
+import LancheOutros from './src/pages/lanchesoutros';
+
 import ListaAlimentos from './pages/listaalimentos';
 
 import VisualizarAlimentos from './pages/visualizaralimentos';
@@ -45,6 +47,7 @@ function Routes() {
                 <Route exact path='/cafe' component={Cafe}/>
                 <Route exact path='/almoco' component={Almoco}/>
                 <Route exact path='/janta' component={Janta}/>
+                <Route exact path='/outro' component={LancheOutros}/>
                 <Route exact path='/listaalimentos' component={ListaAlimentos}/>
                 <Route exact path='/visualizaralimentos' component={VisualizarAlimentos}/>
                 <Route exact path='/visualizaralmoco' component={VisualizarAlmoco}/>

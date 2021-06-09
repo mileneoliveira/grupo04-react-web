@@ -31,7 +31,7 @@ function MoldeSide() {
             </a>
           </li>
           <li>
-            <a href="dashboard">
+            <a href="cafe">
               <i className="fas fa-qrcode"></i>Dashboard
             </a>
           </li>

@@ -46,6 +46,7 @@ const Login = () => {
 
       <div className="conteudo_login">
         <div className="box_login">
+          <header><h1>Seja bem-vindo!</h1></header>
           <form onSubmit={handleSubmit(onSubmit)}>
             <label htmlFor="email">
               <h2 className="p-email">

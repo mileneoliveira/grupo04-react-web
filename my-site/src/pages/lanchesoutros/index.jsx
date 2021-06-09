@@ -1,24 +1,27 @@
 import React, { Component } from 'react';
-import ChartAlmoco from '../../components/DonutsAlmoco';
+import ChartOutros from '../../components/DonutsOutros';
 import MoldePesquisa from '../../components/molde-barra-pesquisa';
 import MoldeSide from '../../components/molde-sidebar/molde-sidebar';
 import './style.css';
 
 
-export default class Almoco extends Component {
+export default class Outros extends Component {
     render() {
         return (
             <div>
                 <div>
                 <MoldeSide />
                 </div>
-                
+
+
+
                     <div className="conteudo">
 
 
                         <div className="container">
 
                             <section className="conteudo__dash">
+
                           
 
                                 <a href="cafe" className="botao2" >Café da manhã</a>
@@ -31,30 +34,12 @@ export default class Almoco extends Component {
 
                                 <a href="#gerar" className="botao6">Gerar relatorio</a>
 
-
                                 <div className="dashboard">
-                                    <div className="dash-almoco">
-                                    <ChartAlmoco />
-                                    </div>
+                                    <ChartOutros />
                                 </div>
-
-
                             </section>
-
-
-
-
                         </div>
-
-
-
-
-
-
                     </div>
-
-                    
-
             </div>
         )
     }

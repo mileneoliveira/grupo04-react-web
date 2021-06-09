@@ -11,9 +11,14 @@ import Cardapio from "pages/cardapio";
 import Cafe from "pages/Cafe";
 import Almoco from "pages/almoco";
 import Janta from "pages/janta";
+import LanchesOutros from 'pages/lanchesoutros';
 import ListaAlimentos from "pages/listaalimentos";
 import VisualizarAlimentos from "pages/visualizaralimentos";
 import Teste from "pages/teste";
+import visualizarAlmoco from "pages/visualizarAlmoco";
+import visualizarJantar from "pages/visualizarJantar";
+import visualizarOutros from "pages/visualizarOutros";
+
 
 function Routes() {
   return (
@@ -68,6 +73,11 @@ function Routes() {
           component={VisualizarAlimentos}
         />
         <Route exact path="/teste" component={Teste} />
+        <Route exact path="/visualizaralmoco" component={visualizarAlmoco} />
+        <Route exact path="/visualizarjantar" component={visualizarJantar} />
+        <Route exact path="/visualizaroutros" component={visualizarOutros} />
+        <Route exact path="/outro" component={LanchesOutros} />
+
       </Switch>
     </BrowserRouter>
   );

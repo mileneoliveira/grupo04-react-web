@@ -56,18 +56,20 @@ const VisualizarAlmoco = () => {
                     <input id="date" type="date" defaultValue={dateNow} onChange={handleDate} />
                     <button>CLIQUE AQUI</button>
                     </form>
-                    
-                        <a href="#" className="botao1-historico-alimento botao-padrao-alimento" >Café da manhã</a>
+                    <a href="visualizaralimentos" className="botao1-historico-alimento botao-padrao-alimento" >Café da manhã</a>
 
-                        <a href="#" className="botao2-historico-alimento botao-padrao-alimento">Almoço</a>
+                    <a href="visualizaralmoco" className="botao2-historico-alimento botao-padrao-alimento">Almoço</a>
 
-                        <a href="#" className="botao3-historico-alimento botao-padrao-alimento">Janta</a>
+                    <a href="visualizarjantar" className="botao3-historico-alimento botao-padrao-alimento">Jantar</a>
 
-                        <a href="#" className="botao4-historico-alimento botao-padrao-alimento">Lanches/Outros</a>
-
-                        {values.map((alimento) => (
-                            <MoldeRefe alimento={alimento.nomeAlimento} porcaoAlimento={alimento.porcaoAlimento}/>
+                    <a href="visualizaroutros" className="botao4-historico-alimento botao-padrao-alimento">Lanches/Outros</a>
+                    <div className="historico-refeicao">
+                        <ul>
+                    {values.map((alimento) => (
+                        <li className="lista-de-alimentos">{alimento.nomeAlimento} | <b>Porção:</b> {alimento.porcaoAlimento} g</li>    
                     ))}
+                    </ul>
+                    </div>
                     </div>
             </div>
 

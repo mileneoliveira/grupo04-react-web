@@ -28,7 +28,7 @@ export default class Dashboard extends Component {
 
                                 <a href="janta" className="botao4">Janta</a>
 
-                                <a href="janta" className="botao5">Lanches/Outros</a>
+                                <a href="outro" className="botao5">Lanches/Outros</a>
 
                                 <a href="#gerar" className="botao6">Gerar relatorio</a>
 
