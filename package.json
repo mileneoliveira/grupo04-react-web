@@ -26,7 +26,6 @@
     "yup": "^0.32.9"
   },
   "scripts": {
-    "start": "react-scripts start",
     "build": "CI=false react-scripts build"
   },
   "eslintConfig": {
