@@ -10,48 +10,34 @@ export default class Dashboard extends Component {
         return (
             <div>
                 <div>
-                <MoldeSide />
+                    <MoldeSide />
                 </div>
 
+                <div className="conteudo">
 
+                    <div className="container">
 
-                    <div className="conteudo">
+                        <section className="conteudo__dash">
 
+                            <a href="cafe" className="botao2 " >Café da manhã</a>
 
-                        <div className="container">
+                            <a href="almoco" className="botao3">Almoço</a>
 
-                            <section className="conteudo__dash">
+                            <a href="janta" className="botao4">Janta</a>
 
-                                <a href="cafe" className="botao2 " >Café da manhã</a>
+                            <a href="janta" className="botao5">Lanches/Outros</a>
 
-                                <a href="almoco" className="botao3">Almoço</a>
+                            <a href="#gerar" className="botao6">Gerar relatorio</a>
 
-                                <a href="janta" className="botao4">Janta</a>
+                            <div className="dashboard">
+                                <ChartJs />
+                            </div>
 
-                                <a href="janta" className="botao5">Lanches/Outros</a>
-
-                                <a href="#gerar" className="botao6">Gerar relatorio</a>
-
-                                <div className="dashboard">
-                                    <ChartJs />
-                                </div>
-
-
-                            </section>
-
-
-
-
-                        </div>
-
-
-
-
-
+                        </section>
 
                     </div>
 
-                    
+                </div>
 
             </div>
         )

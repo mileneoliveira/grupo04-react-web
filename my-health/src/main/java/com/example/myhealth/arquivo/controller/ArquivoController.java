@@ -1,18 +1,36 @@
 package com.example.myhealth.arquivo.controller;
 
-import com.example.myhealth.alimento.Alimento;
 import com.example.myhealth.alimento.repository.AlimentoRepository;
+import com.example.myhealth.arquivo.FileExporter;
 import com.example.myhealth.arquivo.GravaArquivo;
-import com.example.myhealth.arquivo.ListaObj;
+import com.example.myhealth.dashboard.Conversao;
+import com.example.myhealth.dashboard.Gramas;
 import com.example.myhealth.objetos.FilaObj;
+import com.example.myhealth.refeicao_alimento.repository.RefeicaoAlimentoRepository;
+import com.example.myhealth.usuario.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.net.URI;
+import java.nio.file.Path;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Date;
 
 @RestController
@@ -22,115 +40,94 @@ public class ArquivoController {
     @Autowired
     private AlimentoRepository repository;
 
+    @Autowired
+    private UsuarioRepository repositoryUsuario;
 
-    @PostMapping()
-    public ResponseEntity gerarArquivoAlimento(@RequestParam boolean isCsv) {
+    @Autowired
+    RefeicaoAlimentoRepository repositoryRefeicaoAlimento;
+
+    @Autowired
+    private FileExporter fileExporter;
+
+    @RequestMapping(path = "/download", method = RequestMethod.GET)
+    public ResponseEntity<InputStreamResource> gerarArquivoAlimento(
+            @RequestParam("data") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate data,
+            @RequestParam Integer idUsuario) throws FileNotFoundException {
+
+        HttpHeaders headers = new HttpHeaders();
+        LocalDateTime dtStart = data.atStartOfDay();
+        LocalDateTime dtFinish = data.atTime(LocalTime.MAX);
+        FilaObj<Gramas> fila = new FilaObj<>(1);
+        Conversao conveter = new Conversao();
+        String fileContent = "";
+        if (!(data.isAfter(LocalDate.now())) && repositoryUsuario.existsById(idUsuario)) {
+            Gramas gramas = new Gramas(
+                    repositoryRefeicaoAlimento.somaColesterolTodasCategorias(dtStart, dtFinish, idUsuario) / conveter.getPesoColesterol(),
+                    repositoryRefeicaoAlimento.somaCarboidratoTodasCategorias(dtStart, dtFinish, idUsuario) / conveter.getPesoCarboidrato(),
+                    repositoryRefeicaoAlimento.somaFibraTodasCategorias(dtStart, dtFinish, idUsuario) / conveter.getPesoFibra(),
+                    repositoryRefeicaoAlimento.somaCalcioTodasCategorias(dtStart, dtFinish, idUsuario) / conveter.getPesoCalcio(),
+                    repositoryRefeicaoAlimento.somaFerroTodasCategorias(dtStart, dtFinish, idUsuario) / conveter.getPesoFerro(),
+                    repositoryRefeicaoAlimento.somaSodioTodasCategorias(dtStart, dtFinish, idUsuario) / conveter.getPesoSodio(),
+                    repositoryRefeicaoAlimento.somaProteinaTodasCategorias(dtStart, dtFinish, idUsuario) / conveter.getPesoProteina(),
+                    repositoryRefeicaoAlimento.somaCaloriasTodasCategorias(dtStart, dtFinish, idUsuario));
+            System.out.println(gramas);
+            fila.insert(gramas);
+        }
 
         long contagemRegistros = repository.count();
-        FilaObj<Alimento> fila = new FilaObj<Alimento>((int) contagemRegistros);
 
-
-        String nomeArquivo = "Alimentos";
+        String nomeArquivo = "RelatorioDiario.csv";
         String header = "";
         String corpo = "";
         String trailer = "";
 
 
-        for (int i = 1; i < 441; i++) {
-            fila.insert(repository.getOne(i));
-        }
+        Date dataDeHoje = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        header = header + "00RELATORIO";
+        header = header + formatter.format(dataDeHoje);
+        header = header + "01";
+        fileContent+= header;
+        fileContent+= "\n";
+        GravaArquivo.gravaRegistro("RelatorioDiario.csv", header);
+        int contRegDados = 0;
 
-        if (isCsv) {
-            if (fila.getTamanho() <= 0) {
-                return ResponseEntity.status(400).body("erro em Alimento");
-            } else {
-                Date dataDeHoje = new Date();
-                SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-                header = header + "00ALIMENTOS";
-                header = header + formatter.format(dataDeHoje);
-                header = header + "01";
+        for (int i = 0; i < fila.getTamanho(); i++) {
+            Gramas gramas = fila.poll();
+            corpo = "02";
+            corpo += String.format(";%.8f", gramas.getTotalCalorias());
+            corpo += String.format(";%.8f", gramas.getTotalCarboidrato());
+            corpo += String.format(";%.8f", gramas.getTotalProteina());
+            corpo += String.format(";%.8f", gramas.getTotalColesterol());
+            corpo += String.format(";%.8f", gramas.getTotalFibra());
+            corpo += String.format(";%.8f", gramas.getTotalCalcio());
+            corpo += String.format(";%.8f", gramas.getTotalFerro());
+            corpo += String.format(";%.8f", gramas.getTotalSodio());
+            fileContent+= corpo;
+            fileContent+= "\n";
+            contRegDados++;
 
-                GravaArquivo.gravaRegistro("Alimentos.csv", header);
-
-
-                int contRegDados = 0;
-
-//                corpo = "ID_CORPO;ID_ALIMENTO;NOME;PORÇÃO;CALORIAS;COLESTEROL;CARBOIDRATO;FIBRA;CALCIO;FERRO;SODIO;PROTEINA;CATEGORIA_ID";
-//                GravaArquivo.gravaRegistro("Alimentos.csv", corpo);
-
-                for (int i = 0; i < fila.getTamanho(); i++) {
-                    Alimento alimento = fila.poll();
-                    corpo = "02";
-                    corpo += String.format(";%04d", alimento.getIdAlimento());
-                    corpo += String.format(";%-45s", alimento.getNome());
-                    corpo += String.format(";%.2f", alimento.getPorcao());
-                    corpo += String.format(";%.2f", alimento.getCalorias());
-                    corpo += String.format(";%.2f", alimento.getColesterol());
-                    corpo += String.format(";%.2f", alimento.getCarboidrato());
-                    corpo += String.format(";%.2f", alimento.getFibra());
-                    corpo += String.format(";%.2f", alimento.getCalcio());
-                    corpo += String.format(";%.2f", alimento.getFerro());
-                    corpo += String.format(";%.2f", alimento.getSodio());
-                    corpo += String.format(";%.2f", alimento.getProteina());
-                    corpo += String.format(";%04d", alimento.getCategoria().getIdCategoria());
-
-                    contRegDados++;
-
-                    GravaArquivo.gravaRegistro("Alimentos.csv", corpo);
-                    System.out.println(i);
-
-                }
-
-                trailer = trailer + "01";
-                trailer = trailer + String.format("%05d", Integer.valueOf(contRegDados));
-                GravaArquivo.gravaRegistro("Alimentos.csv", trailer);
-            }
-        } else {
-            if (fila.getTamanho() <= 0) {
-                return ResponseEntity.status(400).body("erro em Alimento");
-            } else {
-                Date dataDeHoje = new Date();
-                SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-                header = header + "00ALIMENTOS";
-                header = header + formatter.format(dataDeHoje);
-                header = header + "01";
-
-                GravaArquivo.gravaRegistro("Alimentos.txt", header);
-
-                int contRegDados = 0;
-
-
-                for (int i = 0; i < fila.getTamanho(); i++) {
-                    Alimento alimento = fila.poll();
-                    corpo = "02";
-                    corpo += String.format("%04d", alimento.getIdAlimento());
-                    corpo += String.format("%-45s", alimento.getNome());
-                    corpo += String.format("%07.2f", alimento.getPorcao());
-                    corpo += String.format("%07.2f", alimento.getCalorias());
-                    corpo += String.format("%07.2f", alimento.getColesterol());
-                    corpo += String.format("%07.2f", alimento.getCarboidrato());
-                    corpo += String.format("%07.2f", alimento.getFibra());
-                    corpo += String.format("%07.2f", alimento.getCalcio());
-                    corpo += String.format("%07.2f", alimento.getFerro());
-                    corpo += String.format("%07.2f", alimento.getSodio());
-                    corpo += String.format("%07.2f", alimento.getProteina());
-                    corpo += String.format("%04d", alimento.getCategoria().getIdCategoria());
-
-                    contRegDados++;
-
-                    GravaArquivo.gravaRegistro("Alimentos.txt", corpo);
-                    System.out.println(i);
-
-                }
-
-                trailer = trailer + "01";
-                trailer = trailer + String.format("%05d", Integer.valueOf(contRegDados));
-                GravaArquivo.gravaRegistro("Alimentos.txt", trailer);
-            }
+            GravaArquivo.gravaRegistro("RelatorioDiario.csv", corpo);
+            System.out.println(i);
 
         }
 
-        return ResponseEntity.status(200).build();
+        trailer = trailer + "01";
+        trailer = trailer + String.format("%05d", Integer.valueOf(contRegDados));
+        fileContent+= trailer;
+        GravaArquivo.gravaRegistro("RelatorioDiario.csv", trailer);
+        Path exportedPath = fileExporter.export(fileContent, nomeArquivo);
+        File exportedFile = exportedPath.toFile();
+        FileInputStream fileInputStream = new FileInputStream(exportedFile);
+        InputStreamResource inputStreamResource = new InputStreamResource(fileInputStream);
+
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=" + nomeArquivo)
+                .contentType(MediaType.TEXT_PLAIN)
+                .contentLength(exportedFile.length())
+                .body(inputStreamResource);
+
+
     }
-
 }
+
