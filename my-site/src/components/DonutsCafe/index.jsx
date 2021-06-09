@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import api from '../../services/api';
 import moment from "moment";
+import { useAuth } from "hooks/useAuth";
 // import './style.css'
 
 const ChartCafe = () => {
@@ -9,6 +10,7 @@ const ChartCafe = () => {
     const [date, setDate] = useState('');
     const dateNow = moment().format("YYYY-MM-DD");
     const [values, setValues] = useState([]);
+    const { user } = useAuth();
 
     const handleDate = (evt) => {
         const { value } = evt.target;
@@ -25,7 +27,7 @@ const ChartCafe = () => {
         const resposta = api.get('dashboards/somaNutrientes', {
             params: {
                 data: test,
-                idUsuario: sessionStorage.getItem('idUsuario'),
+                idUsuario: `${user.id}`,
                 idCategoriaRefeicao: 1
             }
         }).then((response) => {
