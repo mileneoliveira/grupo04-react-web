@@ -131,7 +131,7 @@ label #cancel {
 .header_feed input {
     margin-top: 4vmin;
     z-index: 10;
-    background: #1D6C55;
+    background: #11BD5D;
     width: 65vmin;
     padding: 10px;
     border-radius: 5px;
@@ -141,7 +141,7 @@ label #cancel {
    
 }
 
-::-webkit-input-placeholder {
+.header_feed input::placeholder {
     color: white;
 }
 

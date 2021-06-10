@@ -39,6 +39,58 @@
     min-width: 20vmin;
    
 }
+.form-data-dash button{
+    padding: 3px;
+    margin-left: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #1ac065;
+    color: white;
+    transition: all 0.7s;
+    cursor: pointer;
+}
+.form-data-dash button:hover{
+    font-weight: bold;
+    background: white;
+    color: black;
+    border: 1px solid orange;
+  }
+  .informe-data{
+    text-align: center;  
+    grid-column: 2 / 6;
+    grid-row: 2 / 2;
+  }
+  .dashboard-relatorio{
+    grid-column: 2 / 6;
+    grid-row: 4 / 4;
+  }
+  .form-data-relatorio input{
+      padding: 10px;
+      grid-column: 2 / 6;
+      grid-row: 5 / 5;
+  }
+  .form-data-relatorio button{
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #1ac065;
+    color: white;
+    transition: all 0.7s;
+    cursor: pointer;
+    display: block;
+    width: 30vmin;
+    margin-left: 46vmin;
+    margin-top: 10vmin;
+    font-weight: bold;
+    font-size: 15px;
+}
+.form-data-relatorio button:hover{
+    font-weight: bold;
+    background: white;
+    color: black;
+    border: 2px solid orange;
+  }
+
 
 .botao1 {
     grid-column: 1 / 1;
@@ -125,28 +177,32 @@
     /* background-color: red; */
 }
 
-.botao1:hover {
-    background: #0A9849;
-    transition: all .5s
-}
-
 .botao2:hover {
+    color: white;
     background: #0A9849;
     transition: all .5s
 }
 
 .botao3:hover {
+    color: white;
     background: #0A9849;
     transition: all .5s
 }
 
 .botao4:hover {
+    color: white;
     background: #0A9849;
     transition: all .5s
 }
 
 
 .botao5:hover {
+    color: white;
+    background: #0A9849;
+    transition: all .5s
+}
+.botao6:hover {
+    color: white;
     background: #0A9849;
     transition: all .5s
 }

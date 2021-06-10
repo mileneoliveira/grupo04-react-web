@@ -1,6 +1,7 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { PrivateRoutes } from "./privateRoutes";
 
+
 import institucional from "pages/institucional";
 import Cadastro from "pages/cadastro";
 import Login from "pages/login";
@@ -18,6 +19,7 @@ import Teste from "pages/teste";
 import visualizarAlmoco from "pages/visualizarAlmoco";
 import visualizarJantar from "pages/visualizarJantar";
 import visualizarOutros from "pages/visualizarOutros";
+import gerarRelatorio from "pages/relatorio";
 
 
 function Routes() {
@@ -71,6 +73,12 @@ function Routes() {
           path="/visualizaralimentos"
           redirect="/login"
           component={VisualizarAlimentos}
+        />
+         <PrivateRoutes
+          exact
+          path="/relatorio"
+          redirect="/login"
+          component={gerarRelatorio}
         />
         <Route exact path="/teste" component={Teste} />
         <Route exact path="/visualizaralmoco" component={visualizarAlmoco} />

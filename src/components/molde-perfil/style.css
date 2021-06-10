@@ -18,23 +18,23 @@
 }
 
 #btnmodal2{
-    /* margin-left: 50vmin; */
+    width: 15vmin;
     padding: 1.5vmin;
     border-radius: 5px;
     font-weight: bold;
     border: none;
     background-color:#11BD5D;
     color: white;
-    transition: 0.2s;
+    transition: all 0.7s;
+}
+#btnmodal2:hover{
+    font-weight: bold;
+    background: white;
+    color: black;
+    border: 2px solid orange;
 }
 
 #btnmodal:hover{
-    background: rgb(255, 255, 255);
-    border: 1px solid black;
-    color: #11BD5D;
-}
-
-#btnmodal2:hover{
     background: rgb(255, 255, 255);
     border: 1px solid black;
     color: #11BD5D;
@@ -47,6 +47,27 @@
     border-radius: 5px;
     width:  60vmin;
 }
+.info-perfil input:placeholder-shown {
+    border: 1px solid #1ac065;
+    background: white;
+    color: black;
+  }
+  .info-perfil input::placeholder{
+    color: black;
+  }
+  
+  .info-perfil input{
+    border: 1px solid #1ac065;
+    background: white;
+    color: black;
+  }
+  
+  .info-perfil input:focus{
+    outline: none;
+    border-color:  orange;
+    background: white;
+    color: black;
+  }
 .info-perfil{
     margin: 0vmin 0 20vmin 20vmin
 }

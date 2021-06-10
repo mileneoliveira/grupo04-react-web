@@ -33,8 +33,9 @@ const Cadastro = () => {
         return (
             <div className="conteudo_cadastro">
                     <img className="celular-cadastro" src="./imgs/celular-cadastro.svg" alt="" />
-                <h1 className="logo"><img src="./imgs/logo.svg" alt="" /></h1>
-
+                   
+                <a href="/" className="logo"><img src="./imgs/logo.svg" alt="" /></a>
+              
 
                 <form className="form-cadastro" onSubmit={onSubmit}>
 
@@ -62,19 +63,11 @@ const Cadastro = () => {
 
                         <label className="checkbox"> <input type="checkbox" />
                         Li e concordo com os <strong> <u>Termos de uso</u> </strong>
-                        do Check
+                        do Check.
                     </label>
-
-                        <p>
-                            Se preferir, entre com uma rede social
-                    </p>
-
                         <div className="imagens-buttom-cadastro">
-                            <img src="./imgs/google-cadastro.svg" alt="" />
-                            <img src="./imgs/facebook-cadastro.svg" alt="" />
-
+                            
                             <button className="buttom-cadastrar" >Cadastrar-se</button>
-
                         </div>
                        
                     </section>

@@ -53,33 +53,34 @@ const Login = () => {
           </header>
           <form onSubmit={handleSubmit(onSubmit)}>
             <label htmlFor="email">
-              <h2 className="p-email">
+              <label className="lb-email">
                 Insira seu E-mail
-                {errors.email && <span>Campo invalido</span>}
-              </h2>
+                {errors.email && <span className="invalido">Campo invalido</span>}
+              </label>
               <Input
-                className="input-login"
+                className="input-login-email"
                 id="email"
                 name="email"
                 type="email"
-                placeholder="you@example.com"
+                placeholder="E-mail"
                 register={register}
               />
             </label>
 
             <label htmlFor="">
-              <h2 className="p-email">
+              <label className="lb-senha">
                 Insira sua senha
-                {errors.senha && <span>Campo invalido</span>}
-              </h2>
+                {errors.senha && <span className="invalido">Campo invalido</span>}
+              </label>
               <Input
-                className="input-login"
+                className="input-login-senha"
                 id="senha"
                 name="senha"
                 type="password"
-                placeholder="min 8 caracteres"
+                placeholder="Senha"
                 register={register}
               />
+             
             </label>
 
             {loading ? (

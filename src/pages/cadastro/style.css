@@ -1,69 +1,94 @@
 
 
 .form-cadastro {
-   margin: 0vmin 0 20vmin 20vmin;
-    
-}
-
-.cadastro{
-    display: inline;
-    margin-right: 15vmin;
-}
-.titulo_cadastro{
-    margin-bottom: 3vmin;
-}
-
-.input-padrao{
-    display: block;
-    margin: 0 0 2vmin;
-    padding: 10px 25px;
-    border-radius: 5px;
-    width:  60vmin;
+    margin: 0vmin 0 20vmin 20vmin;
+     
+ }
+ 
+ .cadastro{
+     display: inline;
+     margin-right: 15vmin;
+ }
+ .titulo_cadastro{
+     margin-bottom: 3vmin;
+     color: #1ac065;
+ }
+ 
+ .input-padrao{
+     display: block;
+     margin: 0 0 2vmin;
+     padding: 10px 25px;
+     border-radius: 5px;
+     width:  60vmin;
+     border: 1px solid #1ac065;
+ }
+  .cadastro input:placeholder-shown {
+     border: 1px solid #1ac065;
+     background: white;
+     color: black;
+   }
+   .cadastro input::placeholder{
+     color: black;
+   }
    
-}
-
-.checkbox input{
-   margin-top: 5vmin;
-}
-
-.form-cadastro p {
-    font-weight: bold;
+   .cadastro input{
+     border: 1px solid #1ac065;
+     background: white;
+     color: black;
+   }
+   
+   .cadastro input:focus{
+     outline: none;
+     border-color:  orange;
+     background: white;
+     color: black;
+   }
+ 
+ 
+ .checkbox input{
     margin-top: 5vmin;
-    display: inline;
-}
-
-.imagens-buttom-cadastro{
-    margin-top: 5vmin;
-
-}
-
-.imagens-buttom-cadastro img{
-    padding-right: 4vmin;
-}
-.buttom-cadastrar{
-   margin-left: 17vmin;
-   padding: 2.5vmin;
-   border-radius: 5px;
-   background-color: black;
-   color: white;
-   position: absolute;
-   margin-top: 0.5vmin;
-}
-.celular-cadastro{
-    margin-top: 80px;
-    float: right;
-}
-
-
-
-::-webkit-input-placeholder {
-    color: black;
-}
-
-/* ----------------- CADASTRO MOBILE -------------- */
-
-@media(max-width: 870px) {
-    .celular-cadastro{
-        display: none;
-    }
-}
+ }
+ 
+ .form-cadastro p {
+     font-weight: bold;
+     margin-top: 5vmin;
+     display: inline;
+ }
+ 
+ .imagens-buttom-cadastro{
+     margin-top: 1vmin;
+ 
+ }
+ .buttom-cadastrar{
+    padding: 2.5vmin;
+    border: none;
+    border-radius: 5px;
+    background-color: #1ac065;
+    color: white;
+    position: absolute;
+    margin-top: 0.5vmin;
+    cursor: pointer;
+    transition: all 0.7s;
+ }
+ .buttom-cadastrar:hover{
+   font-weight: bold;
+   background: white;
+   color: black;
+   border: 2px solid orange;
+   }
+ .celular-cadastro{
+     margin-top: 80px;
+     float: right;
+ }
+ 
+ ::-webkit-input-placeholder {
+     color: black;
+ }
+ 
+ /* ----------------- CADASTRO MOBILE -------------- */
+ 
+ @media(max-width: 870px) {
+     .celular-cadastro{
+         display: none;
+     }
+ }

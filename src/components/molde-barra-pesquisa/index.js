@@ -9,7 +9,7 @@ function MoldePesquisa() {
             <div className="feed">
                 <header className="header_feed">
                     <div className="icone2">
-                    <input type="text" placeholder="O que você procura?" />
+                    <input className="barra-pesquisa" type="text" placeholder="O que você procura?" />
                     <i class="fas fa-search"></i>
                     </div>
                 </header>

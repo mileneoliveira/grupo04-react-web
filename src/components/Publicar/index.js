@@ -57,11 +57,11 @@ function Publicar(props) {
       >
         <UploadImg
           url={
-            "https://my-health-1623118445103.azurewebsites.net/publicacoes/cadastrar-imagem?idPublicacao=" +
+            "http://localhost:8080/publicacoes/cadastrar-imagem?idPublicacao=" +
             idPublication
           }
         />
-        <p> Apos enviar a foto do seu avatar, basta finalizar </p>
+        <p> Após enviar a foto da sua refeição, basta finalizar. </p>
       </Modal>
     </header>
   );

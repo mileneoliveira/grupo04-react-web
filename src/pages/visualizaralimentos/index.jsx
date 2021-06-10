@@ -3,6 +3,7 @@ import MoldeSide from '../../components/molde-sidebar/molde-sidebar';
 import './style.css';
 import moment from "moment";
 import { useAuth } from "hooks/useAuth";
+import { notificationError, notificationSuccess, notificationInfo } from "utils/notifications";
 
 import api from '../../services/api';
 import MoldeRefe from '../../components/molde-refeicao';
@@ -36,12 +37,14 @@ const VisualizarAlimentos = () => {
         }).then((response) => {
             console.log(response.data);
             if (response.status == 200) {
+                notificationSuccess("Sucesso", "As informações foram obtidas com sucesso!");
                 setValues(response.data);
+            } else if (response.status == 204) {
+                notificationInfo("Informação", "Você não possui alimentos nessa data!")
             }
-        })
-            .catch((err) => {
-                alert("DEU RUIM");
-            })
+        }).catch((err) => {
+                notificationError("Erro", "Não foi possivel obter as informações!");
+            });
     }
 
     return (
@@ -49,11 +52,16 @@ const VisualizarAlimentos = () => {
             <div className="conteudo-historico-alimento">
                 <MoldeSide />
 
+
+               
                 <div className="refeicao-historico-alimento">
+               
+                        <h1 className="titulo-refeicao">Veja suas refeições!</h1>
+                         <p className="titulo-data">Insira uma data:</p>
 
                     <form className="form-data" onSubmit={onSubmit}>
                         <input id="date" type="date" defaultValue={dateNow} onChange={handleDate} />
-                        <button>CLIQUE AQUI</button>
+                        <button>Buscar</button>
                     </form>
 
                     <a href="visualizaralimentos" className="botao1-historico-alimento botao-padrao-alimento" >Café da manhã</a>
@@ -65,10 +73,10 @@ const VisualizarAlimentos = () => {
                     <a href="visualizaroutros" className="botao4-historico-alimento botao-padrao-alimento">Lanches/Outros</a>
                     <div className="historico-refeicao">
                         <ul>
-                    {values.map((alimento) => (
-                        <li className="lista-de-alimentos">{alimento.nomeAlimento} | <b>Porção:</b> {alimento.porcaoAlimento} g</li>    
-                    ))}
-                    </ul>
+                            {values.map((alimento) => (
+                                <li className="lista-de-alimentos">{alimento.nomeAlimento} | <b>Porção:</b> {alimento.porcaoAlimento} g</li>
+                            ))}
+                        </ul>
                     </div>
                 </div>
             </div>

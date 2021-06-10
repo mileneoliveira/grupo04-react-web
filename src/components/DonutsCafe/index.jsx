@@ -3,6 +3,7 @@ import { Doughnut } from 'react-chartjs-2';
 import api from '../../services/api';
 import moment from "moment";
 import { useAuth } from "hooks/useAuth";
+import { notificationError, notificationSuccess } from "utils/notifications";
 // import './style.css'
 
 const ChartCafe = () => {
@@ -30,15 +31,16 @@ const ChartCafe = () => {
                 idUsuario: `${user.id}`,
                 idCategoriaRefeicao: 1
             }
-        }).then((response) => {
+        }).then((response) => {   
             console.log(response.data);
             if(response.status == 200){
+                notificationSuccess("Sucesso", "Estamos carregando as informações!");
                 setValues(response.data);
                 chart();
             }
         })
         .catch((err) => {
-                alert("DEU RUIM");
+            notificationError("Erro", "Não foi possivel obter as informações!");
         })
     }
 
@@ -90,9 +92,9 @@ const ChartCafe = () => {
 
     return (
         <div className="divChart">
-            <form className="form-data" onSubmit={onSubmit}>
+            <form className="form-data-dash" onSubmit={onSubmit}>
                 <input id="date" type="date" defaultValue={dateNow} onChange={handleDate} />
-                <button>CLIQUE AQUI</button>
+                <button>Buscar</button>
             </form>
             <h1>Café da manhã - Nutrientes</h1>
 

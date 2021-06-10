@@ -9,13 +9,15 @@
   width: 95vmin;
   height: 80vmin;
   border-radius: 10px;
-  border: solid 2px;
+  box-shadow: 4px 13px 18px #333;
 }
 .welcome-login h1{
   text-align: center;
+  color:#1ac065 ;
 }
 .welcome-login h2{
   text-align: center;
+  margin-bottom: 33px;
 }
 .login_redes {
   padding: 5vmin 0 0 15vmin;
@@ -27,6 +29,7 @@
   height: 8vmin;
   border-radius: 5px;
   border: solid 2px;
+ 
 }
 
 .redes img {
@@ -40,27 +43,71 @@
   color: black;
 }
 
-.input-login {
+.input-login-email {
+  display: flex;
+  margin-left: 15vmin;
+  padding: 6px; 
+  width: 69vmin;
+  margin-bottom: 45px;
+}
+.input-login-senha {
   display: flex;
   margin-left: 15vmin;
   padding: 6px; 
   width: 69vmin;
 }
-
-.p-email {
-  margin-top: 5vmin;
-  margin-left: 15vmin;
+.box_login input:placeholder-shown {
+  border: 1px solid #1ac065;
+  background: white;
+  color: black;
+}
+.box_login input::placeholder{
+  color: black;
 }
 
+.box_login input{
+  border: 1px solid green;
+  background: white;
+  color: black;
+}
+
+.box_login input:focus{
+  outline: none;
+  border-color:  orange;
+  background: white;
+  color: black;
+}
+.lb-email{
+  margin-left: 15vmin;
+  font-weight: bold;
+  font-size: 15px;
+}
+.lb-senha{
+  margin-left: 15vmin;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+
+
 .buttom-login {
-  margin-left: 37vmin;
+  margin-left: 40vmin;
+  font-weight: bold;
   padding: 2.5vmin;
   border-radius: 5px;
-  background-color: black;
+  border: none;
+  background-color: #1ac065;
   color: white;
   position: absolute;
   margin-top: 3.5vmin;
   cursor: pointer;
+  transition: all 0.7s;
+}
+.buttom-login:hover{
+  font-weight: bold;
+  background: white;
+  color: black;
+  border: 2px solid orange;
 }
 
 .texto-divisor {
@@ -69,7 +116,15 @@
 
 .nao-tem {
   margin-top: 15vmin;
-  margin-left: 28vmin;
+  margin-left: 30vmin;
+}
+.nao-tem p {
+  font-size: 17px;
+}
+.invalido{
+  color: red;
+  display: block;
+  margin-left: 15vmin;
 }
 
 /* ----------------- CADASTRO MOBILE -------------- */

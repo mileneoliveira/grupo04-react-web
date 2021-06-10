@@ -33,7 +33,7 @@ export default class Dashboard extends Component {
 
                                 <a href="outro" className="botao5">Lanches/Outros</a>
 
-                                <a href="#gerar" className="botao6">Gerar relatorio</a>
+                                <a href="relatorio" className="botao6">Gerar relatorio</a>
 
                                 <div className="dashboard">
                                     <ChartJs />
@@ -47,7 +47,7 @@ export default class Dashboard extends Component {
 
                         </div>
 
-                            <a href="janta" className="botao4">Janta</a>
+                            {/* <a href="janta" className="botao4">Janta</a>
 
                             <a href="janta" className="botao5">Lanches/Outros</a>
 
@@ -55,7 +55,7 @@ export default class Dashboard extends Component {
 
                             <div className="dashboard">
                                 <ChartJs />
-                            </div>
+                            </div> */}
 
                         </section>
 

@@ -104,7 +104,7 @@ function Teste() {
             id="peso"
             name="peso"
             type="number"
-            placeholder="coloque seu peso"
+            placeholder="Insira seu peso em quilos (70.2)"
             register={register}
           />
         </label>
@@ -115,7 +115,7 @@ function Teste() {
             id="altura"
             name="altura"
             type="number"
-            placeholder="coloque sua altura"
+            placeholder="Insira sua altura em centimetros (172)"
             register={register}
           />
         </label>
@@ -123,7 +123,7 @@ function Teste() {
           <h3>Imagem de perfil:</h3>
           <UploadImg
             url={
-              "https://my-health-1623118445103.azurewebsites.net/usuarios/cadastrar-imagem?idUsuario=" +
+              "http://localhost:8080/usuarios/cadastrar-imagem?idUsuario=" +
               user.id
             }
           />
