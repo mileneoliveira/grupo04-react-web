@@ -57,7 +57,7 @@ function Publicar(props) {
       >
         <UploadImg
           url={
-            "http://localhost:8080/publicacoes/cadastrar-imagem?idPublicacao=" +
+            "https://my-health-1623118445103.azurewebsites.net/publicacoes/cadastrar-imagem?idPublicacao=" +
             idPublication
           }
         />

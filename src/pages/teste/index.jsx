@@ -123,7 +123,7 @@ function Teste() {
           <h3>Imagem de perfil:</h3>
           <UploadImg
             url={
-              "http://localhost:8080/usuarios/cadastrar-imagem?idUsuario=" +
+              "https://my-health-1623118445103.azurewebsites.net/usuarios/cadastrar-imagem?idUsuario=" +
               user.id
             }
           />
