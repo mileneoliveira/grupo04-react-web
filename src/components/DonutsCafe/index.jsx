@@ -82,7 +82,13 @@ const ChartCafe = () => {
                     label: 'Café da manhã - Nutrientes',
                     data: quantidade1,
                     backgroundColor:
-                        '#78F118',
+                    ['#78F118',
+                    '#fc9403',
+                    '#ffc800',
+                    '#ffcc54',
+                    '#dbdbdb',
+                    '#96c2ff',
+                    '#c9210e']
 
                 }
             ]
